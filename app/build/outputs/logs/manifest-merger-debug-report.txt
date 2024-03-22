@@ -79,6 +79,8 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] C:\Users\Арнур\.g
 MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] C:\Users\Арнур\.gradle\caches\transforms-3\5c41c8d07907f8dd71bc85098c59e5a7\transformed\lifecycle-runtime-ktx-2.7.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.7.0] C:\Users\Арнур\.gradle\caches\transforms-3\f6115572334a660c03e30948b12308d3\transformed\lifecycle-livedata-ktx-2.7.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] C:\Users\Арнур\.gradle\caches\transforms-3\1c0251cda6f7c41fe1c06084787bfcd1\transformed\lifecycle-viewmodel-ktx-2.7.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\3a44d9302af2c5d4b30030b2b4e882ad\transformed\datastore-preferences-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.datastore:datastore:1.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\bedd62c87774cc7c28205e865f1e2b61\transformed\datastore-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.0] C:\Users\Арнур\.gradle\caches\transforms-3\75d1afe57f361008485c21a690dbe7d6\transformed\runtime-saveable-release\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.runtime:runtime-android:1.6.0] C:\Users\Арнур\.gradle\caches\transforms-3\be7e8353e3b19764fbe35ae3e3ced7c3\transformed\runtime-release\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.sqlite:sqlite-framework:2.4.0] C:\Users\Арнур\.gradle\caches\transforms-3\12dc0107d088366cda1bd69b4030d9b9\transformed\sqlite-framework-2.4.0\AndroidManifest.xml:17:1-22:12
@@ -334,6 +336,10 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.7.0] C:\Users\Арну�
 MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.7.0] C:\Users\Арнур\.gradle\caches\transforms-3\f6115572334a660c03e30948b12308d3\transformed\lifecycle-livedata-ktx-2.7.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] C:\Users\Арнур\.gradle\caches\transforms-3\1c0251cda6f7c41fe1c06084787bfcd1\transformed\lifecycle-viewmodel-ktx-2.7.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] C:\Users\Арнур\.gradle\caches\transforms-3\1c0251cda6f7c41fe1c06084787bfcd1\transformed\lifecycle-viewmodel-ktx-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\3a44d9302af2c5d4b30030b2b4e882ad\transformed\datastore-preferences-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\3a44d9302af2c5d4b30030b2b4e882ad\transformed\datastore-preferences-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore:1.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\bedd62c87774cc7c28205e865f1e2b61\transformed\datastore-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore:1.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\bedd62c87774cc7c28205e865f1e2b61\transformed\datastore-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.0] C:\Users\Арнур\.gradle\caches\transforms-3\75d1afe57f361008485c21a690dbe7d6\transformed\runtime-saveable-release\AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.0] C:\Users\Арнур\.gradle\caches\transforms-3\75d1afe57f361008485c21a690dbe7d6\transformed\runtime-saveable-release\AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.runtime:runtime-android:1.6.0] C:\Users\Арнур\.gradle\caches\transforms-3\be7e8353e3b19764fbe35ae3e3ced7c3\transformed\runtime-release\AndroidManifest.xml:5:5-44

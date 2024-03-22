@@ -67,14 +67,6 @@ fun AppBottomNavigation(navController: NavController) {
                                     contentDescription = screen.title,
                                 )
                             },
-//                            label = {
-//                                Text(
-//                                    text = screen.title,
-//                                    fontSize = 10.sp,
-//                                    color = if (currentRoute == screen.route) colorResource(id = R.color.pink) else Color.Black,
-//                                    textAlign = TextAlign.Center
-//                                )
-//                            },
                             alwaysShowLabel = false,
                             selected = currentRoute == screen.route,
                             onClick = {
@@ -101,14 +93,16 @@ fun AppBottomNavigation(navController: NavController) {
             startDestination = Screen.Home.route,
             Modifier.padding(innerPadding)
         ) {
-            composable(Screen.Home.route) { CatalogScreen() }
+            composable(Screen.Home.route) { CatalogScreen(navController) }
             composable(Screen.Catalog.route) { HeaderTextHomeScreen() }
             composable(Screen.Cart.route) { CartScreen() }
             composable(Screen.Offers.route) { OffersScreen() }
             composable(Screen.Profile.route) { ProfileScreen() }
-            composable("productScreen/{productId}") {navBackStackEntry ->
-                val productId = navBackStackEntry.arguments?.getString("productId")
-                ProductScreen(productId = productId!!)
+            composable("productScreen/{productId}") { backStackEntry ->
+                val productId = backStackEntry.arguments?.getString("productId")
+                productId?.let {
+                    ProductScreen(productId = it)
+                }
             }
         }
     }
@@ -116,11 +110,13 @@ fun AppBottomNavigation(navController: NavController) {
 
 @Composable
 fun HeaderTextHomeScreen() {
-    Text(text = "Saved",
+    Text(
+        text = "Saved",
         fontSize = 16.sp,
         textAlign = TextAlign.Center,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(5.dp))
+            .padding(5.dp)
+    )
 }
 

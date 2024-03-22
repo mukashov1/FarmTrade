@@ -36,6 +36,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -52,6 +53,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -61,6 +63,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.farmtrade.R
 import com.example.farmtrade.data.db.Feedback
@@ -69,19 +72,25 @@ import com.example.farmtrade.data.db.Price
 import com.example.farmtrade.data.db.Product
 import com.example.farmtrade.data.db.SortOption
 import com.example.farmtrade.data.db.Tag
+import com.example.farmtrade.data.repository.CatalogDataStoreRepository
 import com.example.farmtrade.ui.viewmodels.CatalogViewModel
+import com.example.farmtrade.ui.viewmodels.CatalogViewModelFactory
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.google.accompanist.pager.rememberPagerState
 
 @Composable
-fun CatalogScreen(viewModel: CatalogViewModel = viewModel()) {
-    val catalogItems = viewModel.catalogItems.value
+fun CatalogScreen(navController: NavController) {
+    val context = LocalContext.current
+    val repository = CatalogDataStoreRepository(context.applicationContext)
+    val factory = CatalogViewModelFactory(repository)
+    val viewModel: CatalogViewModel = viewModel(factory = factory)
+
+    val catalogItems by repository.catalogItems.collectAsState(initial = emptyList())
     var showSortMenu by remember { mutableStateOf(false) }
     var sortOption = viewModel.sortOption.value
     val selectedTag = viewModel.currentTag.value
-    val navController = rememberNavController()
 
 
     Column {

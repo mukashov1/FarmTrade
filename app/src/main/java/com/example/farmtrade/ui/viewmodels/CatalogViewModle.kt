@@ -10,9 +10,10 @@ import com.example.farmtrade.data.db.Price
 import com.example.farmtrade.data.db.Product
 import com.example.farmtrade.data.db.SortOption
 import com.example.farmtrade.data.db.Tag
+import com.example.farmtrade.data.repository.CatalogDataStoreRepository
 import kotlinx.coroutines.launch
 
-class CatalogViewModel : ViewModel() {
+class CatalogViewModel(private val catalogDataStoreRepository: CatalogDataStoreRepository) : ViewModel() {
     private val _originalCatalogItems = mutableStateOf<List<Product>>(emptyList())
     private val _catalogItems = mutableStateOf<List<Product>>(emptyList())
     val catalogItems = _catalogItems
@@ -184,6 +185,7 @@ class CatalogViewModel : ViewModel() {
                 if (response.isSuccessful) {
                     _originalCatalogItems.value = cataItems
                     _catalogItems.value = cataItems
+                    catalogDataStoreRepository.saveCatalogItems(cataItems)
                 } else {
                     println("Error: ${response.errorBody()?.string()}")
                 }
