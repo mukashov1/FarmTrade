@@ -3,6 +3,7 @@ package com.example.farmtrade.ui.screens
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
@@ -60,9 +61,10 @@ fun AppBottomNavigation(navController: NavController) {
                             icon = {
                                 Icon(
                                     screen.icon(),
+                                    modifier = Modifier.size(24.dp),
                                     // Устанавливаем цвет иконки в зависимости от выбранного состояния
                                     tint = if (currentRoute == screen.route) colorResource(id = R.color.pink) else Color.Black,
-                                    contentDescription = screen.title
+                                    contentDescription = screen.title,
                                 )
                             },
 //                            label = {
@@ -84,6 +86,7 @@ fun AppBottomNavigation(navController: NavController) {
                                     }
                                 }
                             },
+                            modifier = Modifier.padding(vertical = 8.dp, horizontal = 16.dp),
                             // Применяем розовый цвет только к тексту выбранного элемента
                             selectedContentColor = colorResource(id = R.color.pink),
                             unselectedContentColor = Color.Black

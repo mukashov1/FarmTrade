@@ -9,6 +9,6 @@
     <color name="orange">#F9A249</color>
     <color name="pink">#D62F89</color>
     <color name="white">#FFFFFFFF</color>
-    <string name="app_name">Effective Mobile</string>
+    <string name="app_name">Farm Trade</string>
     <style name="Theme.EffectiveMobile" parent="android:Theme.Material.Light.NoActionBar"/>
 </resources>

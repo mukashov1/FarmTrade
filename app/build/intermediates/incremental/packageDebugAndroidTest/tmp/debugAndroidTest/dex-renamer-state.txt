@@ -1,7 +1,7 @@
-#Mon Mar 18 23:02:25 ALMT 2024
-base.0=C\:\\Users\\Bakdaulet\\StudioProjects\\FarmTrade\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeExtDexDebugAndroidTest\\classes.dex
-base.1=C\:\\Users\\Bakdaulet\\StudioProjects\\FarmTrade\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\0\\classes.dex
-base.2=C\:\\Users\\Bakdaulet\\StudioProjects\\FarmTrade\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\3\\classes.dex
+#Tue Mar 19 00:38:10 ALMT 2024
+base.0=C\:\\Baha\\Android\\StudioProjects\\FarmTrade\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeExtDexDebugAndroidTest\\classes.dex
+base.1=C\:\\Baha\\Android\\StudioProjects\\FarmTrade\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\0\\classes.dex
+base.2=C\:\\Baha\\Android\\StudioProjects\\FarmTrade\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\3\\classes.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=3/classes.dex
