@@ -61,6 +61,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.rememberNavController
 import com.example.farmtrade.R
 import com.example.farmtrade.data.db.Feedback
 import com.example.farmtrade.data.db.InfoItem
@@ -80,6 +81,7 @@ fun CatalogScreen(viewModel: CatalogViewModel = viewModel()) {
     var showSortMenu by remember { mutableStateOf(false) }
     var sortOption = viewModel.sortOption.value
     val selectedTag = viewModel.currentTag.value
+    val navController = rememberNavController()
 
 
     Column {
@@ -114,6 +116,7 @@ fun CatalogScreen(viewModel: CatalogViewModel = viewModel()) {
             products = catalogItems,
             onProductClicked = { product ->
                 println("PRODUCT")
+                navController.navigate("productScreen/${product.id}")
             }
         )
     }
