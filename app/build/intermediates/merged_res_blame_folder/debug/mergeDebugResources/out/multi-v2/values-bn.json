@@ -4,6 +4,23 @@
             "outputFile": "com.example.farmtrade.app-mergeDebugResources-2:/values-bn/values-bn.xml",
             "map": [
                 {
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\2ac0aa9dd26a13955fa44e6b8a76a1c0\\transformed\\foundation-release\\res\\values-bn\\values-bn.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,140",
+                        "endColumns": "84,84",
+                        "endOffsets": "135,220"
+                    },
+                    "to": {
+                        "startLines": "118,119",
+                        "startColumns": "4,4",
+                        "startOffsets": "10148,10233",
+                        "endColumns": "84,84",
+                        "endOffsets": "10228,10313"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\e31bf1d77bad112e1494914b3d253387\\transformed\\appcompat-1.2.0\\res\\values-bn\\values-bn.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
@@ -21,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\a0a93774b647c7bb547f76cd0c0bc80a\\transformed\\ui-release\\res\\values-bn\\values-bn.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\128d077059d25434313780862d4dab5b\\transformed\\ui-release\\res\\values-bn\\values-bn.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -105,23 +122,6 @@
                         "startOffsets": "4298,4571,4801",
                         "endColumns": "84,77,81",
                         "endOffsets": "4378,4644,4878"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\7d215bf5cb8dded26d888476815e50ea\\transformed\\foundation-release\\res\\values-bn\\values-bn.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,140",
-                        "endColumns": "84,84",
-                        "endOffsets": "135,220"
-                    },
-                    "to": {
-                        "startLines": "118,119",
-                        "startColumns": "4,4",
-                        "startOffsets": "10148,10233",
-                        "endColumns": "84,84",
-                        "endOffsets": "10228,10313"
                     }
                 }
             ]

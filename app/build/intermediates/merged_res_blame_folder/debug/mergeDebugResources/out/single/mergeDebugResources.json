@@ -28,6 +28,10 @@
         "source": "com.example.farmtrade.app-main-6:/drawable/plus.png"
     },
     {
+        "merged": "com.example.farmtrade.app-debug-4:/drawable_orange.png.flat",
+        "source": "com.example.farmtrade.app-main-6:/drawable/orange.png"
+    },
+    {
         "merged": "com.example.farmtrade.app-debug-4:/drawable_heart_active.png.flat",
         "source": "com.example.farmtrade.app-main-6:/drawable/heart_active.png"
     },
@@ -50,6 +54,10 @@
     {
         "merged": "com.example.farmtrade.app-debug-4:/drawable_item_4.png.flat",
         "source": "com.example.farmtrade.app-main-6:/drawable/item_4.png"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-4:/drawable_apple2.png.flat",
+        "source": "com.example.farmtrade.app-main-6:/drawable/apple2.png"
     },
     {
         "merged": "com.example.farmtrade.app-debug-4:/xml_backup_rules.xml.flat",

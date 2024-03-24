@@ -74,7 +74,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\a0a93774b647c7bb547f76cd0c0bc80a\\transformed\\ui-release\\res\\values-hr\\values-hr.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\128d077059d25434313780862d4dab5b\\transformed\\ui-release\\res\\values-hr\\values-hr.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -88,6 +88,23 @@
                         "startOffsets": "4157,4262,4424,4518,4698,5097,5176,9183,9278,9363,9435,9586,9667,9838,10012,10091,10161",
                         "endColumns": "104,86,93,98,89,78,92,94,84,71,70,80,85,72,78,69,117",
                         "endOffsets": "4257,4344,4513,4612,4783,5171,5264,9273,9358,9430,9501,9662,9748,9906,10086,10156,10274"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\2ac0aa9dd26a13955fa44e6b8a76a1c0\\transformed\\foundation-release\\res\\values-hr\\values-hr.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,138",
+                        "endColumns": "82,84",
+                        "endOffsets": "133,218"
+                    },
+                    "to": {
+                        "startLines": "119,120",
+                        "startColumns": "4,4",
+                        "startOffsets": "10279,10362",
+                        "endColumns": "82,84",
+                        "endOffsets": "10357,10442"
                     }
                 },
                 {
@@ -105,23 +122,6 @@
                         "startOffsets": "4349,4617,4856",
                         "endColumns": "74,80,76",
                         "endOffsets": "4419,4693,4928"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\7d215bf5cb8dded26d888476815e50ea\\transformed\\foundation-release\\res\\values-hr\\values-hr.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,138",
-                        "endColumns": "82,84",
-                        "endOffsets": "133,218"
-                    },
-                    "to": {
-                        "startLines": "119,120",
-                        "startColumns": "4,4",
-                        "startOffsets": "10279,10362",
-                        "endColumns": "82,84",
-                        "endOffsets": "10357,10442"
                     }
                 }
             ]

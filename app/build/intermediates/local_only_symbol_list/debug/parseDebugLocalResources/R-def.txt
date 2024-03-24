@@ -12,6 +12,7 @@ color white
 drawable account
 drawable add
 drawable apple
+drawable apple2
 drawable bag
 drawable catalog
 drawable chat
@@ -36,6 +37,7 @@ drawable item_6
 drawable left_arrow
 drawable logo
 drawable offer
+drawable orange
 drawable placeholder_image
 drawable plus
 drawable question

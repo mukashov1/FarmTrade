@@ -8,15 +8,15 @@ import com.example.farmtrade.R
 sealed class Screen(val route: String, val icon: @Composable () -> Painter, val title: String) {
     object Home : Screen("home", { painterResource(R.drawable.home) }, "Главная")
     object Catalog : Screen("catalog", { painterResource(R.drawable.saved) }, "Каталог")
-    object Cart : Screen("cart", { painterResource(R.drawable.bag) }, "Корзина")
+    object Basket : Screen("cart", { painterResource(R.drawable.bag) }, "Корзина")
     object Offers : Screen("offers", { painterResource(R.drawable.chat) }, "Акции")
     object Profile : Screen("profile", { painterResource(R.drawable.account) }, "Профиль")
 }
 
-val bottomNavigationItems = listOf(
+val bottomNavigationItems =  listOf(
     Screen.Home,
     Screen.Catalog,
-    Screen.Cart,
+    Screen.Basket,
     Screen.Offers,
     Screen.Profile
 )

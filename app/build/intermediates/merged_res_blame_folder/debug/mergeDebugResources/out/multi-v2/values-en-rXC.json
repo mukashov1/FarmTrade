@@ -4,23 +4,6 @@
             "outputFile": "com.example.farmtrade.app-mergeDebugResources-2:/values-en-rXC/values-en-rXC.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\a0a93774b647c7bb547f76cd0c0bc80a\\transformed\\ui-release\\res\\values-en-rXC\\values-en-rXC.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,296,481,678,880,1067,1252,1445,1633,1820,1985,2152,2333,2518,2684,2863,3030",
-                        "endColumns": "190,184,196,201,186,184,192,187,186,164,166,180,184,165,178,166,237",
-                        "endOffsets": "291,476,673,875,1062,1247,1440,1628,1815,1980,2147,2328,2513,2679,2858,3025,3263"
-                    },
-                    "to": {
-                        "startLines": "36,37,39,40,42,44,45,46,47,48,49,50,51,53,55,56,57",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "6955,7146,7512,7709,8085,8451,8636,8829,9017,9204,9369,9536,9717,10088,10458,10637,10804",
-                        "endColumns": "190,184,196,201,186,184,192,187,186,164,166,180,184,165,178,166,237",
-                        "endOffsets": "7141,7326,7704,7906,8267,8631,8824,9012,9199,9364,9531,9712,9897,10249,10632,10799,11037"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\ec5a34b60664a551d4c516da3cbdf54d\\transformed\\core-1.12.0\\res\\values-en-rXC\\values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
@@ -35,6 +18,23 @@
                         "startOffsets": "5528,5724,5929,6130,6331,6538,6743,10254",
                         "endColumns": "195,204,200,200,206,204,211,203",
                         "endOffsets": "5719,5924,6125,6326,6533,6738,6950,10453"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\128d077059d25434313780862d4dab5b\\transformed\\ui-release\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,296,481,678,880,1067,1252,1445,1633,1820,1985,2152,2333,2518,2684,2863,3030",
+                        "endColumns": "190,184,196,201,186,184,192,187,186,164,166,180,184,165,178,166,237",
+                        "endOffsets": "291,476,673,875,1062,1247,1440,1628,1815,1980,2147,2328,2513,2679,2858,3025,3263"
+                    },
+                    "to": {
+                        "startLines": "36,37,39,40,42,44,45,46,47,48,49,50,51,53,55,56,57",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "6955,7146,7512,7709,8085,8451,8636,8829,9017,9204,9369,9536,9717,10088,10458,10637,10804",
+                        "endColumns": "190,184,196,201,186,184,192,187,186,164,166,180,184,165,178,166,237",
+                        "endOffsets": "7141,7326,7704,7906,8267,8631,8824,9012,9199,9364,9531,9712,9897,10249,10632,10799,11037"
                     }
                 },
                 {
@@ -72,7 +72,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\7d215bf5cb8dded26d888476815e50ea\\transformed\\foundation-release\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\2ac0aa9dd26a13955fa44e6b8a76a1c0\\transformed\\foundation-release\\res\\values-en-rXC\\values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

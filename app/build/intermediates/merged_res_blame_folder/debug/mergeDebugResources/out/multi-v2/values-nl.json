@@ -74,7 +74,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\a0a93774b647c7bb547f76cd0c0bc80a\\transformed\\ui-release\\res\\values-nl\\values-nl.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\128d077059d25434313780862d4dab5b\\transformed\\ui-release\\res\\values-nl\\values-nl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -88,6 +88,23 @@
                         "startOffsets": "4112,4204,4369,4466,4645,5045,5121,9107,9194,9283,9348,9498,9579,9745,9923,10007,10077",
                         "endColumns": "91,82,96,98,84,75,95,86,88,64,64,80,82,76,83,69,119",
                         "endOffsets": "4199,4282,4461,4560,4725,5116,5212,9189,9278,9343,9408,9574,9657,9817,10002,10072,10192"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\2ac0aa9dd26a13955fa44e6b8a76a1c0\\transformed\\foundation-release\\res\\values-nl\\values-nl.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,141",
+                        "endColumns": "85,85",
+                        "endOffsets": "136,222"
+                    },
+                    "to": {
+                        "startLines": "118,119",
+                        "startColumns": "4,4",
+                        "startOffsets": "10197,10283",
+                        "endColumns": "85,85",
+                        "endOffsets": "10278,10364"
                     }
                 },
                 {
@@ -105,23 +122,6 @@
                         "startOffsets": "4287,4565,4794",
                         "endColumns": "81,79,78",
                         "endOffsets": "4364,4640,4868"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\7d215bf5cb8dded26d888476815e50ea\\transformed\\foundation-release\\res\\values-nl\\values-nl.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,141",
-                        "endColumns": "85,85",
-                        "endOffsets": "136,222"
-                    },
-                    "to": {
-                        "startLines": "118,119",
-                        "startColumns": "4,4",
-                        "startOffsets": "10197,10283",
-                        "endColumns": "85,85",
-                        "endOffsets": "10278,10364"
                     }
                 }
             ]

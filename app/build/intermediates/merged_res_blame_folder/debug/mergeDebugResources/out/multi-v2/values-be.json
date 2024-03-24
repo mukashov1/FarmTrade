@@ -4,20 +4,20 @@
             "outputFile": "com.example.farmtrade.app-mergeDebugResources-2:/values-be/values-be.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\a0a93774b647c7bb547f76cd0c0bc80a\\transformed\\ui-release\\res\\values-be\\values-be.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\2ac0aa9dd26a13955fa44e6b8a76a1c0\\transformed\\foundation-release\\res\\values-be\\values-be.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,198,282,376,479,565,645,734,822,904,975,1045,1128,1215,1287,1372,1442",
-                        "endColumns": "92,83,93,102,85,79,88,87,81,70,69,82,86,71,84,69,122",
-                        "endOffsets": "193,277,371,474,560,640,729,817,899,970,1040,1123,1210,1282,1367,1437,1560"
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,142",
+                        "endColumns": "86,102",
+                        "endOffsets": "137,240"
                     },
                     "to": {
-                        "startLines": "46,47,49,50,52,57,58,107,108,109,110,112,113,115,117,118,119",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "4226,4319,4480,4574,4758,5159,5239,9300,9388,9470,9541,9691,9774,9943,10116,10201,10271",
-                        "endColumns": "92,83,93,102,85,79,88,87,81,70,69,82,86,71,84,69,122",
-                        "endOffsets": "4314,4398,4569,4672,4839,5234,5323,9383,9465,9536,9606,9769,9856,10010,10196,10266,10389"
+                        "startLines": "120,121",
+                        "startColumns": "4,4",
+                        "startOffsets": "10394,10481",
+                        "endColumns": "86,102",
+                        "endOffsets": "10476,10579"
                     }
                 },
                 {
@@ -57,20 +57,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\7d215bf5cb8dded26d888476815e50ea\\transformed\\foundation-release\\res\\values-be\\values-be.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\128d077059d25434313780862d4dab5b\\transformed\\ui-release\\res\\values-be\\values-be.xml",
                     "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,142",
-                        "endColumns": "86,102",
-                        "endOffsets": "137,240"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,198,282,376,479,565,645,734,822,904,975,1045,1128,1215,1287,1372,1442",
+                        "endColumns": "92,83,93,102,85,79,88,87,81,70,69,82,86,71,84,69,122",
+                        "endOffsets": "193,277,371,474,560,640,729,817,899,970,1040,1123,1210,1282,1367,1437,1560"
                     },
                     "to": {
-                        "startLines": "120,121",
-                        "startColumns": "4,4",
-                        "startOffsets": "10394,10481",
-                        "endColumns": "86,102",
-                        "endOffsets": "10476,10579"
+                        "startLines": "46,47,49,50,52,57,58,107,108,109,110,112,113,115,117,118,119",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "4226,4319,4480,4574,4758,5159,5239,9300,9388,9470,9541,9691,9774,9943,10116,10201,10271",
+                        "endColumns": "92,83,93,102,85,79,88,87,81,70,69,82,86,71,84,69,122",
+                        "endOffsets": "4314,4398,4569,4672,4839,5234,5323,9383,9465,9536,9606,9769,9856,10010,10196,10266,10389"
                     }
                 },
                 {

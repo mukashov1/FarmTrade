@@ -218,7 +218,6 @@ fun TagItem(
     }
 }
 
-
 @Composable
 fun TagsCarousel(
     tags: List<Tag>,
@@ -395,7 +394,9 @@ fun mapProductToImages(productId: String): List<Int> {
 @Composable
 fun AddToFavoriteButton(onAddToFavoriteButton: () -> Unit) {
     Icon(
-        modifier = Modifier.clickable { onAddToFavoriteButton() },
+        modifier = Modifier
+            .clickable { onAddToFavoriteButton() }
+            .size(16.dp),
         painter = painterResource(id = R.drawable.heart_default), // Replace with your correct icon resource
         contentDescription = "Add to Favorite",
         tint = colorResource(id = R.color.pink) // Set the tint color of the Icon

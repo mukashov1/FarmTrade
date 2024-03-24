@@ -1741,6 +1741,7 @@ drawable abc_vector_test
 drawable account
 drawable add
 drawable apple
+drawable apple2
 drawable avd_hide_password
 drawable avd_show_password
 drawable bag
@@ -1826,6 +1827,7 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable offer
+drawable orange
 drawable placeholder_image
 drawable plus
 drawable question
@@ -2017,6 +2019,7 @@ id forever
 id fragment_container_view_tag
 id ghost_view
 id ghost_view_holder
+id glide_custom_view_target_tag
 id gone
 id graph
 id graph_wrap

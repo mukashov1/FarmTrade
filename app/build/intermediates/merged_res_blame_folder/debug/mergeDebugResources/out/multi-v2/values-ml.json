@@ -4,20 +4,20 @@
             "outputFile": "com.example.farmtrade.app-mergeDebugResources-2:/values-ml/values-ml.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\7d215bf5cb8dded26d888476815e50ea\\transformed\\foundation-release\\res\\values-ml\\values-ml.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\128d077059d25434313780862d4dab5b\\transformed\\ui-release\\res\\values-ml\\values-ml.xml",
                     "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,143",
-                        "endColumns": "87,91",
-                        "endOffsets": "138,230"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,200,287,386,490,580,666,767,854,942,1009,1076,1162,1249,1327,1403,1470",
+                        "endColumns": "94,86,98,103,89,85,100,86,87,66,66,85,86,77,75,66,118",
+                        "endOffsets": "195,282,381,485,575,661,762,849,937,1004,1071,1157,1244,1322,1398,1465,1584"
                     },
                     "to": {
-                        "startLines": "118,119",
-                        "startColumns": "4,4",
-                        "startOffsets": "10427,10515",
-                        "endColumns": "87,91",
-                        "endOffsets": "10510,10602"
+                        "startLines": "44,45,47,48,50,55,56,105,106,107,108,110,111,113,115,116,117",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "4145,4240,4407,4506,4682,5084,5170,9337,9424,9512,9579,9730,9816,9986,10165,10241,10308",
+                        "endColumns": "94,86,98,103,89,85,100,86,87,66,66,85,86,77,75,66,118",
+                        "endOffsets": "4235,4322,4501,4605,4767,5165,5266,9419,9507,9574,9641,9811,9898,10059,10236,10303,10422"
                     }
                 },
                 {
@@ -72,20 +72,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\a0a93774b647c7bb547f76cd0c0bc80a\\transformed\\ui-release\\res\\values-ml\\values-ml.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\2ac0aa9dd26a13955fa44e6b8a76a1c0\\transformed\\foundation-release\\res\\values-ml\\values-ml.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,200,287,386,490,580,666,767,854,942,1009,1076,1162,1249,1327,1403,1470",
-                        "endColumns": "94,86,98,103,89,85,100,86,87,66,66,85,86,77,75,66,118",
-                        "endOffsets": "195,282,381,485,575,661,762,849,937,1004,1071,1157,1244,1322,1398,1465,1584"
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,143",
+                        "endColumns": "87,91",
+                        "endOffsets": "138,230"
                     },
                     "to": {
-                        "startLines": "44,45,47,48,50,55,56,105,106,107,108,110,111,113,115,116,117",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "4145,4240,4407,4506,4682,5084,5170,9337,9424,9512,9579,9730,9816,9986,10165,10241,10308",
-                        "endColumns": "94,86,98,103,89,85,100,86,87,66,66,85,86,77,75,66,118",
-                        "endOffsets": "4235,4322,4501,4605,4767,5165,5266,9419,9507,9574,9641,9811,9898,10059,10236,10303,10422"
+                        "startLines": "118,119",
+                        "startColumns": "4,4",
+                        "startOffsets": "10427,10515",
+                        "endColumns": "87,91",
+                        "endOffsets": "10510,10602"
                     }
                 },
                 {

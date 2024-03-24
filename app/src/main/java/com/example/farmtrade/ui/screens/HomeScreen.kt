@@ -90,18 +90,18 @@ fun AppBottomNavigation(navController: NavController) {
     ) { innerPadding ->
         NavHost(
             navController as NavHostController,
-            startDestination = Screen.Home.route,
+            startDestination = Screen.Basket.route,
             Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route) { CatalogScreen(navController) }
             composable(Screen.Catalog.route) { HeaderTextHomeScreen() }
-            composable(Screen.Cart.route) { CartScreen() }
+            composable(Screen.Basket.route) { BasketScreen() }
             composable(Screen.Offers.route) { OffersScreen() }
             composable(Screen.Profile.route) { ProfileScreen() }
             composable("productScreen/{productId}") { backStackEntry ->
                 val productId = backStackEntry.arguments?.getString("productId")
                 productId?.let {
-                    ProductScreen(productId = it)
+                    ProductScreen(navController, productId = it)
                 }
             }
         }

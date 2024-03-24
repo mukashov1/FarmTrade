@@ -2,6 +2,7 @@ package com.example.farmtrade.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -10,9 +11,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Icon
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -32,6 +34,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.example.farmtrade.R
 import com.example.farmtrade.data.repository.CatalogDataStoreRepository
 import com.example.farmtrade.ui.viewmodels.ProductScreenViewModel
@@ -41,7 +44,7 @@ import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.google.accompanist.pager.rememberPagerState
 
 @Composable
-fun ProductScreen(productId: String) {
+fun ProductScreen(navController: NavController, productId: String) {
     val context = LocalContext.current
     val repository = remember { CatalogDataStoreRepository(context) }
     val productViewModel: ProductScreenViewModel = viewModel(
@@ -63,12 +66,14 @@ fun ProductScreen(productId: String) {
 
         Box(
             modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxSize()
                 .padding(5.dp)
         ) {
             Column(
                 verticalArrangement = Arrangement.spacedBy(5.dp),
-                modifier = Modifier.padding(horizontal = 5.dp)
+                modifier = Modifier
+                    .padding(horizontal = 5.dp)
+                    .fillMaxSize(),
             ) {
                 HorizontalPager(
                     count = images.size,
@@ -88,24 +93,24 @@ fun ProductScreen(productId: String) {
                     pagerState = pagerState,
                     activeColor = colorResource(id = R.color.pink),
                     inactiveColor = colorResource(id = R.color.light_grey),
-                    indicatorHeight = 3.dp,
-                    indicatorWidth = 3.dp,
+                    indicatorHeight = 10.dp,
+                    indicatorWidth = 10.dp,
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally)
                 )
-                androidx.compose.material.Text(
+                Text(
                     text = "${product!!.price.price} ${product!!.price.unit}",
                     color = colorResource(id = R.color.grey),
                     fontSize = 9.sp,
                     style = TextStyle(textDecoration = TextDecoration.LineThrough)
                 )
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    androidx.compose.material.Text(
+                    Text(
                         text = product!!.price.priceWithDiscount + " " + product!!.price.unit,
                         fontSize = 14.sp,
                         fontWeight = FontWeight(500),
                     )
-                    androidx.compose.material.Text(
+                    Text(
                         text = "${product!!.price.discount} %",
                         color = Color.White,
                         fontSize = 9.sp,
@@ -118,12 +123,12 @@ fun ProductScreen(productId: String) {
                             .padding(5.dp)
                     )
                 }
-                androidx.compose.material.Text(
+                Text(
                     text = product!!.title,
                     fontSize = 12.sp,
                     fontWeight = FontWeight(500)
                 )
-                androidx.compose.material.Text(
+                Text(
                     text = product!!.subtitle,
                     fontSize = 10.sp,
 //                        modifier = Modifier.height(40.dp)
@@ -141,11 +146,11 @@ fun ProductScreen(productId: String) {
                             id = R.color.orange
                         )
                     )
-                    androidx.compose.material.Text(
+                    Text(
                         text = product!!.feedback.rating.toString(),
                         color = colorResource(id = R.color.orange)
                     )
-                    androidx.compose.material.Text(
+                    Text(
                         text = "(${product!!.feedback.count})",
                         color = colorResource(id = R.color.grey)
                     )
@@ -160,6 +165,20 @@ fun ProductScreen(productId: String) {
                     .padding(10.dp)
             ) {
                 AddToFavoriteButton { println("FAVORITE") }
+            }
+            Box(
+                modifier = Modifier
+                    .align(Alignment.TopStart)
+                    .padding(10.dp)
+            ) {
+                Icon(
+                    modifier = Modifier
+                        .clickable { navController.popBackStack() }
+                        .size(16.dp),
+                    painter = painterResource(id = androidx.appcompat.R.drawable.abc_ic_ab_back_material), // Replace with your correct icon resource
+                    contentDescription = "Back to previews",
+                    tint = colorResource(id = R.color.pink) // Set the tint color of the Icon
+                )
             }
             // Add more UI elements to display product details as needed
         }
