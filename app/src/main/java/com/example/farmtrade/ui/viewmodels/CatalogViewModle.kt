@@ -2,18 +2,15 @@ package com.example.farmtrade.ui.viewmodels
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.farmtrade.data.api.CatalogApiService
 import com.example.farmtrade.data.db.Feedback
 import com.example.farmtrade.data.db.InfoItem
 import com.example.farmtrade.data.db.Price
 import com.example.farmtrade.data.db.Product
 import com.example.farmtrade.data.db.SortOption
 import com.example.farmtrade.data.db.Tag
-import com.example.farmtrade.data.repository.CatalogDataStoreRepository
-import kotlinx.coroutines.launch
+import com.example.farmtrade.data.repository.DataStoreRepository
 
-class CatalogViewModel(private val catalogDataStoreRepository: CatalogDataStoreRepository) : ViewModel() {
+class CatalogViewModel(private val catalogDataStoreRepository: DataStoreRepository) : ViewModel() {
     private val _originalCatalogItems = mutableStateOf<List<Product>>(emptyList())
     private val _catalogItems = mutableStateOf<List<Product>>(emptyList())
     val catalogItems = _catalogItems
@@ -179,20 +176,20 @@ class CatalogViewModel(private val catalogDataStoreRepository: CatalogDataStoreR
                 "Glycerin Palmitic Acid, Stearic Acid, Capric Acid, Sodium Benzoate"
             )
         )
-        viewModelScope.launch {
-            try {
-                val response = CatalogApiService.RetrofitInstance.api.getCatalogItems()
-                if (response.isSuccessful) {
-                    _originalCatalogItems.value = cataItems
-                    _catalogItems.value = cataItems
-                    catalogDataStoreRepository.saveCatalogItems(cataItems)
-                } else {
-                    println("Error: ${response.errorBody()?.string()}")
-                }
-            } catch (e: Exception) {
-                println("Error loading catalog items: ${e.message}")
-                e.printStackTrace()
-            }
-        }
+//        viewModelScope.launch {
+//            try {
+//                val response = CatalogApiService.RetrofitInstance.api.getCatalogItems()
+//                if (response.isSuccessful) {
+//                    _originalCatalogItems.value = cataItems
+//                    _catalogItems.value = cataItems
+//                    catalogDataStoreRepository.saveCatalogItems(cataItems)
+//                } else {
+//                    println("Error: ${response.errorBody()?.string()}")
+//                }
+//            } catch (e: Exception) {
+//                println("Error loading catalog items: ${e.message}")
+//                e.printStackTrace()
+//            }
+//        }
     }
 }

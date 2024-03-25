@@ -44,11 +44,14 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.farmtrade.R
+import com.example.farmtrade.ui.viewmodels.RegisterViewModel
 
 @Composable
 fun RegistrationScreen(navController: NavController) {
+    val viewModel: RegisterViewModel = viewModel()
     var name by remember { mutableStateOf("") }
     var surname by remember { mutableStateOf("") }
     var phone by remember { mutableStateOf("") }
@@ -95,14 +98,15 @@ fun RegistrationScreen(navController: NavController) {
             )
             Spacer(modifier = Modifier.height(16.dp))
             SignInButton(isEnabled = isButtonEnabled, onClick = {
+                println("BUTTON CLICKED")
+                viewModel.registerUser()
 //                viewModel.insertUser(User(name = name, surname = surname, phone = phone, isSigned = true))
 
-//                println("BUTTON CLICKED")
                 // Navigate to the catalog screen
-                navController.navigate("home") {
-                    // Clear back stack
-//                    popUpTo("registration") { inclusive = true }
-                }
+//                navController.navigate("home") {
+//                    // Clear back stack
+////                    popUpTo("registration") { inclusive = true }
+//                }
             })
         }
         Text(
@@ -272,7 +276,7 @@ fun SignInButton(isEnabled: Boolean, onClick: () -> Unit) {
             contentColor = Color.White,
             disabledContentColor = Color.White
         ),
-        enabled = isEnabled
+        enabled = true
     ) {
         Text("Войти")
     }
