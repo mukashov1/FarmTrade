@@ -17,7 +17,7 @@
     val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "catalog_items")
 
 
-    class CatalogDataStoreRepository(private val context: Context) {
+    class DataStoreRepository(private val context: Context) {
         private val gson = Gson()
 
 

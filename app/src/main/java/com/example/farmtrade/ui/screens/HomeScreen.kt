@@ -1,14 +1,12 @@
 package com.example.farmtrade.ui.screens
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -16,9 +14,7 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -94,7 +90,7 @@ fun AppBottomNavigation(navController: NavController) {
             Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route) { CatalogScreen(navController) }
-            composable(Screen.Catalog.route) { HeaderTextHomeScreen() }
+            composable(Screen.Catalog.route) { CatalogScreen(navController) }
             composable(Screen.Basket.route) { BasketScreen() }
             composable(Screen.Offers.route) { OffersScreen() }
             composable(Screen.Profile.route) { ProfileScreen() }
@@ -108,15 +104,15 @@ fun AppBottomNavigation(navController: NavController) {
     }
 }
 
-@Composable
-fun HeaderTextHomeScreen() {
-    Text(
-        text = "Saved",
-        fontSize = 16.sp,
-        textAlign = TextAlign.Center,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(5.dp)
-    )
-}
+//@Composable
+//fun HeaderTextHomeScreen() {
+//    Text(
+//        text = "Saved",
+//        fontSize = 16.sp,
+//        textAlign = TextAlign.Center,
+//        modifier = Modifier
+//            .fillMaxWidth()
+//            .padding(5.dp)
+//    )
+//}
 

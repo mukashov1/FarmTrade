@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
-import com.example.farmtrade.ui.screens.HomeScreen
+import com.example.farmtrade.ui.screens.RegistrationScreen
 import com.example.farmtrade.ui.theme.EffectiveMobileTheme
 
 class MainActivity : ComponentActivity() {
@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
             setContent {
                 EffectiveMobileTheme {
                     val navController = rememberNavController()
-                    HomeScreen(navController = navController)}
+                    RegistrationScreen(navController = navController)}
             }
     }
 }

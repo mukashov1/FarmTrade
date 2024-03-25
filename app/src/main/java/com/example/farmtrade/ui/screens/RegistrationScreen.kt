@@ -46,10 +46,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.farmtrade.R
-import com.example.farmtrade.ui.viewmodels.UserViewModel
 
 @Composable
-fun RegistrationScreen(navController: NavController, viewModel: UserViewModel) {
+fun RegistrationScreen(navController: NavController) {
     var name by remember { mutableStateOf("") }
     var surname by remember { mutableStateOf("") }
     var phone by remember { mutableStateOf("") }

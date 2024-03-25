@@ -67,7 +67,7 @@ import com.example.farmtrade.R
 import com.example.farmtrade.data.db.Product
 import com.example.farmtrade.data.db.SortOption
 import com.example.farmtrade.data.db.Tag
-import com.example.farmtrade.data.repository.CatalogDataStoreRepository
+import com.example.farmtrade.data.repository.DataStoreRepository
 import com.example.farmtrade.ui.viewmodels.CatalogViewModel
 import com.example.farmtrade.ui.viewmodels.CatalogViewModelFactory
 import com.google.accompanist.pager.ExperimentalPagerApi
@@ -78,7 +78,7 @@ import com.google.accompanist.pager.rememberPagerState
 @Composable
 fun CatalogScreen(navController: NavController) {
     val context = LocalContext.current
-    val repository = CatalogDataStoreRepository(context.applicationContext)
+    val repository = DataStoreRepository(context.applicationContext)
     val factory = CatalogViewModelFactory(repository)
     val viewModel: CatalogViewModel = viewModel(factory = factory)
 

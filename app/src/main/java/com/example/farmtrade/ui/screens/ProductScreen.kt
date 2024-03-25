@@ -36,7 +36,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.farmtrade.R
-import com.example.farmtrade.data.repository.CatalogDataStoreRepository
+import com.example.farmtrade.data.repository.DataStoreRepository
 import com.example.farmtrade.ui.viewmodels.ProductScreenViewModel
 import com.example.farmtrade.ui.viewmodels.ProductScreenViewModelFactory
 import com.google.accompanist.pager.HorizontalPager
@@ -46,7 +46,7 @@ import com.google.accompanist.pager.rememberPagerState
 @Composable
 fun ProductScreen(navController: NavController, productId: String) {
     val context = LocalContext.current
-    val repository = remember { CatalogDataStoreRepository(context) }
+    val repository = remember { DataStoreRepository(context) }
     val productViewModel: ProductScreenViewModel = viewModel(
         factory = ProductScreenViewModelFactory(repository)
     )
