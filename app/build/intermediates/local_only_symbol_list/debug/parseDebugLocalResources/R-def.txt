@@ -54,6 +54,6 @@ drawable start_small
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name
-style Theme.EffectiveMobile
+style Theme.SplashScreen.MySplash
 xml backup_rules
 xml data_extraction_rules

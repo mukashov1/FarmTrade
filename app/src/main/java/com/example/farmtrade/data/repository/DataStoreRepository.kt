@@ -1,7 +1,8 @@
     package com.example.farmtrade.data.repository
 
     import android.content.Context
-import androidx.datastore.preferences.core.edit
+    import androidx.datastore.preferences.core.booleanPreferencesKey
+    import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.example.farmtrade.data.db.Product
@@ -18,6 +19,7 @@ import kotlinx.coroutines.flow.map
 
 
         companion object {
+            val IS_LOGGED_IN_KEY = booleanPreferencesKey("is_logged_in")
             val NAME_KEY = stringPreferencesKey("name")
             val LAST_NAME_KEY = stringPreferencesKey("last_name")
             val EMAIL_KEY = stringPreferencesKey("email")
@@ -58,8 +60,6 @@ import kotlinx.coroutines.flow.map
                 }
             }.first() // Use first to get a single emission from the flow, converting it to a regular suspend function
         }
-
-
         val catalogItems: Flow<List<Product>> = context.dataStore.data
             .map { preferences ->
                 preferences[CATALOG_ITEMS_KEY]?.let { json ->
@@ -67,4 +67,17 @@ import kotlinx.coroutines.flow.map
                     gson.fromJson(json, type)
                 } ?: emptyList()
             }
+
+
+        suspend fun saveLoginState(isLoggedIn: Boolean) {
+            context.dataStore.edit { preferences ->
+                preferences[IS_LOGGED_IN_KEY] = isLoggedIn
+            }
+        }
+
+        val isLoggedIn: Flow<Boolean> = context.dataStore.data
+            .map { preferences ->
+                preferences[IS_LOGGED_IN_KEY] ?: false
+            }
+
     }
