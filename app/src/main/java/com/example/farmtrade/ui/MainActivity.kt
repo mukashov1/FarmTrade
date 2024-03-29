@@ -127,7 +127,7 @@ fun AppBottomNavigation(navController: NavController) {
     ) { innerPadding ->
         NavHost(
             navController as NavHostController,
-            startDestination = Screen.Basket.route,
+            startDestination = Screen.Catalog.route,
             Modifier.padding(innerPadding)
         ) {
             composable(Screen.Catalog.route) { CatalogScreen(navController) }
