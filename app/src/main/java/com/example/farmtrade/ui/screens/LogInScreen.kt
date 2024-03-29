@@ -111,7 +111,7 @@ fun LogInScreen(navController: NavController, viewModel: AuthViewModel = viewMod
                 isPasswordVisible = isPasswordVisible,
             )
             Spacer(modifier = Modifier.height(16.dp))
-            SignInButton(isEnabled = true, onClick = {})
+            SignInButton(isEnabled = true, onClick = { viewModel.registerUser() })
         }
         ClickableRegisterText(
             onClick = { println("Navigate to Registration") }, modifier = Modifier

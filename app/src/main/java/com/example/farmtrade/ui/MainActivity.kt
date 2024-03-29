@@ -1,6 +1,7 @@
 package com.example.farmtrade.ui
 
 import android.os.Bundle
+import android.view.Window
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
@@ -40,6 +41,8 @@ import com.example.farmtrade.ui.screens.bottomNavigationItems
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+
         super.onCreate(savedInstanceState)
         println("ACTIVITY")
 
@@ -53,7 +56,7 @@ class MainActivity : ComponentActivity() {
             println("THE CONTENT IS SET")
 
             if (isLoggedIn) {
-                AppBottomNavigation(navController = navController, isLoggedIn)
+                AppBottomNavigation(navController = navController)
                 println("BOTTOM")
             } else {
                 LogInScreen(navController = navController)
@@ -64,7 +67,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun AppBottomNavigation(navController: NavController, isLoggedIn: Boolean) {
+fun AppBottomNavigation(navController: NavController) {
     Scaffold(
         bottomBar = {
             Box(
