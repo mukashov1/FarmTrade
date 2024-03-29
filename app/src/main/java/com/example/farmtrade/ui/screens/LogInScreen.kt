@@ -33,6 +33,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
@@ -48,14 +49,16 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.farmtrade.R
+import com.example.farmtrade.data.repository.DataStoreRepository
 import com.example.farmtrade.ui.viewmodels.AuthViewModel
 
 @Composable
-fun LogInScreen(navController: NavController, viewModel: AuthViewModel = viewModel()) {
+fun LogInScreen(navController: NavController) {
     println("LOGIN")
+    val dataStoreRepository = DataStoreRepository(LocalContext.current)
+    val viewModel = AuthViewModel(dataStoreRepository)
     val login by remember {
         viewModel.login
     }
@@ -111,7 +114,11 @@ fun LogInScreen(navController: NavController, viewModel: AuthViewModel = viewMod
                 isPasswordVisible = isPasswordVisible,
             )
             Spacer(modifier = Modifier.height(16.dp))
-            SignInButton(isEnabled = true, onClick = { viewModel.registerUser() })
+            SignInButton(isEnabled = true, onClick = {
+                viewModel.registerUser()
+
+            }
+            )
         }
         ClickableRegisterText(
             onClick = { println("Navigate to Registration") }, modifier = Modifier
@@ -394,4 +401,8 @@ fun SignInButton(isEnabled: Boolean, onClick: () -> Unit) {
     ) {
         Text("Войти")
     }
+}
+
+suspend fun saveLoginState(isLoggedIn: Boolean, dataStoreRepository: DataStoreRepository) {
+    dataStoreRepository.saveLoginState(isLoggedIn)
 }

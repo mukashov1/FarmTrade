@@ -59,7 +59,9 @@ class MainActivity : ComponentActivity() {
                 AppBottomNavigation(navController = navController)
                 println("BOTTOM")
             } else {
-                LogInScreen(navController = navController)
+                LogInScreen(
+                    navController = navController,
+                )
                 println("LOGIN CONTENT")
             }
         }

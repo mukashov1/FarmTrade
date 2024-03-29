@@ -8,12 +8,13 @@ import com.example.farmtrade.data.api.RetrofitInstance
 import com.example.farmtrade.data.db.RegisterResponse
 import com.example.farmtrade.data.db.RequestState
 import com.example.farmtrade.data.db.User
+import com.example.farmtrade.data.repository.DataStoreRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 
-class AuthViewModel() : ViewModel() {
+class AuthViewModel(private val dataStoreRepository: DataStoreRepository) : ViewModel() {
 
     val name = mutableStateOf<String>("")
     val email = mutableStateOf<String>("")
@@ -40,6 +41,7 @@ class AuthViewModel() : ViewModel() {
         val user =
             User("Bakdaulet", "Mukashov", "bahaaga@gmail.com", "baha", "2002-11-10", "+77768512002")
         viewModelScope.launch {
+            dataStoreRepository.saveLoginState(true)
             try {
                 _registrationState.value = RequestState.Loading
                 val registerService = RetrofitInstance.retrofit.create(RegisterService::class.java)
