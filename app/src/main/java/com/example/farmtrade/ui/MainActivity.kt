@@ -9,11 +9,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
@@ -36,33 +40,43 @@ import com.example.farmtrade.ui.screens.LogInScreen
 import com.example.farmtrade.ui.screens.OffersScreen
 import com.example.farmtrade.ui.screens.ProductScreen
 import com.example.farmtrade.ui.screens.ProfileScreen
+import com.example.farmtrade.ui.screens.SavedScreen
 import com.example.farmtrade.ui.screens.Screen
 import com.example.farmtrade.ui.screens.bottomNavigationItems
+import kotlinx.coroutines.flow.first
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
-
         super.onCreate(savedInstanceState)
-        println("ACTIVITY")
-
-        // Initial splash screen setup
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
         installSplashScreen()
-        val dataStoreRepository = DataStoreRepository(this)
+
+
+        val dataStoreRepository = DataStoreRepository(applicationContext)
 
         setContent {
             val navController = rememberNavController()
-            val isLoggedIn = dataStoreRepository.isLoggedIn.collectAsState(initial = false).value
-            println("THE CONTENT IS SET")
 
-            if (isLoggedIn) {
-                AppBottomNavigation(navController = navController)
-                println("BOTTOM")
+            // Create a MutableState to hold the login state
+            var isLoggedIn by remember { mutableStateOf<Boolean?>(null) }
+
+
+            LaunchedEffect(key1 = Unit) {
+                // Collect the login state once and update isLoggedIn
+                isLoggedIn = dataStoreRepository.isLoggedIn.first()
+            }
+
+
+            if (isLoggedIn == null) {
+                // Optional: Display a progress indicator while loading the login state
+                CircularProgressIndicator()
             } else {
-                LogInScreen(
-                    navController = navController,
-                )
-                println("LOGIN CONTENT")
+                // Now isLoggedIn is not null, you can decide which screen to display
+                if (isLoggedIn == true) {
+                    AppBottomNavigation(navController = navController)
+                } else {
+                    LogInScreen(navController = navController)
+                }
             }
         }
     }
@@ -127,15 +141,15 @@ fun AppBottomNavigation(navController: NavController) {
     ) { innerPadding ->
         NavHost(
             navController as NavHostController,
-            startDestination = Screen.Catalog.route,
+            startDestination = Screen.Saved.route,
             Modifier.padding(innerPadding)
         ) {
             composable(Screen.Catalog.route) { CatalogScreen(navController) }
-            composable(Screen.Saved.route) { CatalogScreen(navController) }
+            composable(Screen.Saved.route) { SavedScreen() }
             composable(Screen.Basket.route) { BasketScreen() }
             composable(Screen.Offers.route) { OffersScreen() }
             composable(Screen.Profile.route) { ProfileScreen() }
-            composable("registrationScreen") { LogInScreen(navController) }
+            composable("loginScreen") { LogInScreen(navController) }
             composable("productScreen/{productId}") { backStackEntry ->
                 val productId = backStackEntry.arguments?.getString("productId")
                 productId?.let {
