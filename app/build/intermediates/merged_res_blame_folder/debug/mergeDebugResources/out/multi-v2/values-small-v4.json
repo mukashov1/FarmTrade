@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.farmtrade.app-mergeDebugResources-2:/values-small-v4/values-small-v4.xml",
+            "outputFile": "com.example.farmtrade.app-mergeDebugResources-3:/values-small-v4/values-small-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\0e26e06721037fa5a0377008b128cce0\\transformed\\material-1.4.0-beta01\\res\\values-small-v4\\values-small-v4.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\e06f9a607b2f423799323a7208b026d4\\transformed\\material-1.4.0-beta01\\res\\values-small-v4\\values-small-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

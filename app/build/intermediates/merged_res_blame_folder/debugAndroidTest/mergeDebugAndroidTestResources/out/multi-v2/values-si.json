@@ -4,7 +4,7 @@
             "outputFile": "com.example.farmtrade.test.app-mergeDebugAndroidTestResources-1:/values-si/values-si.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\128d077059d25434313780862d4dab5b\\transformed\\ui-release\\res\\values-si\\values-si.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\3f532f3eedbb4bff9757b2d51d4aee40\\transformed\\ui-release\\res\\values-si\\values-si.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\ec5a34b60664a551d4c516da3cbdf54d\\transformed\\core-1.12.0\\res\\values-si\\values-si.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\41024b41f87e3d28aaaeb55217229139\\transformed\\core-1.12.0\\res\\values-si\\values-si.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

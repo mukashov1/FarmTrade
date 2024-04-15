@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.farmtrade.app-mergeDebugResources-2:/values-hdpi-v4/values-hdpi-v4.xml",
+            "outputFile": "com.example.farmtrade.app-mergeDebugResources-3:/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\e31bf1d77bad112e1494914b3d253387\\transformed\\appcompat-1.2.0\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\9cff9579f156c89465f939530dfb936c\\transformed\\appcompat-1.2.0\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

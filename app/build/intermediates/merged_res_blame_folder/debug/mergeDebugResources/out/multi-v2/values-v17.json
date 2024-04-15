@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.farmtrade.app-mergeDebugResources-2:/values-v17/values-v17.xml",
+            "outputFile": "com.example.farmtrade.app-mergeDebugResources-3:/values-v17/values-v17.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\e31bf1d77bad112e1494914b3d253387\\transformed\\appcompat-1.2.0\\res\\values-v17\\values-v17.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\9cff9579f156c89465f939530dfb936c\\transformed\\appcompat-1.2.0\\res\\values-v17\\values-v17.xml",
                     "from": {
                         "startLines": "2,5,9,12,15,18,22,25,29,33,37,40,43,46,50,53,57",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

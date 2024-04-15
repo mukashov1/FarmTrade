@@ -9,15 +9,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
@@ -27,6 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -40,10 +36,12 @@ import com.example.farmtrade.ui.screens.LogInScreen
 import com.example.farmtrade.ui.screens.OffersScreen
 import com.example.farmtrade.ui.screens.ProductScreen
 import com.example.farmtrade.ui.screens.ProfileScreen
+import com.example.farmtrade.ui.screens.RegistrationScreen
 import com.example.farmtrade.ui.screens.SavedScreen
 import com.example.farmtrade.ui.screens.Screen
 import com.example.farmtrade.ui.screens.bottomNavigationItems
-import kotlinx.coroutines.flow.first
+import com.google.firebase.Firebase
+import com.google.firebase.initialize
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,105 +49,97 @@ class MainActivity : ComponentActivity() {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         installSplashScreen()
 
-
         val dataStoreRepository = DataStoreRepository(applicationContext)
+        Firebase.initialize(this)
 
         setContent {
             val navController = rememberNavController()
-
+            val viewModel = MainActivityViewModel(navController)
+            viewModel.getUserData()
+            viewModel.checkForActiveSession()
             // Create a MutableState to hold the login state
-            var isLoggedIn by remember { mutableStateOf<Boolean?>(null) }
+            val isLoggedIn = viewModel.isUserLoggedIn.value
+            //            RegistrationScreen(navController = navController)
 
+            val startDestination: NavDestination = NavDestination(navigatorName = Screen.Catalog.route)
 
-            LaunchedEffect(key1 = Unit) {
-                // Collect the login state once and update isLoggedIn
-                isLoggedIn = dataStoreRepository.isLoggedIn.first()
-            }
-
-
-            if (isLoggedIn == null) {
-                // Optional: Display a progress indicator while loading the login state
-                CircularProgressIndicator()
-            } else {
-                // Now isLoggedIn is not null, you can decide which screen to display
-                if (isLoggedIn == true) {
-                    AppBottomNavigation(navController = navController)
-                } else {
-                    LogInScreen(navController = navController)
-                }
-            }
+            AppBottomNavigation(navController = navController, startDestination = startDestination)
         }
     }
 }
 
 @Composable
-fun AppBottomNavigation(navController: NavController) {
+fun AppBottomNavigation(navController: NavController, startDestination: NavDestination) {
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route
+
+    // List of routes where the bottom navigation should be hidden
+    val routesWithHiddenBottomNav = listOf("loginScreen", "registrationScreen")
+
     Scaffold(
         bottomBar = {
-            Box(
-                modifier = Modifier
-                    .drawBehind {
+            if (!routesWithHiddenBottomNav.contains(currentRoute)) {
+                Box(
+                    modifier = Modifier
+                        .drawBehind {
+                            val strokeWidth = 1 * density
+                            val y = size.height + strokeWidth / 2
 
-                        val strokeWidth = 1 * density
-                        val y = size.height + strokeWidth / 2
-
-                        drawLine(
-                            Color.Blue,
-                            Offset(0f, y),
-                            Offset(size.width, y),
-                            strokeWidth
-                        )
-                    }
-            ) {
-                BottomNavigation(
-                    backgroundColor = Color.White,
-                    contentColor = Color.Black
+                            drawLine(
+                                Color.Blue,
+                                Offset(0f, y),
+                                Offset(size.width, y),
+                                strokeWidth
+                            )
+                        }
                 ) {
-                    val navBackStackEntry by navController.currentBackStackEntryAsState()
-                    val currentRoute = navBackStackEntry?.destination?.route
-                    bottomNavigationItems.forEach { screen ->
-                        BottomNavigationItem(
-                            icon = {
-                                Icon(
-                                    screen.icon(),
-                                    modifier = Modifier.size(24.dp),
-                                    // Устанавливаем цвет иконки в зависимости от выбранного состояния
-                                    tint = if (currentRoute == screen.route) colorResource(id = R.color.pink) else Color.Black,
-                                    contentDescription = screen.title,
-                                )
-                            },
-                            alwaysShowLabel = false,
-                            selected = currentRoute == screen.route,
-                            onClick = {
-                                // Переход к выбранному маршруту с оптимизацией поведения стека
-                                if (currentRoute != screen.route) {
-                                    navController.navigate(screen.route) {
-                                        popUpTo(navController.graph.startDestinationId)
-                                        launchSingleTop = true
+                    BottomNavigation(
+                        backgroundColor = Color.White,
+                        contentColor = Color.Black
+                    ) {
+                        bottomNavigationItems.forEach { screen ->
+                            BottomNavigationItem(
+                                icon = {
+                                    Icon(
+                                        screen.icon(),
+                                        modifier = Modifier.size(24.dp),
+                                        tint = if (currentRoute == screen.route) colorResource(id = R.color.pink) else Color.Black,
+                                        contentDescription = screen.title,
+                                    )
+                                },
+                                alwaysShowLabel = false,
+                                selected = currentRoute == screen.route,
+                                onClick = {
+                                    if (currentRoute != screen.route) {
+                                        navController.navigate(screen.route) {
+                                            popUpTo(navController.graph.startDestinationId)
+                                            launchSingleTop = true
+                                        }
                                     }
-                                }
-                            },
-                            modifier = Modifier.padding(vertical = 8.dp, horizontal = 16.dp),
-                            // Применяем розовый цвет только к тексту выбранного элемента
-                            selectedContentColor = colorResource(id = R.color.pink),
-                            unselectedContentColor = Color.Black
-                        )
+                                },
+                                modifier = Modifier.padding(vertical = 8.dp, horizontal = 16.dp),
+                                selectedContentColor = colorResource(id = R.color.pink),
+                                unselectedContentColor = Color.Black
+                            )
+                        }
                     }
                 }
+
             }
         }
-    ) { innerPadding ->
+    ) {
         NavHost(
             navController as NavHostController,
-            startDestination = Screen.Saved.route,
-            Modifier.padding(innerPadding)
+            startDestination = startDestination.navigatorName,
+            modifier = Modifier.padding(it)
         ) {
+            composable("loginScreen") { LogInScreen(navController) }
+            composable("registrationScreen") { RegistrationScreen(navController) }
             composable(Screen.Catalog.route) { CatalogScreen(navController) }
             composable(Screen.Saved.route) { SavedScreen() }
             composable(Screen.Basket.route) { BasketScreen() }
             composable(Screen.Offers.route) { OffersScreen() }
             composable(Screen.Profile.route) { ProfileScreen() }
-            composable("loginScreen") { LogInScreen(navController) }
             composable("productScreen/{productId}") { backStackEntry ->
                 val productId = backStackEntry.arguments?.getString("productId")
                 productId?.let {
@@ -159,7 +149,6 @@ fun AppBottomNavigation(navController: NavController) {
         }
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable

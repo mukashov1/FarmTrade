@@ -10,6 +10,31 @@
     <color name="pink">#D62F89</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">Farm Trade</string>
+    <string name="create_account">Create an Account </string>
+    <string name="email">Email</string>
+    <string name="first_name">First Name</string>
+    <string name="forgot_password">Forgot your password</string>
+    <string name="gcm_defaultSenderId" translatable="false">1024614874443</string>
+    <string name="go_to_login">Already have an account? Login</string>
+    <string name="google_api_key" translatable="false">AIzaSyB8Io7NuMF2WhGbyFraWyI9SoA1eaT6qWk</string>
+    <string name="google_app_id" translatable="false">1:1024614874443:android:8437341484e075b8d3bcce</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyB8Io7NuMF2WhGbyFraWyI9SoA1eaT6qWk</string>
+    <string name="google_storage_bucket" translatable="false">farmtrade-b08bc.appspot.com</string>
+    <string name="hello">Hey there, </string>
+    <string name="hide_password">Hide password</string>
+    <string name="home">Home</string>
+    <string name="last_name">Last Name</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="menu">Menu</string>
+    <string name="or">or</string>
+    <string name="password">Password</string>
+    <string name="project_id" translatable="false">farmtrade-b08bc</string>
+    <string name="register">Register</string>
+    <string name="show_password">Show password</string>
+    <string name="terms_and_conditions">By continuing you accept our Privacy Policy and Term of Use</string>
+    <string name="terms_and_conditions_header">Term of Use</string>
+    <string name="welcome">Welcome Back</string>
     <style name="Theme.SplashScreen.MySplash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">#FFD0BCFF</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/item_4</item>
