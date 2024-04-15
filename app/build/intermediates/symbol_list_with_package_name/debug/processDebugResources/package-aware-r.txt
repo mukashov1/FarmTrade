@@ -2613,6 +2613,7 @@ string hello
 string hide_bottom_view_on_scroll_behavior
 string hide_password
 string home
+string home_last_message
 string icon_content_description
 string in_progress
 string indeterminate

@@ -121,7 +121,8 @@ fun LogInScreen(navController: NavController) {
             )
         }
         ClickableRegisterText(
-            onClick = { println("Navigate to Registration") }, modifier = Modifier
+            onClick = { println("Navigate to Registration")
+                      navController.navigate("registrationScreen")}, modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(16.dp)
         )

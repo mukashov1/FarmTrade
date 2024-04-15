@@ -143,9 +143,12 @@ fun RegistrationScreen(
                 ButtonComponent(
                     value = stringResource(id = R.string.register),
                     onButtonClicked = {
-                        registrationViewModel.onEvent(RegistrationUIEvent.RegisterButtonClicked)
+//                        registrationViewModel.onEvent(RegistrationUIEvent.RegisterButtonClicked)
+                        navController.navigate(Screen.Catalog.route)
                     },
-                    isEnabled = registrationViewModel.allValidationsPassed.value
+//                    isEnabled = registrationViewModel.allValidationsPassed.value
+                    isEnabled = true
+
                 )
 
                 Spacer(modifier = Modifier.height(20.dp))
@@ -154,7 +157,6 @@ fun RegistrationScreen(
 
                 ClickableLoginTextComponent(tryingToLogin = true, onTextSelected = {
                     navController.navigate("loginScreen")
-//                    PostOfficeAppRouter.navigateTo(Screen.LoginScreen)
                 })
             }
 

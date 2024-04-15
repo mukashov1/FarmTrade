@@ -32,8 +32,8 @@ import com.example.farmtrade.R
 import com.example.farmtrade.data.repository.DataStoreRepository
 import com.example.farmtrade.ui.screens.BasketScreen
 import com.example.farmtrade.ui.screens.CatalogScreen
+import com.example.farmtrade.ui.screens.ChatScreen
 import com.example.farmtrade.ui.screens.LogInScreen
-import com.example.farmtrade.ui.screens.OffersScreen
 import com.example.farmtrade.ui.screens.ProductScreen
 import com.example.farmtrade.ui.screens.ProfileScreen
 import com.example.farmtrade.ui.screens.RegistrationScreen
@@ -59,9 +59,13 @@ class MainActivity : ComponentActivity() {
             viewModel.checkForActiveSession()
             // Create a MutableState to hold the login state
             val isLoggedIn = viewModel.isUserLoggedIn.value
-            //            RegistrationScreen(navController = navController)
+//            ChatScreen()
 
-            val startDestination: NavDestination = NavDestination(navigatorName = Screen.Catalog.route)
+            val startDestination: NavDestination =
+                if (isLoggedIn == true) NavDestination(navigatorName = Screen.Catalog.route)
+                else NavDestination(
+                    navigatorName = "registrationScreen"
+                )
 
             AppBottomNavigation(navController = navController, startDestination = startDestination)
         }
@@ -138,7 +142,7 @@ fun AppBottomNavigation(navController: NavController, startDestination: NavDesti
             composable(Screen.Catalog.route) { CatalogScreen(navController) }
             composable(Screen.Saved.route) { SavedScreen() }
             composable(Screen.Basket.route) { BasketScreen() }
-            composable(Screen.Offers.route) { OffersScreen() }
+            composable(Screen.Offers.route) { ChatScreen() }
             composable(Screen.Profile.route) { ProfileScreen() }
             composable("productScreen/{productId}") { backStackEntry ->
                 val productId = backStackEntry.arguments?.getString("productId")

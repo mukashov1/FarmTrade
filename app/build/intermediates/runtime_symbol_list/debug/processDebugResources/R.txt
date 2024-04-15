@@ -2612,6 +2612,7 @@ int string hello 0x7f0f0059
 int string hide_bottom_view_on_scroll_behavior 0x7f0f005a
 int string hide_password 0x7f0f005b
 int string home 0x7f0f005c
+int string home_last_message 0x7f0f00b9
 int string icon_content_description 0x7f0f005d
 int string in_progress 0x7f0f005e
 int string indeterminate 0x7f0f005f

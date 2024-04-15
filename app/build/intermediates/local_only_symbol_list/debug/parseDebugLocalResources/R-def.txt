@@ -67,6 +67,7 @@ string google_storage_bucket
 string hello
 string hide_password
 string home
+string home_last_message
 string last_name
 string login
 string logout
