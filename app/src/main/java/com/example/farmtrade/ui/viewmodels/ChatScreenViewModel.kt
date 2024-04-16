@@ -2,50 +2,52 @@ package com.example.farmtrade.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.farmtrade.data.api.ChatWithGeminiService
+import com.example.farmtrade.data.api.RetrofitInstance
 import com.example.farmtrade.data.db.ChatUiModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import okhttp3.ResponseBody
 
-class ChatScreenViewModel() : ViewModel() {
-    val conversation: StateFlow<List<ChatUiModel.Message>>
-        get() = _conversation
-    private val _conversation = MutableStateFlow(
-        listOf(ChatUiModel.Message.initConv)
-    )
 
-    private val questions = mutableListOf(
-        "What about yesterday?",
-        "Can you tell me what inside your head?",
-        "Lately, I've been wondering if I can really do anything, do you?",
-        "You know fear is often just an illusion, have you ever experienced it?",
-        "If you were me, what would you do?"
-    )
+class ChatScreenViewModel(
+        private val chatService: ChatWithGeminiService = RetrofitInstance.retrofit.create(ChatWithGeminiService::class.java)// Assuming injection or similar setup
+) : ViewModel() {
+    private val _conversation = MutableStateFlow(listOf(ChatUiModel.Message.initConv))
+    val conversation: StateFlow<List<ChatUiModel.Message>> = _conversation
+
 
     fun sendChat(msg: String) {
-
-        val myChat = ChatUiModel.Message(msg, ChatUiModel.Author.me)
         viewModelScope.launch {
+            // Display the user's message in the UI immediately
+            val myChat = ChatUiModel.Message(msg, ChatUiModel.Author.me)
             _conversation.emit(_conversation.value + myChat)
 
-            delay(1000)
-            _conversation.emit(_conversation.value + getRandomQuestion())
+
+            // Send the message to the server and receive a response
+            try {
+                val response = chatService.chatWithGemini(msg)
+                handleServerResponse(response)
+            } catch (e: Exception) {
+                // Handle errors, possibly update UI with an error message
+                val errorChat = ChatUiModel.Message("Failed to fetch response", ChatUiModel.Author.bot)
+                _conversation.emit(_conversation.value + errorChat)
+                println("FAILED" + e.message)
+            }
         }
     }
 
-    private fun getRandomQuestion(): ChatUiModel.Message {
-        val question = if (questions.isEmpty()) {
-            "no further questions, please leave me alone"
-        } else {
-            questions.random()
+    private fun handleServerResponse(response: ResponseBody) {
+        // Using safe calls and Elvis operator to provide a fallback mechanism
+        val serverMessageText = response.string()
+        println("RESPONSE")
+        println(serverMessageText)
+
+
+        viewModelScope.launch {
+            // Emit the server message regardless of its content
+//            _conversation.emit(_conversation.value + serverMessage)
         }
-
-        if (questions.isNotEmpty()) questions.remove(question)
-
-        return ChatUiModel.Message(
-            text = question,
-            author = ChatUiModel.Author.bot
-        )
     }
 }

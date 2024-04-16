@@ -49,22 +49,24 @@ import com.example.farmtrade.ui.viewmodels.ChatScreenViewModel
 
 @Composable
 fun ChatScreen(viewModel: ChatScreenViewModel = viewModel()) {
-    val conversation = viewModel.conversation.collectAsState()
+    val conversation by viewModel.conversation.collectAsState()
+
 
     Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colors.background
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colors.background
     ) {
         ChatPage(
-            model = ChatUiModel(
-                messages = conversation.value,
-                addressee = ChatUiModel.Author.bot
-            ),
-            onSendChatClickListener = { msg -> viewModel.sendChat(msg) },
-            modifier = Modifier.fillMaxSize()
+                model = ChatUiModel(
+                        messages = conversation,
+                        addressee = ChatUiModel.Author.bot
+                ),
+                onSendChatClickListener = { msg -> viewModel.sendChat(msg) },
+                modifier = Modifier.fillMaxSize()
         )
     }
 }
+
 
 @Composable
 fun ChatPage(
