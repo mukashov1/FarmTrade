@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1024614874443",
+    "project_id": "farmtrade-b08bc",
+    "storage_bucket": "farmtrade-b08bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024614874443:android:8437341484e075b8d3bcce",
+        "android_client_info": {
+          "package_name": "com.example.farmtrade"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8Io7NuMF2WhGbyFraWyI9SoA1eaT6qWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
