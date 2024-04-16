@@ -17,6 +17,7 @@ import androidx.compose.material.SnackbarHostState
 import androidx.compose.material.Surface
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -54,7 +55,6 @@ fun RegistrationScreen(
 //    val scope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
 
-
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -78,9 +78,9 @@ fun RegistrationScreen(
 
         Surface(
             modifier = Modifier
-                .fillMaxSize()
-                .background(Color.White)
-                .padding(28.dp)
+                    .fillMaxSize()
+                    .background(Color.White)
+                    .padding(28.dp)
         ) {
 
             Column(modifier = Modifier.fillMaxSize()) {
@@ -91,7 +91,7 @@ fun RegistrationScreen(
 
                 MyTextFieldComponent(
                     labelValue = "First Name",
-                    painterResource(id = R.drawable.eye_active),
+                    painterResource(id = R.drawable.account),
                     onTextChanged = {
                         registrationViewModel.onEvent(RegistrationUIEvent.FirstNameChanged(it))
                     },
@@ -118,7 +118,7 @@ fun RegistrationScreen(
 
                 PasswordTextFieldComponent(
                     labelValue = "Password",
-                    painterResource = painterResource(id = R.drawable.eye_default),
+                    painterResource = rememberVectorPainter(image = Icons.Filled.Lock),
                     onTextSelected = {
                         registrationViewModel.onEvent(RegistrationUIEvent.PasswordChanged(it))
                     },
@@ -143,11 +143,10 @@ fun RegistrationScreen(
                 ButtonComponent(
                     value = stringResource(id = R.string.register),
                     onButtonClicked = {
-//                        registrationViewModel.onEvent(RegistrationUIEvent.RegisterButtonClicked)
+                        registrationViewModel.onEvent(RegistrationUIEvent.RegisterButtonClicked)
                         navController.navigate(Screen.Catalog.route)
                     },
-//                    isEnabled = registrationViewModel.allValidationsPassed.value
-                    isEnabled = true
+                    isEnabled = registrationViewModel.allValidationsPassed.value
 
                 )
 
