@@ -6,10 +6,12 @@
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.example.farmtrade.data.db.Product
-import com.google.gson.Gson
+    import com.example.farmtrade.data.db.ProductItem
+    import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
+    import kotlinx.coroutines.flow.StateFlow
+    import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 
     val Context.dataStore by preferencesDataStore(name = "user_preferences")
@@ -45,7 +47,7 @@ import kotlinx.coroutines.flow.map
         val userName: Flow<String> = context.dataStore.data
             .map { preferences -> preferences[NAME_KEY] ?: "" }
 
-        suspend fun saveCatalogItems(items: List<Product>) {
+        suspend fun saveCatalogItems(items: StateFlow<List<ProductItem>>) {
             val json = gson.toJson(items)
             context.dataStore.edit { preferences ->
                 preferences[CATALOG_ITEMS_KEY] = json
@@ -60,7 +62,7 @@ import kotlinx.coroutines.flow.map
                 }
             }.first() // Use first to get a single emission from the flow, converting it to a regular suspend function
         }
-        val catalogItems: Flow<List<Product>> = context.dataStore.data
+        val catalogItems: Flow<List<ProductItem>> = context.dataStore.data
             .map { preferences ->
                 preferences[CATALOG_ITEMS_KEY]?.let { json ->
                     val type = object : TypeToken<List<Product>>() {}.type

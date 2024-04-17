@@ -62,11 +62,11 @@ class MainActivity : ComponentActivity() {
             val isLoggedIn = viewModel.isUserLoggedIn.value
 //            ChatScreen()
 
-            val startDestination: NavDestination = NavDestination(navigatorName = Screen.Catalog.route)
-//                if (isLoggedIn == true) NavDestination(navigatorName = Screen.Catalog.route)
-//                else NavDestination(
-////                    navigatorName = "registrationScreen"
-//                )
+            val startDestination: NavDestination =
+                if (isLoggedIn == true) NavDestination(navigatorName = Screen.Catalog.route)
+                else NavDestination(
+                    navigatorName = "registrationScreen"
+                )
 
             AppBottomNavigation(navController = navController, startDestination = startDestination)
         }

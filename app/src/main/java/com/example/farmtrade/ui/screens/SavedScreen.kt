@@ -25,6 +25,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -34,21 +35,28 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.farmtrade.R
-import com.example.farmtrade.data.db.Product
+import com.example.farmtrade.data.db.ProductItem
 import com.example.farmtrade.data.repository.DataStoreRepository
 import com.example.farmtrade.ui.viewmodels.SavedScreenViewModel
 
 @Composable
 fun SavedScreen() {
     val repository = DataStoreRepository(LocalContext.current)
-    val viewModel = SavedScreenViewModel(repository)
-    val listOfProduct: List<Product> = viewModel.sampleSavedItems(repository)
+    val viewModel: SavedScreenViewModel = viewModel()
+    val listOfProduct by viewModel.savedItems
 
     Column(modifier = Modifier.fillMaxSize()) {
-        Text(text = "Saved Products")
+        Text(
+            text = "Saved Products",
+            fontSize = 26.sp,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+        )
 
         LazyColumn(
             Modifier.fillMaxSize(),
@@ -86,7 +94,7 @@ fun SavedScreen() {
 
 @Composable
 fun SavedItem(
-    product: Product,
+    product: ProductItem,
     onItemClicked: () -> Unit,
     addToBasketClicked: () -> Unit,
     onCloseClicked: () -> Unit,
@@ -112,31 +120,39 @@ fun SavedItem(
             )
         }
 
-        Column(modifier = Modifier.weight(1f).fillMaxHeight(),
-            verticalArrangement = Arrangement.SpaceBetween) {
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxHeight(),
+            verticalArrangement = Arrangement.SpaceBetween
+        ) {
             Text(text = product.title, fontSize = 18.sp, fontWeight = FontWeight(500))
-            Row (horizontalArrangement = Arrangement.spacedBy(5.dp),
-                verticalAlignment = Alignment.CenterVertically){
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(5.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
                 Icon(
                     imageVector = Icons.Filled.Star,
                     contentDescription = "Star",
                     tint = Color.Yellow,
                     modifier = Modifier.size(15.dp),
                 )
-                Text(text = "${product.feedback.rating}")
-                Text(text = "(${product.feedback.count}) pikir")
+//                Text(text = "${product.feedback.rating}")
+//                Text(text = "(${product.feedback.count}) pikir")
             }
             Row {
-                Text(text = "${product.price.priceWithDiscount} T")
+                Text(text = "${product.priceWithDiscount} T")
                 Column {
-                    Text(text = "${product.price.price} T")
-                    Text(text = "-${product.price.discount}%")
+                    Text(text = "${product.price} T")
+                    Text(text = "-${product.discount}%")
                 }
             }
         }
 
-        Column(modifier = Modifier.fillMaxHeight(),
-            verticalArrangement = Arrangement.SpaceBetween) {
+        Column(
+            modifier = Modifier.fillMaxHeight(),
+            verticalArrangement = Arrangement.SpaceBetween
+        ) {
             IconButton(onClick = { /*TODO*/ }, content = {
                 Icon(
                     imageVector = Icons.Outlined.Close,

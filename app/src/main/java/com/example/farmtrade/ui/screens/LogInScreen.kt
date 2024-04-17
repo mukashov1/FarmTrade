@@ -49,35 +49,22 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.farmtrade.R
 import com.example.farmtrade.data.repository.DataStoreRepository
-import com.example.farmtrade.ui.viewmodels.AuthViewModel
+import com.example.farmtrade.ui.viewmodels.LoginViewModel
 
 @Composable
 fun LogInScreen(navController: NavController) {
     println("LOGIN")
     val dataStoreRepository = DataStoreRepository(LocalContext.current)
-    val viewModel = AuthViewModel(dataStoreRepository)
-    val login by remember {
-        viewModel.login
-    }
-    val isLoginValid by remember {
-        viewModel.isLoginValid
-    }
+    val viewModel: LoginViewModel = viewModel()
+    val email by viewModel.email
+
     val isPasswordVisible by remember {
         viewModel.isPasswordVisible
     }
-//    val dataStoreRepository = DataStoreRepository(LocalContext.current)
-//    var name by viewModel.name
-//    var surname by remember { mutableStateOf("") }
-//    var phone by remember { mutableStateOf("") }
-//    val isNameValid = isValidCyrillic(name) || name.isEmpty()
-//    val isSurnameValid = isValidCyrillic(surname) || surname.isEmpty()
-//    val isPhoneValid =
-//        phone.length == 10
-//    val isButtonEnabled =
-//        isNameValid && isSurnameValid && isPhoneValid && name.isNotEmpty() && surname.isNotEmpty() && phone.isNotEmpty()
 
     Box(
         modifier = Modifier
@@ -85,7 +72,7 @@ fun LogInScreen(navController: NavController) {
             .padding(16.dp)
     ) {
         Text(
-            "Вход",
+            "Sign In",
             style = MaterialTheme.typography.headlineSmall,
             fontSize = 20.sp,
             modifier = Modifier
@@ -100,23 +87,22 @@ fun LogInScreen(navController: NavController) {
             verticalArrangement = Arrangement.Center
         ) {
 
-//            NameTextField(name = name, onNameChange = { name = it }, isError = !isNameValid)
             LoginTextField(
-                login = login,
-                onLoginChanged = { viewModel.login.value = it },
-                isError = isLoginValid
+                login = email,
+                onLoginChanged = { viewModel.email.value = it },
+                isError = false
             )
             Spacer(modifier = Modifier.height(8.dp))
             PasswordTextField(
                 password = viewModel.password.value,
                 onPasswordChanged = { viewModel.password.value = it },
-                onTrailedIconClicked = { viewModel.setIsPasswordVisible() },
+                onTrailedIconClicked = { viewModel.isPasswordVisible.value = !viewModel.isPasswordVisible.value },
                 isPasswordVisible = isPasswordVisible,
             )
             Spacer(modifier = Modifier.height(16.dp))
             SignInButton(isEnabled = true, onClick = {
-//                viewModel.registerUser()
-                    navController.navigate(Screen.Profile.route)
+                viewModel.signIn()
+//                    navController.navigate(Screen.Profile.route)
             }
             )
         }
@@ -133,43 +119,6 @@ fun LogInScreen(navController: NavController) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NameTextField(name: String, onNameChange: (String) -> Unit, isError: Boolean) {
-
-    OutlinedTextField(
-        value = name,
-        onValueChange = onNameChange,
-        singleLine = true,
-        isError = isError,
-        placeholder = { Text(text = "Имя") },
-        modifier = Modifier.fillMaxWidth(),
-        colors = TextFieldDefaults.outlinedTextFieldColors(
-            containerColor = colorResource(id = R.color.light_grey),
-            unfocusedBorderColor = colorResource(id = R.color.light_grey),
-            focusedBorderColor = colorResource(id = R.color.grey),
-            placeholderColor = colorResource(id = R.color.grey),
-            cursorColor = MaterialTheme.colorScheme.onSurface,
-            errorBorderColor = colorResource(id = R.color.orange),
-            errorCursorColor = colorResource(id = R.color.orange),
-            errorTrailingIconColor = colorResource(id = R.color.orange)
-        ),
-        trailingIcon = {
-            if (name.isNotEmpty()) {
-                IconButton(onClick = { onNameChange("") }) {
-                    Icon(
-                        imageVector = Icons.Filled.Clear,
-                        contentDescription = "Clear text"
-                    )
-                }
-            }
-        },
-        shape = RoundedCornerShape(10.dp),
-        keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
-        keyboardActions = KeyboardActions.Default
-    )
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
 fun LoginTextField(
     login: String,
     onLoginChanged: (String) -> Unit,
@@ -181,7 +130,7 @@ fun LoginTextField(
         onValueChange = onLoginChanged,
         singleLine = true,
         isError = isError,
-        placeholder = { Text(text = "Email or Phone Number") },
+        placeholder = { Text(text = "Email") },
         modifier = Modifier.fillMaxWidth(),
         colors = TextFieldDefaults.outlinedTextFieldColors(
             containerColor = colorResource(id = R.color.light_grey),
@@ -400,7 +349,7 @@ fun SignInButton(isEnabled: Boolean, onClick: () -> Unit) {
         ),
         enabled = true
     ) {
-        Text("Войти")
+        Text("Sign In")
     }
 }
 

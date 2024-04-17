@@ -1,4 +1,4 @@
-#Wed Apr 17 14:34:39 ALMT 2024
+#Wed Apr 17 19:39:41 ALMT 2024
 base.0=C\:\\Baha\\Android\\StudioProjects\\FarmTrade\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Baha\\Android\\StudioProjects\\FarmTrade\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.10=C\:\\Baha\\Android\\StudioProjects\\FarmTrade\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes3.dex

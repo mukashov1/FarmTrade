@@ -43,6 +43,7 @@ class CatalogViewModel(private val catalogDataStoreRepository: DataStoreReposito
                 // Handle failure
                 println("FAILURE $exception")
             }
+                catalogDataStoreRepository.saveCatalogItems(catalogItems)
         }
     }
     fun sortCatalogItems(option: SortOption) {
