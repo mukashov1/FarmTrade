@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -43,17 +42,23 @@ import com.google.firebase.auth.FirebaseAuth
 fun ProfileScreen(navController: NavController) {
     val auth = FirebaseAuth.getInstance()
 
-    Column(modifier = Modifier.fillMaxSize().padding(15.dp), verticalArrangement = Arrangement.spacedBy(20.dp)) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(15.dp),
+        verticalArrangement = Arrangement.spacedBy(20.dp)
+    ) {
         Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             Icon(
-                    imageVector = Icons.Rounded.AccountCircle,
-                    contentDescription = "Account",
-                    modifier = Modifier.size(100.dp)
+                imageVector = Icons.Rounded.AccountCircle,
+                contentDescription = "Account",
+                modifier = Modifier.size(100.dp)
             )
             Text(
-                    text = "Mukashov Bakdaulet",
-                    textAlign = TextAlign.Center,
-                    fontSize = 24.sp)
+                text = "Mukashov Bakdaulet",
+                textAlign = TextAlign.Center,
+                fontSize = 24.sp
+            )
         }
         Divider()
         ProfileItem(text = "My Orders", icon = Icons.Default.ShoppingCart)
@@ -61,11 +66,12 @@ fun ProfileScreen(navController: NavController) {
         ProfileItem(text = "Account Settings", icon = Icons.Default.Settings)
         ProfileItem(text = "Help", icon = Icons.Default.Warning)
         ProfileItem(text = "About", icon = Icons.Default.Info)
-        Spacer(modifier = Modifier.height(24.dp))
-        LogoutButton(onLogOutClicked = {
-            auth.signOut()
-            navController.navigate("loginScreen")
-        }, modifier = Modifier
+//        Spacer(modifier = Modifier.height(24.dp))
+        LogoutButton(
+            onLogOutClicked = {
+                auth.signOut()
+                navController.navigate("loginScreen")
+            }, modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp, vertical = 8.dp)
@@ -76,11 +82,11 @@ fun ProfileScreen(navController: NavController) {
 @Composable
 fun ProfileItem(text: String, icon: ImageVector) {
     Row(
-            modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable { /* Handle click here */ }
-                    .padding(vertical = 12.dp),
-            verticalAlignment = Alignment.CenterVertically
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { /* Handle click here */ }
+            .padding(vertical = 12.dp),
+        verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(imageVector = icon, contentDescription = text)
         Spacer(modifier = Modifier.width(8.dp))
@@ -93,24 +99,24 @@ fun ProfileItem(text: String, icon: ImageVector) {
 
 @Composable
 fun LogoutButton(
-        onLogOutClicked: () -> Unit,
-        modifier: Modifier
+    onLogOutClicked: () -> Unit,
+    modifier: Modifier
 ) {
     Button(
-            onClick = onLogOutClicked,
-            modifier = modifier,
-            shape = RoundedCornerShape(16.dp),
-            colors = ButtonDefaults.outlinedButtonColors(
-                    backgroundColor = Color.LightGray,
-                    contentColor = Color.Green,
+        onClick = onLogOutClicked,
+        modifier = modifier,
+        shape = RoundedCornerShape(16.dp),
+        colors = ButtonDefaults.outlinedButtonColors(
+            backgroundColor = Color.LightGray,
+            contentColor = Color.Green,
 
-                    )
+            )
     ) {
         Icon(
-                imageVector = Icons.AutoMirrored.Outlined.ExitToApp,
-                contentDescription = "LogOut", 
-                tint = Color.Green, 
-                modifier = Modifier.size(42.dp)
+            imageVector = Icons.AutoMirrored.Outlined.ExitToApp,
+            contentDescription = "LogOut",
+            tint = Color.Green,
+            modifier = Modifier.size(42.dp)
         )
         Spacer(modifier = Modifier.width(15.dp))
         Text(text = "Log Out", color = Color.Green, fontSize = 24.sp)

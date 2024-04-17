@@ -3,14 +3,16 @@ import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavController
 import com.example.farmtrade.data.db.registration.RegistrationFormState
 import com.example.farmtrade.data.db.registration.RegistrationUIEvent
 import com.example.farmtrade.data.db.registration.RegistrationUIState
 import com.example.farmtrade.data.db.registration.Validator
+import com.example.farmtrade.ui.screens.Screen
 import com.google.firebase.auth.FirebaseAuth
 
 
-class RegistrationViewModel() : ViewModel() {
+class RegistrationViewModel(private val navController: NavController) : ViewModel() {
 
     private val TAG = RegistrationViewModel::class.simpleName
 
@@ -146,8 +148,7 @@ class RegistrationViewModel() : ViewModel() {
                 signUpInProgress.value = false
                 if (it.isSuccessful) {
                     _registrationUIState.value = RegistrationUIState.SignIn
-//                    navController.navigate(Screen.Catalog.route)
-//                    PostOfficeAppRouter.navigateTo(Screen.HomeScreen)
+                    navController.navigate(Screen.Catalog.route)
                 }
             }
             .addOnFailureListener {

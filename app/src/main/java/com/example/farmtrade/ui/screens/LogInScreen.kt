@@ -115,8 +115,8 @@ fun LogInScreen(navController: NavController) {
             )
             Spacer(modifier = Modifier.height(16.dp))
             SignInButton(isEnabled = true, onClick = {
-                viewModel.registerUser()
-
+//                viewModel.registerUser()
+                    navController.navigate(Screen.Profile.route)
             }
             )
         }

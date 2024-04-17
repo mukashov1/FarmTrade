@@ -29,7 +29,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.farmtrade.R
@@ -49,8 +48,8 @@ import com.example.farmtrade.ui.viewmodels.RegistrationViewModel
 @Composable
 fun RegistrationScreen(
     navController: NavController,
-    registrationViewModel: RegistrationViewModel = viewModel()
 ) {
+    val registrationViewModel: RegistrationViewModel = RegistrationViewModel(navController)
     val context = LocalContext.current
 //    val scope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
@@ -144,7 +143,6 @@ fun RegistrationScreen(
                     value = stringResource(id = R.string.register),
                     onButtonClicked = {
                         registrationViewModel.onEvent(RegistrationUIEvent.RegisterButtonClicked)
-                        navController.navigate(Screen.Catalog.route)
                     },
                     isEnabled = registrationViewModel.allValidationsPassed.value
 
