@@ -25,11 +25,13 @@ MERGED from [androidx.navigation:navigation-compose:2.7.6] C:\Users\Арнур\.
 MERGED from [com.google.firebase:firebase-auth:22.3.1] C:\Users\Арнур\.gradle\caches\transforms-3\af566b67cf4a9c4b36ff8f6f4b76e653\transformed\firebase-auth-22.3.1\AndroidManifest.xml:17:1-75:12
 MERGED from [com.github.bumptech.glide:recyclerview-integration:5.0.0-rc01] C:\Users\Арнур\.gradle\caches\transforms-3\c5a7459482569aa417bf9f0cf98bbbdd\transformed\recyclerview-integration-5.0.0-rc01\AndroidManifest.xml:2:1-7:12
 MERGED from [com.github.bumptech.glide:glide:5.0.0-rc01] C:\Users\Арнур\.gradle\caches\transforms-3\a6a6d78424f31611f5cd3129049792c7\transformed\glide-5.0.0-rc01\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.fragment:fragment-ktx:1.6.2] C:\Users\Арнур\.gradle\caches\transforms-3\0bafbcb83cd9cee345536f08cc3d49dd\transformed\fragment-ktx-1.6.2\AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.material:material:1.4.0-beta01] C:\Users\Арнур\.gradle\caches\transforms-3\e06f9a607b2f423799323a7208b026d4\transformed\material-1.4.0-beta01\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-firestore:24.11.1] C:\Users\Арнур\.gradle\caches\transforms-3\18212038f980a61536f1b69cb8cca113\transformed\firebase-firestore-24.11.1\AndroidManifest.xml:2:1-26:12
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] C:\Users\Арнур\.gradle\caches\transforms-3\da8ee9197a9c4c5214f07ce8a3d9b2fb\transformed\play-services-auth-api-phone-17.4.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\f9604721ce60b5d3be1ce7838d95faac\transformed\firebase-appcheck-interop-17.0.0\AndroidManifest.xml:15:1-25:12
+MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\Арнур\.gradle\caches\transforms-3\4354f7d94e37ffd7760e6247cb368204\transformed\firebase-database-collection-18.0.1\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\Арнур\.gradle\caches\transforms-3\64807b6a402e092a492ede79ebee180d\transformed\play-services-base-18.0.1\AndroidManifest.xml:16:1-24:12
+MERGED from [androidx.fragment:fragment-ktx:1.6.2] C:\Users\Арнур\.gradle\caches\transforms-3\0bafbcb83cd9cee345536f08cc3d49dd\transformed\fragment-ktx-1.6.2\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.material:material:1.4.0-beta01] C:\Users\Арнур\.gradle\caches\transforms-3\e06f9a607b2f423799323a7208b026d4\transformed\material-1.4.0-beta01\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Арнур\.gradle\caches\transforms-3\9845ba5ae11a0d49611b043773a62173\transformed\recaptcha-18.4.0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.play:integrity:1.2.0] C:\Users\Арнур\.gradle\caches\transforms-3\42f66f193069c2f7516dd9ae2412fa96\transformed\integrity-1.2.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\5107dac3b313222b0fae0d4248edd8a7\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:2:1-10:12
@@ -118,6 +120,8 @@ MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Арнур\.gradle\cache
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\e9c33a6de3f6e71f86b7ab6dff4869d7\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\7b7a08de4c04483af32aa707c6398dea\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\357cf3591cf195cb229795e030ef48e0\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [io.grpc:grpc-android:1.57.2] C:\Users\Арнур\.gradle\caches\transforms-3\e529442b2349faf8a0983c0005c3d65d\transformed\grpc-android-1.57.2\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\fa59376740859ea96b9382d89484e07c\transformed\protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
 	package
 		INJECTED from C:\Baha\Android\StudioProjects\FarmTrade\app\src\main\AndroidManifest.xml
 	android:versionName
@@ -132,6 +136,8 @@ uses-permission#android.permission.INTERNET
 ADDED from C:\Baha\Android\StudioProjects\FarmTrade\app\src\main\AndroidManifest.xml:5:5-67
 MERGED from [com.google.firebase:firebase-auth:22.3.1] C:\Users\Арнур\.gradle\caches\transforms-3\af566b67cf4a9c4b36ff8f6f4b76e653\transformed\firebase-auth-22.3.1\AndroidManifest.xml:25:5-67
 MERGED from [com.google.firebase:firebase-auth:22.3.1] C:\Users\Арнур\.gradle\caches\transforms-3\af566b67cf4a9c4b36ff8f6f4b76e653\transformed\firebase-auth-22.3.1\AndroidManifest.xml:25:5-67
+MERGED from [com.google.firebase:firebase-firestore:24.11.1] C:\Users\Арнур\.gradle\caches\transforms-3\18212038f980a61536f1b69cb8cca113\transformed\firebase-firestore-24.11.1\AndroidManifest.xml:11:5-67
+MERGED from [com.google.firebase:firebase-firestore:24.11.1] C:\Users\Арнур\.gradle\caches\transforms-3\18212038f980a61536f1b69cb8cca113\transformed\firebase-firestore-24.11.1\AndroidManifest.xml:11:5-67
 MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Арнур\.gradle\caches\transforms-3\9845ba5ae11a0d49611b043773a62173\transformed\recaptcha-18.4.0\AndroidManifest.xml:7:5-67
 MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Арнур\.gradle\caches\transforms-3\9845ba5ae11a0d49611b043773a62173\transformed\recaptcha-18.4.0\AndroidManifest.xml:7:5-67
 	android:name
@@ -145,12 +151,14 @@ MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] C:\Users\Арнур\
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] C:\Users\Арнур\.gradle\caches\transforms-3\ee62cad0817132925ec5eaab13535e67\transformed\lifecycle-extensions-2.2.0\AndroidManifest.xml:24:5-25:19
 MERGED from [com.google.firebase:firebase-auth:22.3.1] C:\Users\Арнур\.gradle\caches\transforms-3\af566b67cf4a9c4b36ff8f6f4b76e653\transformed\firebase-auth-22.3.1\AndroidManifest.xml:28:5-73:19
 MERGED from [com.google.firebase:firebase-auth:22.3.1] C:\Users\Арнур\.gradle\caches\transforms-3\af566b67cf4a9c4b36ff8f6f4b76e653\transformed\firebase-auth-22.3.1\AndroidManifest.xml:28:5-73:19
-MERGED from [com.google.android.material:material:1.4.0-beta01] C:\Users\Арнур\.gradle\caches\transforms-3\e06f9a607b2f423799323a7208b026d4\transformed\material-1.4.0-beta01\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.material:material:1.4.0-beta01] C:\Users\Арнур\.gradle\caches\transforms-3\e06f9a607b2f423799323a7208b026d4\transformed\material-1.4.0-beta01\AndroidManifest.xml:22:5-20
+MERGED from [com.google.firebase:firebase-firestore:24.11.1] C:\Users\Арнур\.gradle\caches\transforms-3\18212038f980a61536f1b69cb8cca113\transformed\firebase-firestore-24.11.1\AndroidManifest.xml:13:5-24:19
+MERGED from [com.google.firebase:firebase-firestore:24.11.1] C:\Users\Арнур\.gradle\caches\transforms-3\18212038f980a61536f1b69cb8cca113\transformed\firebase-firestore-24.11.1\AndroidManifest.xml:13:5-24:19
 MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\f9604721ce60b5d3be1ce7838d95faac\transformed\firebase-appcheck-interop-17.0.0\AndroidManifest.xml:23:5-20
 MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\f9604721ce60b5d3be1ce7838d95faac\transformed\firebase-appcheck-interop-17.0.0\AndroidManifest.xml:23:5-20
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\Арнур\.gradle\caches\transforms-3\64807b6a402e092a492ede79ebee180d\transformed\play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\Арнур\.gradle\caches\transforms-3\64807b6a402e092a492ede79ebee180d\transformed\play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.material:material:1.4.0-beta01] C:\Users\Арнур\.gradle\caches\transforms-3\e06f9a607b2f423799323a7208b026d4\transformed\material-1.4.0-beta01\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.4.0-beta01] C:\Users\Арнур\.gradle\caches\transforms-3\e06f9a607b2f423799323a7208b026d4\transformed\material-1.4.0-beta01\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.play:integrity:1.2.0] C:\Users\Арнур\.gradle\caches\transforms-3\42f66f193069c2f7516dd9ae2412fa96\transformed\integrity-1.2.0\AndroidManifest.xml:5:5-6:19
 MERGED from [com.google.android.play:integrity:1.2.0] C:\Users\Арнур\.gradle\caches\transforms-3\42f66f193069c2f7516dd9ae2412fa96\transformed\integrity-1.2.0\AndroidManifest.xml:5:5-6:19
 MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\5107dac3b313222b0fae0d4248edd8a7\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:7:5-8:19
@@ -275,16 +283,20 @@ MERGED from [com.github.bumptech.glide:recyclerview-integration:5.0.0-rc01] C:\U
 MERGED from [com.github.bumptech.glide:recyclerview-integration:5.0.0-rc01] C:\Users\Арнур\.gradle\caches\transforms-3\c5a7459482569aa417bf9f0cf98bbbdd\transformed\recyclerview-integration-5.0.0-rc01\AndroidManifest.xml:5:5-44
 MERGED from [com.github.bumptech.glide:glide:5.0.0-rc01] C:\Users\Арнур\.gradle\caches\transforms-3\a6a6d78424f31611f5cd3129049792c7\transformed\glide-5.0.0-rc01\AndroidManifest.xml:5:5-44
 MERGED from [com.github.bumptech.glide:glide:5.0.0-rc01] C:\Users\Арнур\.gradle\caches\transforms-3\a6a6d78424f31611f5cd3129049792c7\transformed\glide-5.0.0-rc01\AndroidManifest.xml:5:5-44
-MERGED from [androidx.fragment:fragment-ktx:1.6.2] C:\Users\Арнур\.gradle\caches\transforms-3\0bafbcb83cd9cee345536f08cc3d49dd\transformed\fragment-ktx-1.6.2\AndroidManifest.xml:20:5-44
-MERGED from [androidx.fragment:fragment-ktx:1.6.2] C:\Users\Арнур\.gradle\caches\transforms-3\0bafbcb83cd9cee345536f08cc3d49dd\transformed\fragment-ktx-1.6.2\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.material:material:1.4.0-beta01] C:\Users\Арнур\.gradle\caches\transforms-3\e06f9a607b2f423799323a7208b026d4\transformed\material-1.4.0-beta01\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.material:material:1.4.0-beta01] C:\Users\Арнур\.gradle\caches\transforms-3\e06f9a607b2f423799323a7208b026d4\transformed\material-1.4.0-beta01\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-firestore:24.11.1] C:\Users\Арнур\.gradle\caches\transforms-3\18212038f980a61536f1b69cb8cca113\transformed\firebase-firestore-24.11.1\AndroidManifest.xml:6:5-44
+MERGED from [com.google.firebase:firebase-firestore:24.11.1] C:\Users\Арнур\.gradle\caches\transforms-3\18212038f980a61536f1b69cb8cca113\transformed\firebase-firestore-24.11.1\AndroidManifest.xml:6:5-44
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] C:\Users\Арнур\.gradle\caches\transforms-3\da8ee9197a9c4c5214f07ce8a3d9b2fb\transformed\play-services-auth-api-phone-17.4.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] C:\Users\Арнур\.gradle\caches\transforms-3\da8ee9197a9c4c5214f07ce8a3d9b2fb\transformed\play-services-auth-api-phone-17.4.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\f9604721ce60b5d3be1ce7838d95faac\transformed\firebase-appcheck-interop-17.0.0\AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\f9604721ce60b5d3be1ce7838d95faac\transformed\firebase-appcheck-interop-17.0.0\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\Арнур\.gradle\caches\transforms-3\4354f7d94e37ffd7760e6247cb368204\transformed\firebase-database-collection-18.0.1\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\Арнур\.gradle\caches\transforms-3\4354f7d94e37ffd7760e6247cb368204\transformed\firebase-database-collection-18.0.1\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\Арнур\.gradle\caches\transforms-3\64807b6a402e092a492ede79ebee180d\transformed\play-services-base-18.0.1\AndroidManifest.xml:18:5-43
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\Арнур\.gradle\caches\transforms-3\64807b6a402e092a492ede79ebee180d\transformed\play-services-base-18.0.1\AndroidManifest.xml:18:5-43
+MERGED from [androidx.fragment:fragment-ktx:1.6.2] C:\Users\Арнур\.gradle\caches\transforms-3\0bafbcb83cd9cee345536f08cc3d49dd\transformed\fragment-ktx-1.6.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.6.2] C:\Users\Арнур\.gradle\caches\transforms-3\0bafbcb83cd9cee345536f08cc3d49dd\transformed\fragment-ktx-1.6.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.4.0-beta01] C:\Users\Арнур\.gradle\caches\transforms-3\e06f9a607b2f423799323a7208b026d4\transformed\material-1.4.0-beta01\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.4.0-beta01] C:\Users\Арнур\.gradle\caches\transforms-3\e06f9a607b2f423799323a7208b026d4\transformed\material-1.4.0-beta01\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Арнур\.gradle\caches\transforms-3\9845ba5ae11a0d49611b043773a62173\transformed\recaptcha-18.4.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Арнур\.gradle\caches\transforms-3\9845ba5ae11a0d49611b043773a62173\transformed\recaptcha-18.4.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.play:integrity:1.2.0] C:\Users\Арнур\.gradle\caches\transforms-3\42f66f193069c2f7516dd9ae2412fa96\transformed\integrity-1.2.0\AndroidManifest.xml:4:5-44
@@ -461,6 +473,10 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Арнур\.grad
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\7b7a08de4c04483af32aa707c6398dea\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\357cf3591cf195cb229795e030ef48e0\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\357cf3591cf195cb229795e030ef48e0\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [io.grpc:grpc-android:1.57.2] C:\Users\Арнур\.gradle\caches\transforms-3\e529442b2349faf8a0983c0005c3d65d\transformed\grpc-android-1.57.2\AndroidManifest.xml:5:5-44
+MERGED from [io.grpc:grpc-android:1.57.2] C:\Users\Арнур\.gradle\caches\transforms-3\e529442b2349faf8a0983c0005c3d65d\transformed\grpc-android-1.57.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\fa59376740859ea96b9382d89484e07c\transformed\protolite-well-known-types-18.0.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\Арнур\.gradle\caches\transforms-3\fa59376740859ea96b9382d89484e07c\transformed\protolite-well-known-types-18.0.0\AndroidManifest.xml:7:5-9:41
 	tools:overrideLibrary
 		ADDED from [com.google.firebase:firebase-auth:22.3.1] C:\Users\Арнур\.gradle\caches\transforms-3\af566b67cf4a9c4b36ff8f6f4b76e653\transformed\firebase-auth-22.3.1\AndroidManifest.xml:23:9-61
 	android:targetSdkVersion
@@ -479,8 +495,12 @@ ADDED from [androidx.room:room-runtime:2.6.1] C:\Users\Арнур\.gradle\caches
 		ADDED from [androidx.room:room-runtime:2.6.1] C:\Users\Арнур\.gradle\caches\transforms-3\ace584d7d8cddb31c06ed6a3fe82fd48\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.firebase:firebase-auth:22.3.1] C:\Users\Арнур\.gradle\caches\transforms-3\af566b67cf4a9c4b36ff8f6f4b76e653\transformed\firebase-auth-22.3.1\AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-firestore:24.11.1] C:\Users\Арнур\.gradle\caches\transforms-3\18212038f980a61536f1b69cb8cca113\transformed\firebase-firestore-24.11.1\AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-firestore:24.11.1] C:\Users\Арнур\.gradle\caches\transforms-3\18212038f980a61536f1b69cb8cca113\transformed\firebase-firestore-24.11.1\AndroidManifest.xml:10:5-79
 MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Арнур\.gradle\caches\transforms-3\9845ba5ae11a0d49611b043773a62173\transformed\recaptcha-18.4.0\AndroidManifest.xml:8:5-79
 MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Арнур\.gradle\caches\transforms-3\9845ba5ae11a0d49611b043773a62173\transformed\recaptcha-18.4.0\AndroidManifest.xml:8:5-79
+MERGED from [io.grpc:grpc-android:1.57.2] C:\Users\Арнур\.gradle\caches\transforms-3\e529442b2349faf8a0983c0005c3d65d\transformed\grpc-android-1.57.2\AndroidManifest.xml:7:5-79
+MERGED from [io.grpc:grpc-android:1.57.2] C:\Users\Арнур\.gradle\caches\transforms-3\e529442b2349faf8a0983c0005c3d65d\transformed\grpc-android-1.57.2\AndroidManifest.xml:7:5-79
 	android:name
 		ADDED from [com.google.firebase:firebase-auth:22.3.1] C:\Users\Арнур\.gradle\caches\transforms-3\af566b67cf4a9c4b36ff8f6f4b76e653\transformed\firebase-auth-22.3.1\AndroidManifest.xml:26:22-76
 activity#com.google.firebase.auth.internal.GenericIdpActivity
@@ -533,6 +553,8 @@ intent-filter#action:name:android.intent.action.VIEW+category:name:android.inten
 ADDED from [com.google.firebase:firebase-auth:22.3.1] C:\Users\Арнур\.gradle\caches\transforms-3\af566b67cf4a9c4b36ff8f6f4b76e653\transformed\firebase-auth-22.3.1\AndroidManifest.xml:53:13-63:29
 service#com.google.firebase.components.ComponentDiscoveryService
 ADDED from [com.google.firebase:firebase-auth:22.3.1] C:\Users\Арнур\.gradle\caches\transforms-3\af566b67cf4a9c4b36ff8f6f4b76e653\transformed\firebase-auth-22.3.1\AndroidManifest.xml:66:9-72:19
+MERGED from [com.google.firebase:firebase-firestore:24.11.1] C:\Users\Арнур\.gradle\caches\transforms-3\18212038f980a61536f1b69cb8cca113\transformed\firebase-firestore-24.11.1\AndroidManifest.xml:14:9-23:19
+MERGED from [com.google.firebase:firebase-firestore:24.11.1] C:\Users\Арнур\.gradle\caches\transforms-3\18212038f980a61536f1b69cb8cca113\transformed\firebase-firestore-24.11.1\AndroidManifest.xml:14:9-23:19
 MERGED from [com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\Арнур\.gradle\caches\transforms-3\3adc1d60260f7adabae995968ad3160a\transformed\firebase-common-ktx-20.4.3\AndroidManifest.xml:9:9-15:19
 MERGED from [com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\Арнур\.gradle\caches\transforms-3\3adc1d60260f7adabae995968ad3160a\transformed\firebase-common-ktx-20.4.3\AndroidManifest.xml:9:9-15:19
 MERGED from [com.google.firebase:firebase-common:20.4.3] C:\Users\Арнур\.gradle\caches\transforms-3\6b802db4139bdf3a32714251e0445a68\transformed\firebase-common-20.4.3\AndroidManifest.xml:30:9-38:19
@@ -551,6 +573,18 @@ ADDED from [com.google.firebase:firebase-auth:22.3.1] C:\Users\Арнур\.gradl
 		ADDED from [com.google.firebase:firebase-auth:22.3.1] C:\Users\Арнур\.gradle\caches\transforms-3\af566b67cf4a9c4b36ff8f6f4b76e653\transformed\firebase-auth-22.3.1\AndroidManifest.xml:71:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-auth:22.3.1] C:\Users\Арнур\.gradle\caches\transforms-3\af566b67cf4a9c4b36ff8f6f4b76e653\transformed\firebase-auth-22.3.1\AndroidManifest.xml:70:17-109
+meta-data#com.google.firebase.components:com.google.firebase.firestore.FirebaseFirestoreKtxRegistrar
+ADDED from [com.google.firebase:firebase-firestore:24.11.1] C:\Users\Арнур\.gradle\caches\transforms-3\18212038f980a61536f1b69cb8cca113\transformed\firebase-firestore-24.11.1\AndroidManifest.xml:17:13-19:85
+	android:value
+		ADDED from [com.google.firebase:firebase-firestore:24.11.1] C:\Users\Арнур\.gradle\caches\transforms-3\18212038f980a61536f1b69cb8cca113\transformed\firebase-firestore-24.11.1\AndroidManifest.xml:19:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-firestore:24.11.1] C:\Users\Арнур\.gradle\caches\transforms-3\18212038f980a61536f1b69cb8cca113\transformed\firebase-firestore-24.11.1\AndroidManifest.xml:18:17-122
+meta-data#com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar
+ADDED from [com.google.firebase:firebase-firestore:24.11.1] C:\Users\Арнур\.gradle\caches\transforms-3\18212038f980a61536f1b69cb8cca113\transformed\firebase-firestore-24.11.1\AndroidManifest.xml:20:13-22:85
+	android:value
+		ADDED from [com.google.firebase:firebase-firestore:24.11.1] C:\Users\Арнур\.gradle\caches\transforms-3\18212038f980a61536f1b69cb8cca113\transformed\firebase-firestore-24.11.1\AndroidManifest.xml:22:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-firestore:24.11.1] C:\Users\Арнур\.gradle\caches\transforms-3\18212038f980a61536f1b69cb8cca113\transformed\firebase-firestore-24.11.1\AndroidManifest.xml:21:17-111
 activity#com.google.android.gms.common.api.GoogleApiActivity
 ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\Арнур\.gradle\caches\transforms-3\64807b6a402e092a492ede79ebee180d\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
 	android:exported

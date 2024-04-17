@@ -1,10 +1,10 @@
 package com.example.farmtrade.data.api
 
-import okhttp3.ResponseBody
-import retrofit2.http.GET
-import retrofit2.http.Query
+import com.example.farmtrade.data.db.ChatResponse
+import retrofit2.http.Body
+import retrofit2.http.POST
 
 interface ChatWithGeminiService {
-    @GET("/api/v1/chat")
-    suspend fun chatWithGemini(@Query("message") message: String): ResponseBody
+    @POST("/api/v1/chat")
+    suspend fun chatWithGemini(@Body message: String): ChatResponse
 }

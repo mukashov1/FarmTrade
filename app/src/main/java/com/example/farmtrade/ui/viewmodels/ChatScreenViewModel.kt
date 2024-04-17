@@ -4,11 +4,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.farmtrade.data.api.ChatWithGeminiService
 import com.example.farmtrade.data.api.RetrofitInstance
+import com.example.farmtrade.data.db.ChatResponse
 import com.example.farmtrade.data.db.ChatUiModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import okhttp3.ResponseBody
 
 
 class ChatScreenViewModel(
@@ -38,16 +38,16 @@ class ChatScreenViewModel(
         }
     }
 
-    private fun handleServerResponse(response: ResponseBody) {
+    private fun handleServerResponse(response: ChatResponse) {
         // Using safe calls and Elvis operator to provide a fallback mechanism
-        val serverMessageText = response.string()
+        val serverMessageText = response.candidates.firstOrNull()?.content?.parts?.firstOrNull()?.text ?: "Server Error"
         println("RESPONSE")
         println(serverMessageText)
 
 
         viewModelScope.launch {
             // Emit the server message regardless of its content
-//            _conversation.emit(_conversation.value + serverMessage)
+            _conversation.emit(_conversation.value + ChatUiModel.Message(serverMessageText, ChatUiModel.Author.bot))
         }
     }
 }

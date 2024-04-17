@@ -44,7 +44,7 @@ import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.google.accompanist.pager.rememberPagerState
 
 @Composable
-fun ProductScreen(navController: NavController, productId: String) {
+fun ProductScreen(navController: NavController, productId: Int) {
     val context = LocalContext.current
     val repository = remember { DataStoreRepository(context) }
     val productViewModel: ProductScreenViewModel = viewModel(
@@ -99,19 +99,19 @@ fun ProductScreen(navController: NavController, productId: String) {
                         .align(Alignment.CenterHorizontally)
                 )
                 Text(
-                    text = "${product!!.price.price} ${product!!.price.unit}",
+                    text = "${product!!.price} ${product!!.priceUnit}",
                     color = colorResource(id = R.color.grey),
                     fontSize = 9.sp,
                     style = TextStyle(textDecoration = TextDecoration.LineThrough)
                 )
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        text = product!!.price.priceWithDiscount + " " + product!!.price.unit,
+                        text = product!!.priceWithDiscount.toString() + " " + product!!.priceUnit,
                         fontSize = 14.sp,
                         fontWeight = FontWeight(500),
                     )
                     Text(
-                        text = "${product!!.price.discount} %",
+                        text = "${product!!.discount} %",
                         color = Color.White,
                         fontSize = 9.sp,
                         modifier = Modifier
@@ -129,32 +129,10 @@ fun ProductScreen(navController: NavController, productId: String) {
                     fontWeight = FontWeight(500)
                 )
                 Text(
-                    text = product!!.subtitle,
+                    text = product!!.category,
                     fontSize = 10.sp,
 //                        modifier = Modifier.height(40.dp)
                 )
-
-                Text(text = product!!.info[2].value)
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(5.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.start_small),
-                        contentDescription = "Star",
-                        tint = colorResource(
-                            id = R.color.orange
-                        )
-                    )
-                    Text(
-                        text = product!!.feedback.rating.toString(),
-                        color = colorResource(id = R.color.orange)
-                    )
-                    Text(
-                        text = "(${product!!.feedback.count})",
-                        color = colorResource(id = R.color.grey)
-                    )
-                }
 
                 AddToBasketButton(onAddToBasketClick = { println("BASKET") })
 

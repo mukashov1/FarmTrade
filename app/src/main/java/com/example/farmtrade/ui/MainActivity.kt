@@ -41,6 +41,7 @@ import com.example.farmtrade.ui.screens.SavedScreen
 import com.example.farmtrade.ui.screens.Screen
 import com.example.farmtrade.ui.screens.bottomNavigationItems
 import com.google.firebase.Firebase
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.initialize
 
 class MainActivity : ComponentActivity() {
@@ -52,20 +53,20 @@ class MainActivity : ComponentActivity() {
         val dataStoreRepository = DataStoreRepository(applicationContext)
         Firebase.initialize(this)
 
+        val db = FirebaseFirestore.getInstance()
         setContent {
             val navController = rememberNavController()
             val viewModel = MainActivityViewModel(navController)
             viewModel.getUserData()
             viewModel.checkForActiveSession()
-            // Create a MutableState to hold the login state
             val isLoggedIn = viewModel.isUserLoggedIn.value
 //            ChatScreen()
 
-            val startDestination: NavDestination =
-                if (isLoggedIn == true) NavDestination(navigatorName = Screen.Catalog.route)
-                else NavDestination(
-                    navigatorName = "registrationScreen"
-                )
+            val startDestination: NavDestination = NavDestination(navigatorName = Screen.Catalog.route)
+//                if (isLoggedIn == true) NavDestination(navigatorName = Screen.Catalog.route)
+//                else NavDestination(
+////                    navigatorName = "registrationScreen"
+//                )
 
             AppBottomNavigation(navController = navController, startDestination = startDestination)
         }
@@ -143,9 +144,9 @@ fun AppBottomNavigation(navController: NavController, startDestination: NavDesti
             composable(Screen.Saved.route) { SavedScreen() }
             composable(Screen.Basket.route) { BasketScreen() }
             composable(Screen.Offers.route) { ChatScreen() }
-            composable(Screen.Profile.route) { ProfileScreen() }
+            composable(Screen.Profile.route) { ProfileScreen(navController) }
             composable("productScreen/{productId}") { backStackEntry ->
-                val productId = backStackEntry.arguments?.getString("productId")
+                val productId = backStackEntry.arguments?.getInt("productId")
                 productId?.let {
                     ProductScreen(navController, productId = it)
                 }

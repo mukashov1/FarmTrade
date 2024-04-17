@@ -1,5 +1,6 @@
 package com.example.farmtrade.ui.screens
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
@@ -64,7 +65,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.farmtrade.R
-import com.example.farmtrade.data.db.Product
+import com.example.farmtrade.data.db.ProductItem
 import com.example.farmtrade.data.db.SortOption
 import com.example.farmtrade.data.db.Tag
 import com.example.farmtrade.data.repository.DataStoreRepository
@@ -75,6 +76,7 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.google.accompanist.pager.rememberPagerState
 
+@SuppressLint("StateFlowValueCalledInComposition")
 @Composable
 fun CatalogScreen(navController: NavController) {
     val context = LocalContext.current
@@ -82,7 +84,7 @@ fun CatalogScreen(navController: NavController) {
     val factory = CatalogViewModelFactory(repository)
     val viewModel: CatalogViewModel = viewModel(factory = factory)
 
-    val catalogItems by repository.catalogItems.collectAsState(initial = emptyList())
+    val catalogItems by viewModel.catalogItems.collectAsState()
     var showSortMenu by remember { mutableStateOf(false) }
     var sortOption = viewModel.sortOption.value
     val selectedTag = viewModel.currentTag.value
@@ -106,16 +108,17 @@ fun CatalogScreen(navController: NavController) {
                 showSortMenu = !showSortMenu
                 if (selectedOption != null) {
                     sortOption = selectedOption
-                    viewModel.sortCatalogItems(sortOption)
+//                    viewModel.sortCatalogItems(sortOption)
                 }
             }
             FilterButton()
         }
 
         TagsCarousel(tags = Tag.entries, selectedTag = selectedTag, onTagSelected = {
-            viewModel.filterCatalogItemsByTag(it)
+//            viewModel.filterCatalogItemsByTag(it)
             println(selectedTag)
         })
+        println("CATALOGITEMS $catalogItems")
         ProductGridView(
             products = catalogItems,
             onProductClicked = { product ->
@@ -246,7 +249,7 @@ fun TagsCarousel(
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun ProductGridView(products: List<Product>, onProductClicked: (Product) -> Unit) {
+fun ProductGridView(products: List<ProductItem>, onProductClicked: (ProductItem) -> Unit) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
         contentPadding = PaddingValues(4.dp),
@@ -259,8 +262,8 @@ fun ProductGridView(products: List<Product>, onProductClicked: (Product) -> Unit
 
 @ExperimentalPagerApi
 @Composable
-fun ProductCard(product: Product, onProductClicked: (Product) -> Unit) {
-    val images = mapProductToImages(product.id)
+fun ProductCard(product: ProductItem, onProductClicked: (ProductItem) -> Unit) {
+    val images = mapProductToImages("cbf0c984-7c6c-4ada-82da-e29dc698bb50")
     val pagerState = rememberPagerState()
 
     Box(
@@ -304,19 +307,19 @@ fun ProductCard(product: Product, onProductClicked: (Product) -> Unit) {
                         .align(Alignment.CenterHorizontally)
                 )
                 androidx.compose.material.Text(
-                    text = "${product.price.price} ${product.price.unit}",
+                    text = "${product.price} ${product.priceUnit}",
                     color = colorResource(id = R.color.grey),
                     fontSize = 9.sp,
                     style = TextStyle(textDecoration = TextDecoration.LineThrough)
                 )
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     androidx.compose.material.Text(
-                        text = product.price.priceWithDiscount + " " + product.price.unit,
+                        text = "${product.priceWithDiscount} ${product.priceUnit}",
                         fontSize = 14.sp,
                         fontWeight = FontWeight(500),
                     )
                     androidx.compose.material.Text(
-                        text = "${product.price.discount} %",
+                        text = "${product.discount} %",
                         color = Color.White,
                         fontSize = 9.sp,
                         modifier = Modifier
@@ -334,32 +337,32 @@ fun ProductCard(product: Product, onProductClicked: (Product) -> Unit) {
                     fontWeight = FontWeight(500)
                 )
                 androidx.compose.material.Text(
-                    text = product.subtitle,
+                    text = product.category,
                     fontSize = 10.sp,
 //                        modifier = Modifier.height(40.dp)
                 )
 
-                Text(text = product.info[2].value)
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(5.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    androidx.compose.material.Icon(
-                        painter = painterResource(id = R.drawable.start_small),
-                        contentDescription = "Star",
-                        tint = colorResource(
-                            id = R.color.orange
-                        )
-                    )
-                    androidx.compose.material.Text(
-                        text = product.feedback.rating.toString(),
-                        color = colorResource(id = R.color.orange)
-                    )
-                    androidx.compose.material.Text(
-                        text = "(${product.feedback.count})",
-                        color = colorResource(id = R.color.grey)
-                    )
-                }
+//                Text(text = product.info[2].value)
+//                Row(
+//                    horizontalArrangement = Arrangement.spacedBy(5.dp),
+//                    verticalAlignment = Alignment.CenterVertically
+//                ) {
+//                    androidx.compose.material.Icon(
+//                        painter = painterResource(id = R.drawable.start_small),
+//                        contentDescription = "Star",
+//                        tint = colorResource(
+//                            id = R.color.orange
+//                        )
+//                    )
+//                    androidx.compose.material.Text(
+//                        text = product.feedback.rating.toString(),
+//                        color = colorResource(id = R.color.orange)
+//                    )
+//                    androidx.compose.material.Text(
+//                        text = "(${product.feedback.count})",
+//                        color = colorResource(id = R.color.grey)
+//                    )
+//                }
 
                 AddToBasketButton(onAddToBasketClick = { println("BASKET") })
 
