@@ -44,16 +44,18 @@ import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.google.accompanist.pager.rememberPagerState
 
 @Composable
-fun ProductScreen(navController: NavController, productId: Int) {
+fun ProductScreen(navController: NavController, productId: String) {
     val context = LocalContext.current
     val repository = remember { DataStoreRepository(context) }
     val productViewModel: ProductScreenViewModel = viewModel(
         factory = ProductScreenViewModelFactory(repository)
     )
 
-    LaunchedEffect(productId) {
-        productViewModel.loadProduct(productId)
+    println("PRODUCT ID IN SCREEN $productId")
+    LaunchedEffect(key1 = productId) {
+        productViewModel.loadProduct(productId.toInt())
     }
+
 
     val isLoading by productViewModel.isLoading.collectAsState()
     val product by productViewModel.product.collectAsState()
@@ -161,6 +163,7 @@ fun ProductScreen(navController: NavController, productId: Int) {
             // Add more UI elements to display product details as needed
         }
     } else {
+        println("PRODUCT NOT FOUND PRODUCT $product")
         Text(text = "Product not found")
     }
 }

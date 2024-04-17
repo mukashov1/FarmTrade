@@ -146,7 +146,7 @@ fun AppBottomNavigation(navController: NavController, startDestination: NavDesti
             composable(Screen.Offers.route) { ChatScreen() }
             composable(Screen.Profile.route) { ProfileScreen(navController) }
             composable("productScreen/{productId}") { backStackEntry ->
-                val productId = backStackEntry.arguments?.getInt("productId")
+                val productId = backStackEntry.arguments?.getString("productId")
                 productId?.let {
                     ProductScreen(navController, productId = it)
                 }

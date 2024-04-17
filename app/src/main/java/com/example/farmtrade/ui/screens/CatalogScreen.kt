@@ -31,10 +31,10 @@ import androidx.compose.material.DropdownMenu
 import androidx.compose.material.DropdownMenuItem
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -108,7 +108,7 @@ fun CatalogScreen(navController: NavController) {
                 showSortMenu = !showSortMenu
                 if (selectedOption != null) {
                     sortOption = selectedOption
-//                    viewModel.sortCatalogItems(sortOption)
+                    viewModel.sortCatalogItems(sortOption)
                 }
             }
             FilterButton()
@@ -122,7 +122,7 @@ fun CatalogScreen(navController: NavController) {
         ProductGridView(
             products = catalogItems,
             onProductClicked = { product ->
-                println("PRODUCT")
+                println("PRODUCTID IN CATALOG SCREEN ${product.id}")
                 navController.navigate("productScreen/${product.id}")
             }
         )
@@ -306,19 +306,28 @@ fun ProductCard(product: ProductItem, onProductClicked: (ProductItem) -> Unit) {
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally)
                 )
-                androidx.compose.material.Text(
+                Text(
+                    text = product.title,
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight(500)
+                )
+                Text(
+                    text = product.category,
+                    fontSize = 10.sp,
+                )
+                Text(
                     text = "${product.price} ${product.priceUnit}",
                     color = colorResource(id = R.color.grey),
                     fontSize = 9.sp,
                     style = TextStyle(textDecoration = TextDecoration.LineThrough)
                 )
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    androidx.compose.material.Text(
+                    Text(
                         text = "${product.priceWithDiscount} ${product.priceUnit}",
                         fontSize = 14.sp,
                         fontWeight = FontWeight(500),
                     )
-                    androidx.compose.material.Text(
+                    Text(
                         text = "${product.discount} %",
                         color = Color.White,
                         fontSize = 9.sp,
@@ -331,39 +340,6 @@ fun ProductCard(product: ProductItem, onProductClicked: (ProductItem) -> Unit) {
                             .padding(5.dp)
                     )
                 }
-                androidx.compose.material.Text(
-                    text = product.title,
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight(500)
-                )
-                androidx.compose.material.Text(
-                    text = product.category,
-                    fontSize = 10.sp,
-//                        modifier = Modifier.height(40.dp)
-                )
-
-//                Text(text = product.info[2].value)
-//                Row(
-//                    horizontalArrangement = Arrangement.spacedBy(5.dp),
-//                    verticalAlignment = Alignment.CenterVertically
-//                ) {
-//                    androidx.compose.material.Icon(
-//                        painter = painterResource(id = R.drawable.start_small),
-//                        contentDescription = "Star",
-//                        tint = colorResource(
-//                            id = R.color.orange
-//                        )
-//                    )
-//                    androidx.compose.material.Text(
-//                        text = product.feedback.rating.toString(),
-//                        color = colorResource(id = R.color.orange)
-//                    )
-//                    androidx.compose.material.Text(
-//                        text = "(${product.feedback.count})",
-//                        color = colorResource(id = R.color.grey)
-//                    )
-//                }
-
                 AddToBasketButton(onAddToBasketClick = { println("BASKET") })
 
             }
