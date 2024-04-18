@@ -76,7 +76,7 @@ fun ProfileScreen(navController: NavController) {
         ProfileItem(
             text = "Help",
             icon = Icons.Default.Warning,
-            onProfileItemClicked = {})
+            onProfileItemClicked = { navController.navigate(Screen.Offers.route)})
         ProfileItem(
             text = "About",
             icon = Icons.Default.Info,
