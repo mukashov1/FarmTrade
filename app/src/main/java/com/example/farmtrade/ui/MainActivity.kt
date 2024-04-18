@@ -30,6 +30,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.farmtrade.R
 import com.example.farmtrade.data.repository.DataStoreRepository
+import com.example.farmtrade.ui.screens.AboutScreen
 import com.example.farmtrade.ui.screens.BasketScreen
 import com.example.farmtrade.ui.screens.CatalogScreen
 import com.example.farmtrade.ui.screens.ChatScreen
@@ -140,6 +141,7 @@ fun AppBottomNavigation(navController: NavController, startDestination: NavDesti
         ) {
             composable("loginScreen") { LogInScreen(navController) }
             composable("registrationScreen") { RegistrationScreen(navController) }
+            composable("aboutScreen") { AboutScreen() }
             composable(Screen.Catalog.route) { CatalogScreen(navController) }
             composable(Screen.Saved.route) { SavedScreen() }
             composable(Screen.Basket.route) { BasketScreen() }

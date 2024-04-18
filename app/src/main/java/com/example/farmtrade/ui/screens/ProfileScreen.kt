@@ -61,12 +61,26 @@ fun ProfileScreen(navController: NavController) {
             )
         }
         Divider()
-        ProfileItem(text = "My Orders", icon = Icons.Default.ShoppingCart)
-        ProfileItem(text = "Delivery Address", icon = Icons.Default.LocationOn)
-        ProfileItem(text = "Account Settings", icon = Icons.Default.Settings)
-        ProfileItem(text = "Help", icon = Icons.Default.Warning)
-        ProfileItem(text = "About", icon = Icons.Default.Info)
-//        Spacer(modifier = Modifier.height(24.dp))
+        ProfileItem(
+            text = "My Orders",
+            icon = Icons.Default.ShoppingCart,
+            onProfileItemClicked = {})
+        ProfileItem(
+            text = "Delivery Address",
+            icon = Icons.Default.LocationOn,
+            onProfileItemClicked = {})
+        ProfileItem(
+            text = "Account Settings",
+            icon = Icons.Default.Settings,
+            onProfileItemClicked = {})
+        ProfileItem(
+            text = "Help",
+            icon = Icons.Default.Warning,
+            onProfileItemClicked = {})
+        ProfileItem(
+            text = "About",
+            icon = Icons.Default.Info,
+            onProfileItemClicked = { navController.navigate("aboutScreen")})
         LogoutButton(
             onLogOutClicked = {
                 auth.signOut()
@@ -80,12 +94,13 @@ fun ProfileScreen(navController: NavController) {
 }
 
 @Composable
-fun ProfileItem(text: String, icon: ImageVector) {
+fun ProfileItem(text: String, icon: ImageVector, onProfileItemClicked: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .clickable { /* Handle click here */ }
-            .padding(vertical = 12.dp),
+            .padding(vertical = 12.dp)
+            .clickable { onProfileItemClicked() },
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(imageVector = icon, contentDescription = text)
