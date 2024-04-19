@@ -38,6 +38,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\350053864b17e11c3907ecab5e055def\\transformed\\ui-release\\res\\values-gl\\values-gl.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,201,284,393,494,583,662,755,847,935,1008,1078,1163,1253,1330,1412,1484",
+                        "endColumns": "95,82,108,100,88,78,92,91,87,72,69,84,89,76,81,71,121",
+                        "endOffsets": "196,279,388,489,578,657,750,842,930,1003,1073,1158,1248,1325,1407,1479,1601"
+                    },
+                    "to": {
+                        "startLines": "44,45,66,67,69,77,78,127,128,129,130,132,133,135,137,138,139",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "4161,4257,6806,6915,7098,7838,7917,12030,12122,12210,12283,12438,12523,12696,12874,12956,13028",
+                        "endColumns": "95,82,108,100,88,78,92,91,87,72,69,84,89,76,81,71,121",
+                        "endOffsets": "4252,4335,6910,7011,7182,7912,8005,12117,12205,12278,12348,12518,12608,12768,12951,13023,13145"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\82f7107f6154b875fa817ecbab25f9a4\\transformed\\play-services-base-18.3.0\\res\\values-gl\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
@@ -72,20 +89,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\52277361645926d6748c0ae0eab61a78\\transformed\\ui-release\\res\\values-gl\\values-gl.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\27ad83166a144229d6a95c3a8da1ca9c\\transformed\\foundation-release\\res\\values-gl\\values-gl.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,201,284,393,494,583,662,755,847,935,1008,1078,1163,1253,1330,1412,1484",
-                        "endColumns": "95,82,108,100,88,78,92,91,87,72,69,84,89,76,81,71,121",
-                        "endOffsets": "196,279,388,489,578,657,750,842,930,1003,1073,1158,1248,1325,1407,1479,1601"
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,154",
+                        "endColumns": "98,100",
+                        "endOffsets": "149,250"
                     },
                     "to": {
-                        "startLines": "44,45,66,67,69,77,78,127,128,129,130,132,133,135,137,138,139",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "4161,4257,6806,6915,7098,7838,7917,12030,12122,12210,12283,12438,12523,12696,12874,12956,13028",
-                        "endColumns": "95,82,108,100,88,78,92,91,87,72,69,84,89,76,81,71,121",
-                        "endOffsets": "4252,4335,6910,7011,7182,7912,8005,12117,12205,12278,12348,12518,12608,12768,12951,13023,13145"
+                        "startLines": "140,141",
+                        "startColumns": "4,4",
+                        "startOffsets": "13150,13249",
+                        "endColumns": "98,100",
+                        "endOffsets": "13244,13345"
                     }
                 },
                 {
@@ -156,23 +173,6 @@
                         "startOffsets": "3115,3214,3316,3416,3514,3621,3727,12773",
                         "endColumns": "98,101,99,97,106,105,115,100",
                         "endOffsets": "3209,3311,3411,3509,3616,3722,3838,12869"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\6e1d9afcbf5b80be27ec0a57ca68bc20\\transformed\\foundation-release\\res\\values-gl\\values-gl.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,154",
-                        "endColumns": "98,100",
-                        "endOffsets": "149,250"
-                    },
-                    "to": {
-                        "startLines": "140,141",
-                        "startColumns": "4,4",
-                        "startOffsets": "13150,13249",
-                        "endColumns": "98,100",
-                        "endOffsets": "13244,13345"
                     }
                 }
             ]

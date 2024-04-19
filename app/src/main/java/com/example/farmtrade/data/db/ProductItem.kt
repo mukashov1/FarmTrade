@@ -6,8 +6,9 @@ data class ProductItem(
     val description: String = "",
     val category: String = "",
     val place: String = "",
-    val price: Int = 0,
-    val discount: String = "",
-    val priceWithDiscount: Int = 0,
-    val priceUnit: String = ""
+    val price: Double = 0.0,
+    val discount: Double = 0.0,
+    val priceWithDiscount: Double = 0.0,
+    val priceUnit: String = "",
+    val images: MutableList<String>,
 )

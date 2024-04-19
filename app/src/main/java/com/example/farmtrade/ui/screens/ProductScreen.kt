@@ -108,7 +108,7 @@ fun ProductScreen(navController: NavController, productId: String) {
                 )
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        text = product!!.priceWithDiscount.toString() + " " + product!!.priceUnit,
+                        text = product?.priceWithDiscount.toString() + " " + product!!.priceUnit,
                         fontSize = 14.sp,
                         fontWeight = FontWeight(500),
                     )

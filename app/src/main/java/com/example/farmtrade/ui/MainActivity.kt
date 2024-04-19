@@ -68,7 +68,7 @@ class MainActivity : ComponentActivity() {
             val isLoggedIn = viewModel.isUserLoggedIn.value
 
             val startDestination: NavDestination =
-                if (isLoggedIn == true) NavDestination(navigatorName = Screen.Profile.route)
+                if (isLoggedIn == true) NavDestination(navigatorName = Screen.Create.route)
                 else NavDestination(
                     navigatorName = "registrationScreen"
                 )
@@ -87,22 +87,6 @@ fun AppBottomNavigation(navController: NavController, startDestination: NavDesti
     val routesWithHiddenBottomNav = listOf("loginScreen", "registrationScreen")
 
     Scaffold(
-//        floatingActionButton = {
-//            Box {
-//                FloatingActionButton(
-//                    onClick = { navController.navigate(Screen.Create.route) },
-//                    backgroundColor = Color.Green,
-//                    contentColor = Color.White,
-//                    modifier = Modifier
-//                        .align(Alignment.Center)
-//                        .size(60.dp),
-//                ) {
-//                    Icon(Icons.Filled.Add, contentDescription = "Add")
-//                }
-//            }
-//        },
-//        floatingActionButtonPosition = FabPosition.Center,
-//        isFloatingActionButtonDocked = true,
         bottomBar = {
             if (!routesWithHiddenBottomNav.contains(currentRoute)) {
                 BottomNavigation(
@@ -124,8 +108,10 @@ fun AppBottomNavigation(navController: NavController, startDestination: NavDesti
                                             screen.icon(),
                                             contentDescription = screen.title,
                                             tint = Color.White,
-                                            modifier = Modifier.align(Alignment.Center).size(40.dp)
-                                            )
+                                            modifier = Modifier
+                                                .align(Alignment.Center)
+                                                .size(40.dp)
+                                        )
                                     }
                                 } else {
                                     Icon(
@@ -160,12 +146,11 @@ fun AppBottomNavigation(navController: NavController, startDestination: NavDesti
         ) {
             composable(Screen.Catalog.route) { CatalogScreen(navController) }
             composable(Screen.Saved.route) { SavedScreen() }
-            composable(Screen.Create.route) { NewProductScreen(navController) }
+            composable(Screen.Create.route) { NewProductScreen() }
             composable(Screen.Basket.route) { BasketScreen() }
             composable(Screen.Profile.route) { ProfileScreen(navController) }
             composable("loginScreen") { LogInScreen(navController) }
             composable("registrationScreen") { RegistrationScreen(navController) }
-            composable("newProductScreen") { NewProductScreen(navController) }
             composable("aboutScreen") { AboutScreen(navController) }
             composable("chatScreen") { ChatScreen(navController) }
             composable("settingsScreen") { SettingsScreen(navController) }
