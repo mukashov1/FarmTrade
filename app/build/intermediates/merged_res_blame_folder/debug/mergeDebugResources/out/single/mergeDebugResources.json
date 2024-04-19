@@ -1,11 +1,23 @@
 [
     {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_flour3.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/flour3.jpg"
+    },
+    {
         "merged": "com.example.farmtrade.app-debug-5:/drawable_shop.png.flat",
         "source": "com.example.farmtrade.app-main-7:/drawable/shop.png"
     },
     {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_rice43.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/rice43.jpg"
+    },
+    {
         "merged": "com.example.farmtrade.app-debug-5:/drawable_home.xml.flat",
         "source": "com.example.farmtrade.app-main-7:/drawable/home.xml"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_garlic.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/garlic.jpg"
     },
     {
         "merged": "com.example.farmtrade.app-debug-5:/drawable_right_arrow.png.flat",
@@ -20,8 +32,16 @@
         "source": "com.example.farmtrade.app-main-7:/drawable/add.png"
     },
     {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_seeds2.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/seeds2.jpg"
+    },
+    {
         "merged": "com.example.farmtrade.app-debug-5:/drawable_send.png.flat",
         "source": "com.example.farmtrade.app-main-7:/drawable/send.png"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_cucumber.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/cucumber.jpg"
     },
     {
         "merged": "com.example.farmtrade.app-debug-5:/drawable-v24_ic_launcher_foreground.xml.flat",
@@ -32,12 +52,24 @@
         "source": "com.example.farmtrade.app-main-7:/drawable/item_4.png"
     },
     {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_beef.webp.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/beef.webp"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_almonds2.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/almonds2.jpg"
+    },
+    {
         "merged": "com.example.farmtrade.app-debug-5:/drawable_account.xml.flat",
         "source": "com.example.farmtrade.app-main-7:/drawable/account.xml"
     },
     {
         "merged": "com.example.farmtrade.app-debug-5:/drawable_sort_by.png.flat",
         "source": "com.example.farmtrade.app-main-7:/drawable/sort_by.png"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_honey2.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/honey2.jpg"
     },
     {
         "merged": "com.example.farmtrade.app-debug-5:/drawable_start_small.png.flat",
@@ -48,28 +80,64 @@
         "source": "com.example.farmtrade.app-main-7:/drawable/ic_launcher_background.xml"
     },
     {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_cucumber2.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/cucumber2.jpg"
+    },
+    {
         "merged": "com.example.farmtrade.app-debug-5:/drawable_heart_active.png.flat",
         "source": "com.example.farmtrade.app-main-7:/drawable/heart_active.png"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_flour.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/flour.jpg"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_lamb.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/lamb.jpg"
     },
     {
         "merged": "com.example.farmtrade.app-debug-5:/drawable_item_1.png.flat",
         "source": "com.example.farmtrade.app-main-7:/drawable/item_1.png"
     },
     {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_onions2.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/onions2.jpg"
+    },
+    {
         "merged": "com.example.farmtrade.app-debug-5:/xml_backup_rules.xml.flat",
         "source": "com.example.farmtrade.app-main-7:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_tomates5.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/tomates5.jpg"
     },
     {
         "merged": "com.example.farmtrade.app-debug-5:/drawable_chat.png.flat",
         "source": "com.example.farmtrade.app-main-7:/drawable/chat.png"
     },
     {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_potato.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/potato.jpg"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_onions.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/onions.jpg"
+    },
+    {
         "merged": "com.example.farmtrade.app-debug-5:/drawable_item_5.png.flat",
         "source": "com.example.farmtrade.app-main-7:/drawable/item_5.png"
     },
     {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_tomates.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/tomates.jpg"
+    },
+    {
         "merged": "com.example.farmtrade.app-debug-5:/drawable_orange.png.flat",
         "source": "com.example.farmtrade.app-main-7:/drawable/orange.png"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_buckthorn.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/buckthorn.jpg"
     },
     {
         "merged": "com.example.farmtrade.app-debug-5:/mipmap-xxhdpi_ic_launcher.webp.flat",
@@ -92,8 +160,32 @@
         "source": "com.example.farmtrade.app-main-7:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_potato4.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/potato4.jpg"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_garlic4.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/garlic4.jpg"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_mutton2.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/mutton2.jpg"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_sunoilfd.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/sunoilfd.jpg"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_barley4.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/barley4.jpg"
+    },
+    {
         "merged": "com.example.farmtrade.app-debug-5:/mipmap-xhdpi_ic_launcher_round.webp.flat",
         "source": "com.example.farmtrade.app-main-7:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_chickpeas56.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/chickpeas56.jpg"
     },
     {
         "merged": "com.example.farmtrade.app-debug-5:/drawable_catalog.xml.flat",
@@ -112,6 +204,10 @@
         "source": "com.example.farmtrade.app-main-7:/drawable/bag.xml"
     },
     {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_sunoil.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/sunoil.jpg"
+    },
+    {
         "merged": "com.example.farmtrade.app-debug-5:/xml_data_extraction_rules.xml.flat",
         "source": "com.example.farmtrade.app-main-7:/xml/data_extraction_rules.xml"
     },
@@ -122,6 +218,22 @@
     {
         "merged": "com.example.farmtrade.app-debug-5:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
         "source": "com.example.farmtrade.app-main-7:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_mutton.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/mutton.jpg"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_seeds.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/seeds.jpg"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_trout4.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/trout4.jpg"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_trout.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/trout.jpg"
     },
     {
         "merged": "com.example.farmtrade.app-debug-5:/drawable_eye_default.png.flat",
@@ -136,16 +248,32 @@
         "source": "com.example.farmtrade.app-main-7:/drawable/plus.png"
     },
     {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_beef3.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/beef3.jpg"
+    },
+    {
         "merged": "com.example.farmtrade.app-debug-5:/mipmap-mdpi_ic_launcher.webp.flat",
         "source": "com.example.farmtrade.app-main-7:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_barley.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/barley.jpg"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_left_arrow.xml.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/left_arrow.xml"
     },
     {
         "merged": "com.example.farmtrade.app-debug-5:/mipmap-xxxhdpi_ic_launcher.webp.flat",
         "source": "com.example.farmtrade.app-main-7:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.farmtrade.app-debug-5:/drawable_left_arrow.xml.flat",
-        "source": "com.example.farmtrade.app-main-7:/drawable/left_arrow.xml"
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_peppers2.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/peppers2.jpg"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_honey5.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/honey5.jpg"
     },
     {
         "merged": "com.example.farmtrade.app-debug-5:/mipmap-xhdpi_ic_launcher.webp.flat",
@@ -188,8 +316,16 @@
         "source": "com.example.farmtrade.app-main-7:/drawable/item_3.png"
     },
     {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_chickpeas.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/chickpeas.jpg"
+    },
+    {
         "merged": "com.example.farmtrade.app-debug-5:/drawable_apple.png.flat",
         "source": "com.example.farmtrade.app-main-7:/drawable/apple.png"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_almonds.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/almonds.jpg"
     },
     {
         "merged": "com.example.farmtrade.app-debug-5:/drawable_filter.png.flat",
@@ -200,8 +336,20 @@
         "source": "com.example.farmtrade.app-main-7:/drawable/heart_default.png"
     },
     {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_lambe.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/lambe.jpg"
+    },
+    {
         "merged": "com.example.farmtrade.app-debug-5:/drawable_refund.png.flat",
         "source": "com.example.farmtrade.app-main-7:/drawable/refund.png"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_peppers.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/peppers.jpg"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_rice.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/rice.jpg"
     },
     {
         "merged": "com.example.farmtrade.app-debug-5:/drawable_apple2.png.flat",
@@ -222,5 +370,9 @@
     {
         "merged": "com.example.farmtrade.app-debug-5:/drawable_discount.xml.flat",
         "source": "com.example.farmtrade.app-main-7:/drawable/discount.xml"
+    },
+    {
+        "merged": "com.example.farmtrade.app-debug-5:/drawable_buckthorn2.jpg.flat",
+        "source": "com.example.farmtrade.app-main-7:/drawable/buckthorn2.jpg"
     }
 ]

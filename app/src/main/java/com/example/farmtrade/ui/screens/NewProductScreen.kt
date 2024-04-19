@@ -67,7 +67,8 @@ import java.util.Locale
 @Composable
 fun NewProductScreen() {
     val context = LocalContext.current
-    Column (modifier = Modifier.fillMaxSize()){
+//    uploadManual(context)
+    Column(modifier = Modifier.fillMaxSize()) {
         ProductForm(context = context, onSubmit = { product, imageUris ->
             uploadProductToFirestoreAndStorage(product, imageUris) { success ->
                 if (success) {
@@ -77,8 +78,324 @@ fun NewProductScreen() {
             }
         })
     }
-
 }
+
+//fun uploadManual(context: Context) {
+//    val images = listOf(
+//        listOf(R.drawable.apple, R.drawable.apple2),
+//        listOf(R.drawable.honey2, R.drawable.honey5),
+//        listOf(R.drawable.beef3, R.drawable.beef),
+//        listOf(R.drawable.tomates, R.drawable.tomates5),
+//        listOf(R.drawable.potato, R.drawable.potato4),
+//        listOf(R.drawable.lambe, R.drawable.lamb),
+//        listOf(R.drawable.flour, R.drawable.flour3),
+//        listOf(R.drawable.trout, R.drawable.trout4),
+//        listOf(R.drawable.sunoilfd, R.drawable.sunoil),
+//        listOf(R.drawable.garlic, R.drawable.garlic4),
+//        listOf(R.drawable.chickpeas, R.drawable.chickpeas56),
+//        listOf(R.drawable.rice43, R.drawable.rice),
+//        listOf(R.drawable.buckthorn, R.drawable.buckthorn2),
+//        listOf(R.drawable.barley, R.drawable.barley4),
+//        listOf(R.drawable.cucumber, R.drawable.cucumber2),
+//        listOf(R.drawable.seeds, R.drawable.seeds2),
+//        listOf(R.drawable.almonds, R.drawable.almonds2),
+//        listOf(R.drawable.mutton, R.drawable.mutton2),
+//        listOf(R.drawable.peppers, R.drawable.peppers2),
+//        listOf(R.drawable.onions, R.drawable.onions2),
+//    )
+//    val productItems = listOf(
+//        ProductItem(
+//            1,
+//            "Almaty Apples",
+//            "Fresh, organic apples from Almaty orchards.",
+//            "Fruits",
+//            "Almaty Central Market",
+//            500.0,
+//            10.0,
+//            450.0,
+//            "per kg",
+//            mutableListOf()
+//        ),
+//        ProductItem(
+//            2,
+//            "Astana Honey",
+//            "Pure wildflower honey from near Astana.",
+//            "Sweeteners",
+//            "Astana Grocery Store",
+//            1500.0,
+//            5.0,
+//            1425.0,
+//            "per liter",
+//            mutableListOf()
+//        ),
+//        ProductItem(
+//            3,
+//            "Karaganda Beef",
+//            "Grass-fed beef from the steppes of Karaganda.",
+//            "Meat",
+//            "Karaganda Butcher Shop",
+//            2200.0,
+//            15.0,
+//            1870.0,
+//            "per kg",
+//            mutableListOf()
+//        ),
+//        ProductItem(
+//            4,
+//            "Shymkent Tomatoes",
+//            "Juicy, vine-ripened tomatoes grown in Shymkent.",
+//            "Vegetables",
+//            "Shymkent Farmers Market",
+//            300.0,
+//            8.0,
+//            276.0,
+//            "per kg",
+//            mutableListOf()
+//        ),
+//        ProductItem(
+//            5,
+//            "Pavlodar Potatoes",
+//            "Earthy and flavorful potatoes from Pavlodar farms.",
+//            "Root Vegetables",
+//            "Pavlodar Retail Outlet",
+//            200.0,
+//            10.0,
+//            180.0,
+//            "per kg",
+//            mutableListOf()
+//        ),
+//        ProductItem(
+//            6,
+//            "Aktobe Lamb",
+//            "Tender, free-range lamb meat from Aktobe's pastures.",
+//            "Meat",
+//            "Aktobe Meat Market",
+//            2500.0,
+//            12.0,
+//            2200.0,
+//            "per kg",
+//            mutableListOf()
+//        ),
+//        ProductItem(
+//            7,
+//            "Kostanay Wheat Flour",
+//            "High-quality wheat flour, milled in Kostanay.",
+//            "Grains",
+//            "Kostanay Grocery Store",
+//            360.0,
+//            5.0,
+//            342.0,
+//            "per kg",
+//            mutableListOf()
+//        ),
+//        ProductItem(
+//            8,
+//            "Ust-Kamenogorsk Trout",
+//            "Freshwater trout from rivers near Ust-Kamenogorsk.",
+//            "Fish",
+//            "Ust-Kamenogorsk Fish Market",
+//            1800.0,
+//            10.0,
+//            1620.0,
+//            "per kg",
+//            mutableListOf()
+//        ),
+//        ProductItem(
+//            9,
+//            "Semey Sunflower Oil",
+//            "Cold-pressed sunflower oil produced in Semey.",
+//            "Oils",
+//            "Semey Supermarket",
+//            800.0,
+//            7.0,
+//            744.0,
+//            "per liter",
+//            mutableListOf()
+//        ),
+//        ProductItem(
+//            10,
+//            "Atyrau Garlic",
+//            "Aromatic garlic from Atyrau, known for robust flavor.",
+//            "Vegetables",
+//            "Atyrau Local Market",
+//            600.0,
+//            10.0,
+//            540.0,
+//            "per kg",
+//            mutableListOf()
+//        ),
+//        ProductItem(
+//            11,
+//            "Turkestan Chickpeas",
+//            "Nutrient-rich chickpeas, perfect for stews and salads.",
+//            "Legumes",
+//            "Turkestan Organic Shop",
+//            400.0,
+//            15.0,
+//            340.0,
+//            "per kg",
+//            mutableListOf()
+//        ),
+//        ProductItem(
+//            12,
+//            "Kyzylorda Rice",
+//            "Long-grain rice from Kyzylorda fields.",
+//            "Grains",
+//            "Kyzylorda Regional Store",
+//            450.0,
+//            5.0,
+//            428.0,
+//            "per kg",
+//            mutableListOf()
+//        ),
+//        ProductItem(
+//            13,
+//            "Aktau Sea Buckthorn",
+//            "Vitamin-rich sea buckthorn berries from Aktau coasts.",
+//            "Berries",
+//            "Aktau Health Food Store",
+//            1200.0,
+//            10.0,
+//            1080.0,
+//            "per kg",
+//            mutableListOf()
+//        ),
+//        ProductItem(
+//            14,
+//            "Taldykorgan Barley",
+//            "Organic barley for hearty soups from Taldykorgan.",
+//            "Grains",
+//            "Taldykorgan Grain Market",
+//            280.0,
+//            10.0,
+//            252.0,
+//            "per kg",
+//            mutableListOf()
+//        ),
+//        ProductItem(
+//            15,
+//            "Kokshetau Cucumbers",
+//            "Crunchy and refreshing cucumbers from Kokshetau greenhouses.",
+//            "Vegetables",
+//            "Kokshetau Vegetable Store",
+//            320.0,
+//            5.0,
+//            304.0,
+//            "per kg",
+//            mutableListOf()
+//        ),
+//        ProductItem(
+//            16,
+//            "Petropavlovsk Seeds",
+//            "Roasted sunflower seeds, snack-ready from Petropavlovsk.",
+//            "Snacks",
+//            "Petropavlovsk Snack Bar",
+//            700.0,
+//            8.0,
+//            644.0,
+//            "per kg",
+//            mutableListOf()
+//        ),
+//        ProductItem(
+//            17,
+//            "Taraz Almonds",
+//            "Fresh, natural almonds from Taraz, great for heart health.",
+//            "Nuts",
+//            "Taraz Nut Shop",
+//            2000.0,
+//            10.0,
+//            1800.0,
+//            "per kg",
+//            mutableListOf()
+//        ),
+//        ProductItem(
+//            18,
+//            "Zhezkazgan Mutton",
+//            "Premium mutton from the hills around Zhezkazgan.",
+//            "Meat",
+//            "Zhezkazgan Meat Market",
+//            2400.0,
+//            7.0,
+//            2232.0,
+//            "per kg",
+//            mutableListOf()
+//        ),
+//        ProductItem(
+//            19,
+//            "Oral Peppers",
+//            "Bright and spicy peppers perfect for dishes from Oral.",
+//            "Vegetables",
+//            "Oral Spice Market",
+//            550.0,
+//            5.0,
+//            523.0,
+//            "per kg",
+//            mutableListOf()
+//        ),
+//        ProductItem(
+//            20,
+//            "Ekibastuz Onions",
+//            "Strong and flavorful onions, ideal for cooking from Ekibastuz.",
+//            "Vegetables",
+//            "Ekibastuz Grocery Store",
+//            250.0,
+//            10.0,
+//            225.0,
+//            "per kg",
+//            mutableListOf()
+//        )
+//    )
+//    for (i in 0..19) {
+//        uploadProductItem(context, productItems[i], images[i])
+//    }
+//}
+
+//fun uploadImageAndGetUrl(context: Context, imageResId: Int, completion: (String) -> Unit) {
+//    val storageRef = FirebaseStorage.getInstance().reference
+//    val filePath = "images/${UUID.randomUUID()}.jpg"
+//    val imageRef = storageRef.child(filePath)
+//
+//
+//    val bitmap = BitmapFactory.decodeResource(context.resources, imageResId)
+//    val baos = ByteArrayOutputStream()
+//    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+//    val data = baos.toByteArray()
+//
+//
+//    imageRef.putBytes(data)
+//        .addOnSuccessListener {
+//            imageRef.downloadUrl.addOnSuccessListener { uri ->
+//                completion(uri.toString())
+//            }
+//        }.addOnFailureListener {
+//            // Handle any errors
+//        }
+//}
+
+//fun uploadProductItem(context: Context, productItem: ProductItem, imageResIds: List<Int>) {
+//    val db = FirebaseFirestore.getInstance()
+//    val productRef = db.collection("products").document()
+//
+//    val imageUrls = mutableListOf<String>()
+//    val imageUploadCount = imageResIds.size
+//
+//    imageResIds.forEach { resId ->
+//        uploadImageAndGetUrl(context, resId) { imageUrl ->
+//            imageUrls.add(imageUrl)
+//            if (imageUrls.size == imageUploadCount) {
+//                val updatedProductItem = productItem.copy(images = imageUrls.toMutableList())
+//                productRef.set(updatedProductItem)
+//                    .addOnSuccessListener {
+//                        // Handle success
+//                        println("SUCCESS")
+//                    }.addOnFailureListener {
+//                        // Handle failure
+//                        println("FAILURE")
+//                    }
+//            }
+//        }
+//    }
+//}
 
 @Composable
 fun ProductForm(context: Context, onSubmit: (ProductItem, List<Uri>) -> Unit) {
@@ -99,12 +416,13 @@ fun ProductForm(context: Context, onSubmit: (ProductItem, List<Uri>) -> Unit) {
         }
     }
 
-    val launcher = rememberLauncherForActivityResult(contract = ActivityResultContracts.GetMultipleContents()) { uris: List<Uri> ->
-        imageUris.addAll(uris)
-        if (uris.isNotEmpty()) {
-            sendImage(context, uris.first(), ::handleImageResponse)
+    val launcher =
+        rememberLauncherForActivityResult(contract = ActivityResultContracts.GetMultipleContents()) { uris: List<Uri> ->
+            imageUris.addAll(uris)
+            if (uris.isNotEmpty()) {
+                sendImage(context, uris.first(), ::handleImageResponse)
+            }
         }
-    }
 
     Column(
         modifier = Modifier
@@ -207,6 +525,239 @@ fun ProductForm(context: Context, onSubmit: (ProductItem, List<Uri>) -> Unit) {
 
 fun calculatePriceWithDiscount(price: Double, discount: Double): Double {
     return price - (price * discount / 100)
+}
+
+fun upImage() {
+    val products = listOf(
+        ProductItem(
+            2,
+            "Astana Honey",
+            "Pure wildflower honey from near Astana.",
+            "Sweeteners",
+            "Astana Grocery Store",
+            1500.0,
+            5.0,
+            1425.0,
+            "per liter",
+            mutableListOf("")
+        ),
+        ProductItem(
+            3,
+            "Karaganda Beef",
+            "Grass-fed beef from the steppes of Karaganda.",
+            "Meat",
+            "Karaganda Butcher Shop",
+            2200.0,
+            15.0,
+            1870.0,
+            "per kg",
+            mutableListOf("")
+        ),
+        ProductItem(
+            4,
+            "Shymkent Tomatoes",
+            "Juicy, vine-ripened tomatoes grown in Shymkent.",
+            "Vegetables",
+            "Shymkent Farmers Market",
+            300.0,
+            8.0,
+            276.0,
+            "per kg",
+            mutableListOf("")
+        ),
+        ProductItem(
+            5,
+            "Pavlodar Potatoes",
+            "Earthy and flavorful potatoes from Pavlodar farms.",
+            "Root Vegetables",
+            "Pavlodar Retail Outlet",
+            200.0,
+            10.0,
+            180.0,
+            "per kg",
+            mutableListOf("")
+        ),
+        ProductItem(
+            6,
+            "Aktobe Lamb",
+            "Tender, free-range lamb meat from Aktobe's pastures.",
+            "Meat",
+            "Aktobe Meat Market",
+            2500.0,
+            12.0,
+            2200.0,
+            "per kg",
+            mutableListOf("")
+        ),
+        ProductItem(
+            7,
+            "Kostanay Wheat Flour",
+            "High-quality wheat flour, milled in Kostanay.",
+            "Grains",
+            "Kostanay Grocery Store",
+            360.0,
+            5.0,
+            342.0,
+            "per kg",
+            mutableListOf("")
+        ),
+        ProductItem(
+            8,
+            "Ust-Kamenogorsk Trout",
+            "Freshwater trout from rivers near Ust-Kamenogorsk.",
+            "Fish",
+            "Ust-Kamenogorsk Fish Market",
+            1800.0,
+            10.0,
+            1620.0,
+            "per kg",
+            mutableListOf("")
+        ),
+        ProductItem(
+            9,
+            "Semey Sunflower Oil",
+            "Cold-pressed sunflower oil produced in Semey.",
+            "Oils",
+            "Semey Supermarket",
+            800.0,
+            7.0,
+            744.0,
+            "per liter",
+            mutableListOf("")
+        ),
+        ProductItem(
+            10,
+            "Atyrau Garlic",
+            "Aromatic garlic from Atyrau, known for robust flavor.",
+            "Vegetables",
+            "Atyrau Local Market",
+            600.0,
+            10.0,
+            540.0,
+            "per kg",
+            mutableListOf("")
+        ),
+        ProductItem(
+            11,
+            "Turkestan Chickpeas",
+            "Nutrient-rich chickpeas, perfect for stews and salads.",
+            "Legumes",
+            "Turkestan Organic Shop",
+            400.0,
+            15.0,
+            340.0,
+            "per kg",
+            mutableListOf("")
+        ),
+        ProductItem(
+            12,
+            "Kyzylorda Rice",
+            "Long-grain rice from Kyzylorda fields.",
+            "Grains",
+            "Kyzylorda Regional Store",
+            450.0,
+            5.0,
+            428.0,
+            "per kg",
+            mutableListOf("")
+        ),
+        ProductItem(
+            13,
+            "Aktau Sea Buckthorn",
+            "Vitamin-rich sea buckthorn berries from Aktau coasts.",
+            "Berries",
+            "Aktau Health Food Store",
+            1200.0,
+            10.0,
+            1080.0,
+            "per kg",
+            mutableListOf("")
+        ),
+        ProductItem(
+            14,
+            "Taldykorgan Barley",
+            "Organic barley for hearty soups from Taldykorgan.",
+            "Grains",
+            "Taldykorgan Grain Market",
+            280.0,
+            10.0,
+            252.0,
+            "per kg",
+            mutableListOf("")
+        ),
+        ProductItem(
+            15,
+            "Kokshetau Cucumbers",
+            "Crunchy and refreshing cucumbers from Kokshetau greenhouses.",
+            "Vegetables",
+            "Kokshetau Vegetable Store",
+            320.0,
+            5.0,
+            304.0,
+            "per kg",
+            mutableListOf("")
+        ),
+        ProductItem(
+            16,
+            "Petropavlovsk Seeds",
+            "Roasted sunflower seeds, snack-ready from Petropavlovsk.",
+            "Snacks",
+            "Petropavlovsk Snack Bar",
+            700.0,
+            8.0,
+            644.0,
+            "per kg",
+            mutableListOf("")
+        ),
+        ProductItem(
+            17,
+            "Taraz Almonds",
+            "Fresh, natural almonds from Taraz, great for heart health.",
+            "Nuts",
+            "Taraz Nut Shop",
+            2000.0,
+            10.0,
+            1800.0,
+            "per kg",
+            mutableListOf("")
+        ),
+        ProductItem(
+            18,
+            "Zhezkazgan Mutton",
+            "Premium mutton from the hills around Zhezkazgan.",
+            "Meat",
+            "Zhezkazgan Meat Market",
+            2400.0,
+            7.0,
+            2232.0,
+            "per kg",
+            mutableListOf("")
+        ),
+        ProductItem(
+            19,
+            "Oral Peppers",
+            "Bright and spicy peppers perfect for dishes from Oral.",
+            "Vegetables",
+            "Oral Spice Market",
+            550.0,
+            5.0,
+            523.0,
+            "per kg",
+            mutableListOf("")
+        ),
+        ProductItem(
+            20,
+            "Ekibastuz Onions",
+            "Strong and flavorful onions, ideal for cooking from Ekibastuz.",
+            "Vegetables",
+            "Ekibastuz Grocery Store",
+            250.0,
+            10.0,
+            225.0,
+            "per kg",
+            mutableListOf()
+        )
+    )
 }
 
 fun uploadProductToFirestoreAndStorage(

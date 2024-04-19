@@ -58,7 +58,7 @@ import kotlinx.coroutines.flow.map
             return context.dataStore.data.map { preferences ->
                 preferences[CATALOG_ITEMS_KEY]?.let { json ->
                     val type = object : TypeToken<List<Product>>() {}.type
-                    gson.fromJson<List<Product>>(json, type).find { it.id == productId }
+                    gson.fromJson<List<Product>>(json, type).find { it.id == productId.length }
                 }
             }.first() // Use first to get a single emission from the flow, converting it to a regular suspend function
         }
