@@ -4,7 +4,7 @@
             "outputFile": "com.example.farmtrade.app-mergeDebugResources-3:/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\bd09389ce91d2bf2b1ecedc089703075\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\523a0698d184362e7f352013aaf42122\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\99e8651aa2738c4334faa104293ebcf1\\transformed\\appcompat-1.6.1\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\b91e77dfa4972fe235889e35274dd5a9\\transformed\\appcompat-1.6.1\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -34,7 +34,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\e06f9a607b2f423799323a7208b026d4\\transformed\\material-1.4.0-beta01\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\54598e9bc69255762ddaa9e54d487071\\transformed\\material-1.4.0-beta01\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,6",
                         "startColumns": "4,4",

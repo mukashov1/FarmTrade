@@ -4,7 +4,7 @@
             "outputFile": "com.example.farmtrade.app-mergeDebugResources-3:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\94e9207802dced27ede68e8db231c51c\\transformed\\core-splashscreen-1.0.1\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\64689dc7c16bd9bb08d5b3081c2590ed\\transformed\\core-splashscreen-1.0.1\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\99e8651aa2738c4334faa104293ebcf1\\transformed\\appcompat-1.6.1\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\b91e77dfa4972fe235889e35274dd5a9\\transformed\\appcompat-1.6.1\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",

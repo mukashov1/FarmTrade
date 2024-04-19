@@ -65,6 +65,13 @@ animator nav_default_enter_anim
 animator nav_default_exit_anim
 animator nav_default_pop_enter_anim
 animator nav_default_pop_exit_anim
+attr aboutBackground
+attr aboutDescriptionTextAppearance
+attr aboutElementIconTint
+attr aboutElementTextAppearance
+attr aboutGroupTextAppearance
+attr aboutSeparatorColor
+attr aboutStyle
 attr action
 attr actionBarDivider
 attr actionBarItemBackground
@@ -114,6 +121,7 @@ attr alpha
 attr alphabeticModifiers
 attr altSrc
 attr alwaysExpand
+attr ambientEnabled
 attr animate_relativeTo
 attr animationMode
 attr appBarLayoutStyle
@@ -191,6 +199,13 @@ attr buttonStyle
 attr buttonStyleSmall
 attr buttonTint
 attr buttonTintMode
+attr cameraBearing
+attr cameraMaxZoomPreference
+attr cameraMinZoomPreference
+attr cameraTargetLat
+attr cameraTargetLng
+attr cameraTilt
+attr cameraZoom
 attr cardBackgroundColor
 attr cardCornerRadius
 attr cardElevation
@@ -539,6 +554,10 @@ attr labelBehavior
 attr labelStyle
 attr labelVisibilityMode
 attr lastBaselineToBottomHeight
+attr latLngBoundsNorthEastLatitude
+attr latLngBoundsNorthEastLongitude
+attr latLngBoundsSouthWestLatitude
+attr latLngBoundsSouthWestLongitude
 attr launchSingleTop
 attr layout
 attr layoutDescription
@@ -626,8 +645,11 @@ attr listPreferredItemPaddingEnd
 attr listPreferredItemPaddingLeft
 attr listPreferredItemPaddingRight
 attr listPreferredItemPaddingStart
+attr liteMode
 attr logo
 attr logoDescription
+attr mapId
+attr mapType
 attr materialAlertDialogBodyTextStyle
 attr materialAlertDialogTheme
 attr materialAlertDialogTitleIconStyle
@@ -995,9 +1017,18 @@ attr triggerId
 attr triggerReceiver
 attr triggerSlack
 attr ttcIndex
+attr uiCompass
+attr uiMapToolbar
+attr uiRotateGestures
+attr uiScrollGestures
+attr uiScrollGesturesDuringRotateOrZoom
+attr uiTiltGestures
+attr uiZoomControls
+attr uiZoomGestures
 attr uri
 attr useCompatPadding
 attr useMaterialThemeColors
+attr useViewLifecycle
 attr values
 attr verticalOffset
 attr viewInflaterClass
@@ -1026,6 +1057,7 @@ attr windowSplashScreenIconBackgroundColor
 attr yearSelectedStyle
 attr yearStyle
 attr yearTodayStyle
+attr zOrderOnTop
 bool abc_action_bar_embed_tabs
 bool abc_config_actionMenuItemAllCaps
 bool mtrl_btn_textappearance_all_caps
@@ -1054,6 +1086,24 @@ color abc_tint_edittext
 color abc_tint_seek_thumb
 color abc_tint_spinner
 color abc_tint_switch_track
+color about_background_color
+color about_background_dark_color
+color about_description_dark_text_color
+color about_description_text_color
+color about_facebook_color
+color about_github_color
+color about_instagram_color
+color about_item_dark_text_color
+color about_item_icon_color
+color about_item_icon_dark_color
+color about_item_text_color
+color about_play_store_color
+color about_separator_color
+color about_separator_dark_color
+color about_text_color
+color about_text_dark_color
+color about_twitter_color
+color about_youtube_color
 color accent_material_dark
 color accent_material_light
 color androidx_core_ripple_material_light
@@ -1344,6 +1394,14 @@ dimen abc_text_size_subhead_material
 dimen abc_text_size_subtitle_material_toolbar
 dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
+dimen about_description_text_size
+dimen about_group_item_text_size
+dimen about_group_text_padding
+dimen about_icon_padding
+dimen about_icon_size
+dimen about_item_text_size
+dimen about_separator_height
+dimen about_text_padding
 dimen action_bar_size
 dimen appcompat_dialog_background_inset
 dimen browser_actions_context_menu_max_width
@@ -1775,6 +1833,14 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable about_icon_email
+drawable about_icon_facebook
+drawable about_icon_github
+drawable about_icon_google_play
+drawable about_icon_instagram
+drawable about_icon_link
+drawable about_icon_twitter
+drawable about_icon_youtube
 drawable account
 drawable add
 drawable apple
@@ -1920,6 +1986,7 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
+id about_providers
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -2045,6 +2112,8 @@ id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
 id deltaRelative
+id description
+id description_separator
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -2104,6 +2173,7 @@ id hideable
 id home
 id homeAsUp
 id honorRequest
+id hybrid
 id icon
 id icon_group
 id icon_only
@@ -2132,6 +2202,7 @@ id listMode
 id list_item
 id locale
 id ltr
+id maps_compose_nodraw_container_view
 id masked
 id material_clock_display
 id material_clock_face
@@ -2233,6 +2304,7 @@ id right_side
 id rounded
 id row_index_key
 id rtl
+id satellite
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -2289,6 +2361,7 @@ id staticLayout
 id staticPostLayout
 id stop
 id stretch
+id sub_wrapper
 id submenuarrow
 id submit_area
 id tabMode
@@ -2305,6 +2378,7 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
+id terrain
 id test_checkbox_android_button_tint
 id test_checkbox_app_button_tint
 id test_radiobutton_android_button_tint
@@ -2430,6 +2504,8 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout about_page
+layout about_page_separator
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout custom_dialog
@@ -2550,6 +2626,15 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string about_contact_us
+string about_facebook
+string about_github
+string about_instagram
+string about_page_description
+string about_play_store
+string about_twitter
+string about_website
+string about_youtube
 string androidx_startup
 string app_name
 string appbar_scrolling_view_behavior
@@ -3444,6 +3529,20 @@ style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_MaterialComponents_Tooltip
 style Widget_Support_CoordinatorLayout
+style about_About
+style about_About_wrapper
+style about_AboutBase_Dark
+style about_AboutBase_Light
+style about_description
+style about_descriptionTextAppearance
+style about_descriptionTextAppearance_Dark
+style about_elementTextAppearance
+style about_elementTextAppearance_Dark
+style about_groupTextAppearance
+style about_groupTextAppearance_Dark
+style about_image
+style about_separator
+style about_sub_wrapper
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth
@@ -3523,6 +3622,7 @@ styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width 
 styleable LinearProgressIndicator indeterminateAnimationType indicatorDirectionLinear
 styleable ListPopupWindow android_dropDownHorizontalOffset android_dropDownVerticalOffset
 styleable LoadingImageView circleCrop imageAspectRatio imageAspectRatioAdjust
+styleable MapAttrs ambientEnabled backgroundColor cameraBearing cameraMaxZoomPreference cameraMinZoomPreference cameraTargetLat cameraTargetLng cameraTilt cameraZoom latLngBoundsNorthEastLatitude latLngBoundsNorthEastLongitude latLngBoundsSouthWestLatitude latLngBoundsSouthWestLongitude liteMode mapId mapType uiCompass uiMapToolbar uiRotateGestures uiScrollGestures uiScrollGesturesDuringRotateOrZoom uiTiltGestures uiZoomControls uiZoomGestures useViewLifecycle zOrderOnTop
 styleable MaterialAlertDialog backgroundInsetBottom backgroundInsetEnd backgroundInsetStart backgroundInsetTop
 styleable MaterialAlertDialogTheme materialAlertDialogBodyTextStyle materialAlertDialogTheme materialAlertDialogTitleIconStyle materialAlertDialogTitlePanelStyle materialAlertDialogTitleTextStyle
 styleable MaterialAutoCompleteTextView android_inputType

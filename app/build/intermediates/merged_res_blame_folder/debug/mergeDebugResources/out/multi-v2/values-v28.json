@@ -4,7 +4,7 @@
             "outputFile": "com.example.farmtrade.app-mergeDebugResources-3:/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\e06f9a607b2f423799323a7208b026d4\\transformed\\material-1.4.0-beta01\\res\\values-v28\\values-v28.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\54598e9bc69255762ddaa9e54d487071\\transformed\\material-1.4.0-beta01\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\99e8651aa2738c4334faa104293ebcf1\\transformed\\appcompat-1.6.1\\res\\values-v28\\values-v28.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\b91e77dfa4972fe235889e35274dd5a9\\transformed\\appcompat-1.6.1\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",

@@ -4,7 +4,7 @@
             "outputFile": "com.example.farmtrade.app-mergeDebugResources-3:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\99e8651aa2738c4334faa104293ebcf1\\transformed\\appcompat-1.6.1\\res\\values-night-v8\\values-night-v8.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\b91e77dfa4972fe235889e35274dd5a9\\transformed\\appcompat-1.6.1\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\e06f9a607b2f423799323a7208b026d4\\transformed\\material-1.4.0-beta01\\res\\values-night-v8\\values-night-v8.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\54598e9bc69255762ddaa9e54d487071\\transformed\\material-1.4.0-beta01\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +38,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\94e9207802dced27ede68e8db231c51c\\transformed\\core-splashscreen-1.0.1\\res\\values-night-v8\\values-night-v8.xml",
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\f5bb59f1b0b7edef780c567f66bbbb3c\\transformed\\android-about-page-2.0.0\\res\\values-night-v8\\values-night-v8.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "61",
+                        "endOffsets": "112"
+                    },
+                    "to": {
+                        "startLines": "34",
+                        "startColumns": "4",
+                        "startOffsets": "3608",
+                        "endColumns": "61",
+                        "endOffsets": "3665"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Арнур\\.gradle\\caches\\transforms-3\\64689dc7c16bd9bb08d5b3081c2590ed\\transformed\\core-splashscreen-1.0.1\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'com.google.gms.google-services'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -50,6 +51,14 @@ android {
 
 dependencies {
 
+    // Google Maps
+    implementation 'com.google.maps.android:maps-compose:2.11.4'
+    implementation 'com.google.android.gms:play-services-maps:18.2.0'
+    implementation 'com.google.android.gms:play-services-location:21.2.0'
+
+    // About Page
+    implementation 'io.github.medyo:android-about-page:2.0.0'
+
     // Coil
     implementation "io.coil-kt:coil-compose:2.4.0"
 
@@ -85,6 +94,7 @@ dependencies {
 
     // Room components
     implementation "androidx.room:room-runtime:2.6.1"
+    implementation 'com.google.android.gms:play-services-location:21.2.0'
     annotationProcessor "androidx.room:room-compiler:2.6.1" // Используйте kapt для Kotlin
     kapt "androidx.room:room-compiler:2.6.1"
 

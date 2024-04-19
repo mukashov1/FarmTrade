@@ -9,9 +9,10 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavController
 
 @Composable
-fun MyOrdersScreen() {
+fun MyOrdersScreen(navController: NavController) {
     Column {
         Row {
             Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "BackArrow")

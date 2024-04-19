@@ -68,15 +68,15 @@ fun ProfileScreen(navController: NavController) {
         ProfileItem(
             text = "Delivery Address",
             icon = Icons.Default.LocationOn,
-            onProfileItemClicked = {})
+            onProfileItemClicked = { navController.navigate("addressScreen")})
         ProfileItem(
             text = "Account Settings",
             icon = Icons.Default.Settings,
-            onProfileItemClicked = {})
+            onProfileItemClicked = { navController.navigate("settingsScreen")})
         ProfileItem(
             text = "Help",
             icon = Icons.Default.Warning,
-            onProfileItemClicked = { navController.navigate(Screen.Offers.route)})
+            onProfileItemClicked = { navController.navigate("chatScreen")})
         ProfileItem(
             text = "About",
             icon = Icons.Default.Info,

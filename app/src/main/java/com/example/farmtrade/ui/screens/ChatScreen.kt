@@ -1,6 +1,7 @@
 package com.example.farmtrade.ui.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -23,6 +25,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
@@ -43,48 +46,63 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.example.farmtrade.data.db.ChatUiModel
 import com.example.farmtrade.ui.theme.PurpleGrey80
 import com.example.farmtrade.ui.viewmodels.ChatScreenViewModel
 
 @Composable
-fun ChatScreen(viewModel: ChatScreenViewModel = viewModel()) {
+fun ChatScreen(navController: NavController, viewModel: ChatScreenViewModel = viewModel()) {
     val conversation by viewModel.conversation.collectAsState()
 
 
     Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colors.background
+        modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colors.background
     ) {
         ChatPage(
-                model = ChatUiModel(
-                        messages = conversation,
-                        addressee = ChatUiModel.Author.bot
-                ),
-                onSendChatClickListener = { msg -> viewModel.sendChat(msg) },
-                modifier = Modifier.fillMaxSize()
+            model = ChatUiModel(
+                messages = conversation,
+                addressee = ChatUiModel.Author.bot
+            ),
+            onSendChatClickListener = { msg -> viewModel.sendChat(msg) },
+            onBackClick = { navController.navigateUp() },
+            modifier = Modifier.fillMaxSize(),
         )
     }
 }
-
 
 @Composable
 fun ChatPage(
     model: ChatUiModel,
     onSendChatClickListener: (String) -> Unit,
+    onBackClick: () -> Unit,
     modifier: Modifier
 ) {
     Column(
-        modifier = modifier.fillMaxSize()
+        modifier = modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center // Center the content vertically
     ) {
-        Text(
-            text = "Support Chat",
-            fontSize = 24.sp,
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .padding(horizontal = 10.dp, vertical = 15.dp)
-                .fillMaxWidth()
-        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center // Center the content horizontally
+        ) {
+            IconButton(onClick = { onBackClick() }) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
+                    contentDescription = "backArrow",
+                    modifier = Modifier.size(30.dp)
+                )
+            }
+            Text(
+                text = "Support Chat",
+                fontSize = 24.sp,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .padding(horizontal = 10.dp, vertical = 15.dp)
+                    .fillMaxWidth()
+            )
+        }
 
         ConstraintLayout(modifier = Modifier.weight(1f)) {
             val (messages, chatBox) = createRefs()
@@ -124,8 +142,6 @@ fun ChatPage(
         }
     }
 }
-
-
 @Composable
 fun ChatItem(message: ChatUiModel.Message) {
     Column(
