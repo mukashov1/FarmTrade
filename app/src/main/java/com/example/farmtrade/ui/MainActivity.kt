@@ -4,20 +4,22 @@ import android.os.Bundle
 import android.view.Window
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -28,7 +30,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.farmtrade.R
 import com.example.farmtrade.data.repository.DataStoreRepository
 import com.example.farmtrade.ui.screens.AboutScreen
 import com.example.farmtrade.ui.screens.AddressScreen
@@ -65,7 +66,6 @@ class MainActivity : ComponentActivity() {
             viewModel.getUserData()
             viewModel.checkForActiveSession()
             val isLoggedIn = viewModel.isUserLoggedIn.value
-//            ChatScreen()
 
             val startDestination: NavDestination =
                 if (isLoggedIn == true) NavDestination(navigatorName = Screen.Profile.route)
@@ -87,54 +87,69 @@ fun AppBottomNavigation(navController: NavController, startDestination: NavDesti
     val routesWithHiddenBottomNav = listOf("loginScreen", "registrationScreen")
 
     Scaffold(
+//        floatingActionButton = {
+//            Box {
+//                FloatingActionButton(
+//                    onClick = { navController.navigate(Screen.Create.route) },
+//                    backgroundColor = Color.Green,
+//                    contentColor = Color.White,
+//                    modifier = Modifier
+//                        .align(Alignment.Center)
+//                        .size(60.dp),
+//                ) {
+//                    Icon(Icons.Filled.Add, contentDescription = "Add")
+//                }
+//            }
+//        },
+//        floatingActionButtonPosition = FabPosition.Center,
+//        isFloatingActionButtonDocked = true,
         bottomBar = {
             if (!routesWithHiddenBottomNav.contains(currentRoute)) {
-                Box(
-                    modifier = Modifier
-                        .drawBehind {
-                            val strokeWidth = 1 * density
-                            val y = size.height + strokeWidth / 2
-
-                            drawLine(
-                                Color.Blue,
-                                Offset(0f, y),
-                                Offset(size.width, y),
-                                strokeWidth
-                            )
-                        }
+                BottomNavigation(
+                    backgroundColor = Color.White,
+                    contentColor = Color.Black,
+                    modifier = Modifier.fillMaxWidth()
                 ) {
-                    BottomNavigation(
-                        backgroundColor = Color.White,
-                        contentColor = Color.Black
-                    ) {
-                        bottomNavigationItems.forEach { screen ->
-                            BottomNavigationItem(
-                                icon = {
+                    bottomNavigationItems.forEachIndexed { index, screen ->
+                        BottomNavigationItem(
+                            icon = {
+                                if (index == 2) {
+                                    Box(
+                                        modifier = Modifier
+                                            .size(60.dp)
+                                            .clip(CircleShape)
+                                            .background(Color.Green)
+                                    ) {
+                                        Icon(
+                                            screen.icon(),
+                                            contentDescription = screen.title,
+                                            tint = Color.White,
+                                            modifier = Modifier.align(Alignment.Center).size(40.dp)
+                                            )
+                                    }
+                                } else {
                                     Icon(
                                         screen.icon(),
-                                        modifier = Modifier.size(24.dp),
-                                        tint = if (currentRoute == screen.route) colorResource(id = R.color.pink) else Color.Black,
+//                                    tint = if (index == 2) Color.Transparent else Color.Black,
                                         contentDescription = screen.title,
+                                        modifier = Modifier.size(24.dp)
                                     )
-                                },
-                                alwaysShowLabel = false,
-                                selected = currentRoute == screen.route,
-                                onClick = {
-                                    if (currentRoute != screen.route) {
-                                        navController.navigate(screen.route) {
-                                            popUpTo(navController.graph.startDestinationId)
-                                            launchSingleTop = true
-                                        }
+                                }
+                            },
+                            selected = currentRoute == screen.route,
+                            onClick = {
+                                if (currentRoute != screen.route) {
+                                    navController.navigate(screen.route) {
+                                        popUpTo(navController.graph.startDestinationId)
+                                        launchSingleTop = true
                                     }
-                                },
-                                modifier = Modifier.padding(vertical = 8.dp, horizontal = 16.dp),
-                                selectedContentColor = colorResource(id = R.color.pink),
-                                unselectedContentColor = Color.Black
-                            )
-                        }
+                                }
+                            },
+                            selectedContentColor = Color.Red,
+                            unselectedContentColor = Color.Gray
+                        )
                     }
                 }
-
             }
         }
     ) {
