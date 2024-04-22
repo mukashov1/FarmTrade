@@ -31,6 +31,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.farmtrade.data.repository.DataStoreRepository
+import com.example.farmtrade.data.repository.NewProductRepository
 import com.example.farmtrade.ui.screens.AboutScreen
 import com.example.farmtrade.ui.screens.AddressScreen
 import com.example.farmtrade.ui.screens.BasketScreen
@@ -46,6 +47,7 @@ import com.example.farmtrade.ui.screens.SavedScreen
 import com.example.farmtrade.ui.screens.Screen
 import com.example.farmtrade.ui.screens.SettingsScreen
 import com.example.farmtrade.ui.screens.bottomNavigationItems
+import com.example.farmtrade.ui.viewmodels.NewProductViewModel
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.initialize
@@ -68,7 +70,7 @@ class MainActivity : ComponentActivity() {
             val isLoggedIn = viewModel.isUserLoggedIn.value
 
             val startDestination: NavDestination =
-                if (isLoggedIn == true) NavDestination(navigatorName = Screen.Create.route)
+                if (isLoggedIn == true) NavDestination(navigatorName = Screen.Catalog.route)
                 else NavDestination(
                     navigatorName = "registrationScreen"
                 )
@@ -146,7 +148,7 @@ fun AppBottomNavigation(navController: NavController, startDestination: NavDesti
         ) {
             composable(Screen.Catalog.route) { CatalogScreen(navController) }
             composable(Screen.Saved.route) { SavedScreen() }
-            composable(Screen.Create.route) { NewProductScreen() }
+            composable(Screen.Create.route) { NewProductScreen(NewProductViewModel(repository = NewProductRepository())) }
             composable(Screen.Basket.route) { BasketScreen() }
             composable(Screen.Profile.route) { ProfileScreen(navController) }
             composable("loginScreen") { LogInScreen(navController) }

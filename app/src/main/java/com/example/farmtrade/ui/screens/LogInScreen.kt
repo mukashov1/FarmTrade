@@ -61,6 +61,7 @@ fun LogInScreen(navController: NavController) {
     val dataStoreRepository = DataStoreRepository(LocalContext.current)
     val viewModel: LoginViewModel = viewModel()
     val email by viewModel.email
+    val isLoginSuccess by viewModel.isLoginSuccess
 
     val isPasswordVisible by remember {
         viewModel.isPasswordVisible
@@ -96,19 +97,23 @@ fun LogInScreen(navController: NavController) {
             PasswordTextField(
                 password = viewModel.password.value,
                 onPasswordChanged = { viewModel.password.value = it },
-                onTrailedIconClicked = { viewModel.isPasswordVisible.value = !viewModel.isPasswordVisible.value },
+                onTrailedIconClicked = {
+                    viewModel.isPasswordVisible.value = !viewModel.isPasswordVisible.value
+                },
                 isPasswordVisible = isPasswordVisible,
             )
             Spacer(modifier = Modifier.height(16.dp))
             SignInButton(isEnabled = true, onClick = {
                 viewModel.signIn()
-//                    navController.navigate(Screen.Profile.route)
+                navController.navigate(Screen.Profile.route)
             }
             )
         }
         ClickableRegisterText(
-            onClick = { println("Navigate to Registration")
-                      navController.navigate("registrationScreen")}, modifier = Modifier
+            onClick = {
+                println("Navigate to Registration")
+                navController.navigate("registrationScreen")
+            }, modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(16.dp)
         )

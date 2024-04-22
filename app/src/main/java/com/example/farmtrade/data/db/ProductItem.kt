@@ -10,5 +10,5 @@ data class ProductItem(
     val discount: Double = 0.0,
     val priceWithDiscount: Double = 0.0,
     val priceUnit: String = "",
-    val images: MutableList<String>,
+    val images: List<String> = emptyList()
 )

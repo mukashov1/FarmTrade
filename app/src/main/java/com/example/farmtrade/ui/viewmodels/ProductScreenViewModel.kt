@@ -10,8 +10,8 @@ import kotlinx.coroutines.flow.StateFlow
 
 class ProductScreenViewModel(private val repository: DataStoreRepository) : ViewModel() {
 
-    private val _product = MutableStateFlow<ProductItem?>(null)
-    val product: StateFlow<ProductItem?> = _product
+    private val _product = MutableStateFlow<ProductItem>(ProductItem())
+    val product: StateFlow<ProductItem> = _product
 
     private val _isLoading = MutableStateFlow(true)
     val isLoading: StateFlow<Boolean> = _isLoading

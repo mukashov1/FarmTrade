@@ -1,6 +1,5 @@
 package com.example.farmtrade.ui.screens
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -15,7 +14,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -24,7 +22,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -62,9 +59,9 @@ fun ProductScreen(navController: NavController, productId: String) {
 
     if (isLoading) {
         CircularProgressIndicator() // Show a loading indicator while loading
-    } else if (product != null) {
+    } else {
         val pagerState = rememberPagerState()
-        val images = listOf(R.drawable.apple, R.drawable.item_1)
+        val images = product.images
 
         Box(
             modifier = Modifier
@@ -84,12 +81,7 @@ fun ProductScreen(navController: NavController, productId: String) {
                         .height(150.dp)
                         .fillMaxWidth()
                 ) { page ->
-                    Image(
-                        painter = painterResource(id = images[page]),
-                        contentDescription = "Product Image",
-                        contentScale = ContentScale.Fit,
-                        modifier = Modifier.fillMaxSize()
-                    )
+                    NetworkImage(url = images[page])
                 }
                 HorizontalPagerIndicator(
                     pagerState = pagerState,
@@ -100,20 +92,29 @@ fun ProductScreen(navController: NavController, productId: String) {
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally)
                 )
-                Text(
-                    text = "${product!!.price} ${product!!.priceUnit}",
+                androidx.compose.material.Text(
+                    text = product.title,
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight(500)
+                )
+                androidx.compose.material.Text(
+                    text = product.category,
+                    fontSize = 10.sp,
+                )
+                androidx.compose.material.Text(
+                    text = "${product.price} ${product.priceUnit}",
                     color = colorResource(id = R.color.grey),
                     fontSize = 9.sp,
                     style = TextStyle(textDecoration = TextDecoration.LineThrough)
                 )
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = product?.priceWithDiscount.toString() + " " + product!!.priceUnit,
+                    androidx.compose.material.Text(
+                        text = "${product.priceWithDiscount} ${product.priceUnit}",
                         fontSize = 14.sp,
                         fontWeight = FontWeight(500),
                     )
-                    Text(
-                        text = "${product!!.discount} %",
+                    androidx.compose.material.Text(
+                        text = "${product.discount} %",
                         color = Color.White,
                         fontSize = 9.sp,
                         modifier = Modifier
@@ -125,16 +126,6 @@ fun ProductScreen(navController: NavController, productId: String) {
                             .padding(5.dp)
                     )
                 }
-                Text(
-                    text = product!!.title,
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight(500)
-                )
-                Text(
-                    text = product!!.category,
-                    fontSize = 10.sp,
-//                        modifier = Modifier.height(40.dp)
-                )
 
                 AddToBasketButton(onAddToBasketClick = { println("BASKET") })
 
@@ -162,8 +153,5 @@ fun ProductScreen(navController: NavController, productId: String) {
             }
             // Add more UI elements to display product details as needed
         }
-    } else {
-        println("PRODUCT NOT FOUND PRODUCT $product")
-        Text(text = "Product not found")
     }
 }

@@ -14,6 +14,7 @@ class LoginViewModel() : ViewModel() {
     val email = mutableStateOf<String>("")
     val password = mutableStateOf("")
     val isPasswordVisible = mutableStateOf(false)
+    val isLoginSuccess = mutableStateOf(false)
 
     fun signIn() {
         auth.signInWithEmailAndPassword(email.value, password.value)

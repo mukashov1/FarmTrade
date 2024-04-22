@@ -9,6 +9,7 @@ import com.example.farmtrade.data.db.Tag
 import com.example.farmtrade.data.repository.DataStoreRepository
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.toObject
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -25,6 +26,7 @@ class CatalogViewModel(private val catalogDataStoreRepository: DataStoreReposito
 
     private fun fetchCatalogItemsFromFirestore() {
         val db = FirebaseFirestore.getInstance()
+        val storage = FirebaseStorage.getInstance()
         val catalogItemsCollection = db.collection("products")
 
         viewModelScope.launch {
@@ -46,6 +48,22 @@ class CatalogViewModel(private val catalogDataStoreRepository: DataStoreReposito
                 catalogDataStoreRepository.saveCatalogItems(catalogItems)
         }
     }
+
+    fun fetchImageUrlsForProduct(productItem: ProductItem, callback: (List<String>) -> Unit) {
+        val storageReference = FirebaseStorage.getInstance().reference.child("images/${productItem.id}")
+        storageReference.listAll().addOnSuccessListener { listResult ->
+            listResult.items.forEach { item ->
+                item.downloadUrl.addOnSuccessListener { uri ->
+                    val imageUrls = productItem.images.toMutableList()
+                    imageUrls.add(uri.toString())
+                    callback(imageUrls)
+                }
+            }
+        }.addOnFailureListener {
+            // Handle any errors
+        }
+    }
+
     fun sortCatalogItems(option: SortOption) {
         sortOption.value = option
         _catalogItems.value = when (option) {

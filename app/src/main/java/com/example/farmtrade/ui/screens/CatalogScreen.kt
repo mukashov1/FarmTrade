@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -64,6 +63,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import coil.compose.rememberImagePainter
 import com.example.farmtrade.R
 import com.example.farmtrade.data.db.ProductItem
 import com.example.farmtrade.data.db.SortOption
@@ -263,7 +263,7 @@ fun ProductGridView(products: List<ProductItem>, onProductClicked: (ProductItem)
 @ExperimentalPagerApi
 @Composable
 fun ProductCard(product: ProductItem, onProductClicked: (ProductItem) -> Unit) {
-    val images = mapProductToImages("cbf0c984-7c6c-4ada-82da-e29dc698bb50")
+    val images = product.images
     val pagerState = rememberPagerState()
 
     Box(
@@ -290,12 +290,8 @@ fun ProductCard(product: ProductItem, onProductClicked: (ProductItem) -> Unit) {
                         .height(150.dp)
                         .fillMaxWidth()
                 ) { page ->
-                    Image(
-                        painter = painterResource(id = images[page]),
-                        contentDescription = "Product Image",
-                        contentScale = ContentScale.Fit,
-                        modifier = Modifier.fillMaxSize()
-                    )
+                    val imageUri = images[page]
+                    NetworkImage(url = imageUri)
                 }
                 HorizontalPagerIndicator(
                     pagerState = pagerState,
@@ -354,6 +350,25 @@ fun ProductCard(product: ProductItem, onProductClicked: (ProductItem) -> Unit) {
 
     }
 }
+
+@Composable
+fun NetworkImage(url: String) {
+    val painter = rememberImagePainter(
+        data = url,
+        builder = {
+            crossfade(true)
+        }
+    )
+    Image(
+        painter = painter,
+        contentDescription = "Product Image",
+        modifier = Modifier
+            .height(150.dp)
+            .fillMaxWidth(),
+        contentScale = ContentScale.Crop
+    )
+}
+
 
 fun mapProductToImages(productId: String): List<Int> {
     // This function maps product IDs to drawable resources
