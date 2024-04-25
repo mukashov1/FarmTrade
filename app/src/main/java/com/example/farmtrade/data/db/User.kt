@@ -1,10 +1,17 @@
 package com.example.farmtrade.data.db
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "user")
 data class User(
-    val name: String,
-    val lastname: String,
-    val email: String,
-    val password: String,
-    val birthday: String,
-    val phoneNumber: String,
+    @PrimaryKey
+    val userUID: String = "",
+    val firstname: String = "",
+    val lastname: String = "",
+    val email: String = "",
+    val password: String = "",
+    val phoneNumber: String = "",
+    val addressLat: Double = 0.0,
+    val addressLng: Double = 0.0,
 )

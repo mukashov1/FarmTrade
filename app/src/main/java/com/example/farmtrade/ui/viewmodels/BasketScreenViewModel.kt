@@ -5,6 +5,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.farmtrade.data.db.BasketProduct
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.toObject
 import kotlinx.coroutines.launch
 
 
@@ -23,18 +25,50 @@ class BasketScreenViewModel : ViewModel() {
     private val _total = mutableDoubleStateOf(0.0)
     val total = _total
 
+    val db = FirebaseFirestore.getInstance().collection("cartProducts")
 
     init {
-        calculateTotals()
+        fetchBasketProducts()
     }
 
 
+    private fun fetchBasketProducts() {
+        db.get()
+            .addOnSuccessListener { result ->
+                val basketProducts = mutableListOf<BasketProduct>()
+                for (document in result) {
+                    val product = document.toObject<BasketProduct>()
+                    basketProducts.add(product)
+                }
+                _productsInBasket.value = basketProducts
+                calculateTotals()
+            }
+            .addOnFailureListener { exception ->
+                println("Error fetching basket products: $exception")
+            }
+
+    }
+
     fun updateQuantity(productId: String, newQuantity: Int) {
         viewModelScope.launch {
+            // Update the local state first
             _productsInBasket.value = _productsInBasket.value.map { product ->
-                if (product.id == productId) product.copy(quantity = newQuantity) else product
+                if (product.id == productId) {
+                    product.copy(quantity = newQuantity)
+                } else {
+                    product
+                }
             }
             calculateTotals()
+            // Update the quantity field in Firestore document
+            db.document(productId)
+                .update("quantity", newQuantity)
+                .addOnSuccessListener {
+                    println("Quantity updated successfully!")
+                }
+                .addOnFailureListener { e ->
+                    println("Error updating quantity: $e")
+                }
         }
     }
 
@@ -52,8 +86,20 @@ class BasketScreenViewModel : ViewModel() {
         _total.doubleValue = _subtotal.doubleValue + shipping
     }
 
+    fun deleteBasketFromFirestore(productID: String?) {
+        val document = db.document(productID ?: "")
 
-    // Sample data generation function can be here or elsewhere
+        document.delete()
+            .addOnSuccessListener {
+                println("Product successfully deleted!")
+                _productsInBasket.value = _productsInBasket.value.filter { it.id != productID }
+                calculateTotals()
+            }
+            .addOnFailureListener { e ->
+                println("Error deleting product: $e")
+            }
+    }
+
     private fun sampleProducts() = listOf(
         BasketProduct(
             "1",

@@ -1,6 +1,5 @@
 package com.example.farmtrade.ui.screens
 
-import android.annotation.SuppressLint
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
@@ -61,29 +60,24 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
 import com.example.farmtrade.R
 import com.example.farmtrade.data.db.ProductItem
 import com.example.farmtrade.data.db.SortOption
 import com.example.farmtrade.data.db.Tag
-import com.example.farmtrade.data.repository.DataStoreRepository
+import com.example.farmtrade.ui.components.toggleBasket
+import com.example.farmtrade.ui.components.toggleFavorite
 import com.example.farmtrade.ui.viewmodels.CatalogViewModel
-import com.example.farmtrade.ui.viewmodels.CatalogViewModelFactory
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.google.accompanist.pager.rememberPagerState
 
-@SuppressLint("StateFlowValueCalledInComposition")
 @Composable
-fun CatalogScreen(navController: NavController) {
+fun CatalogScreen(navController: NavController, catalogViewModel: CatalogViewModel) {
     val context = LocalContext.current
-    val repository = DataStoreRepository(context.applicationContext)
-    val factory = CatalogViewModelFactory(repository)
-    val viewModel: CatalogViewModel = viewModel(factory = factory)
-
+    val viewModel = catalogViewModel
     val catalogItems by viewModel.catalogItems.collectAsState()
     var showSortMenu by remember { mutableStateOf(false) }
     var sortOption = viewModel.sortOption.value
@@ -124,7 +118,9 @@ fun CatalogScreen(navController: NavController) {
             onProductClicked = { product ->
                 println("PRODUCTID IN CATALOG SCREEN ${product.id}")
                 navController.navigate("productScreen/${product.id}")
-            }
+            },
+            onAddToFavoriteButton = { product -> toggleFavorite(product = product) },
+            onAddToBasketClick = { product -> toggleBasket(product = product) }
         )
     }
 }
@@ -249,20 +245,30 @@ fun TagsCarousel(
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun ProductGridView(products: List<ProductItem>, onProductClicked: (ProductItem) -> Unit) {
+fun ProductGridView(
+    products: List<ProductItem>,
+    onProductClicked: (ProductItem) -> Unit,
+    onAddToFavoriteButton: (ProductItem) -> Unit,
+    onAddToBasketClick: (ProductItem) -> Unit
+) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
         contentPadding = PaddingValues(4.dp),
     ) {
         items(products) { product ->
-            ProductCard(product, onProductClicked)
+            ProductCard(product, onProductClicked, onAddToFavoriteButton, onAddToBasketClick)
         }
     }
 }
 
 @ExperimentalPagerApi
 @Composable
-fun ProductCard(product: ProductItem, onProductClicked: (ProductItem) -> Unit) {
+fun ProductCard(
+    product: ProductItem,
+    onProductClicked: (ProductItem) -> Unit,
+    onAddToFavoriteButton: (ProductItem) -> Unit,
+    onAddToBasketClick: (ProductItem) -> Unit
+) {
     val images = product.images
     val pagerState = rememberPagerState()
 
@@ -336,7 +342,10 @@ fun ProductCard(product: ProductItem, onProductClicked: (ProductItem) -> Unit) {
                             .padding(5.dp)
                     )
                 }
-                AddToBasketButton(onAddToBasketClick = { println("BASKET") })
+                AddToBasketButton(onAddToBasketClick = {
+                    println("BASKET")
+                    onAddToBasketClick(product)
+                })
 
             }
         }
@@ -345,7 +354,10 @@ fun ProductCard(product: ProductItem, onProductClicked: (ProductItem) -> Unit) {
                 .align(Alignment.TopEnd)
                 .padding(10.dp)
         ) {
-            AddToFavoriteButton { println("FAVORITE") }
+            AddToFavoriteButton {
+                println("FAVORITE")
+                onAddToFavoriteButton(product)
+            }
         }
 
     }
@@ -363,8 +375,7 @@ fun NetworkImage(url: String) {
         painter = painter,
         contentDescription = "Product Image",
         modifier = Modifier
-            .height(150.dp)
-            .fillMaxWidth(),
+            .clip(RoundedCornerShape(10.dp)),
         contentScale = ContentScale.Crop
     )
 }

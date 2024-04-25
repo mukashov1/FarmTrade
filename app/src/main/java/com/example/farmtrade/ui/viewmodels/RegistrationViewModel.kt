@@ -1,24 +1,32 @@
 package com.example.farmtrade.ui.viewmodels
+
 import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
+import com.example.farmtrade.data.db.User
 import com.example.farmtrade.data.db.registration.RegistrationFormState
 import com.example.farmtrade.data.db.registration.RegistrationUIEvent
 import com.example.farmtrade.data.db.registration.RegistrationUIState
 import com.example.farmtrade.data.db.registration.Validator
+import com.example.farmtrade.data.repository.UserRepository
 import com.example.farmtrade.ui.screens.Screen
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.launch
 
 
-class RegistrationViewModel(private val navController: NavController) : ViewModel() {
+class RegistrationViewModel(
+    private val navController: NavController,
+    private val userRepository: UserRepository
+) : ViewModel() {
 
     private val TAG = RegistrationViewModel::class.simpleName
-
     var registrationFormState = mutableStateOf(RegistrationFormState())
 
-    private val _registrationUIState = mutableStateOf<RegistrationUIState>(RegistrationUIState.SignedOut)
+    private val _registrationUIState =
+        mutableStateOf<RegistrationUIState>(RegistrationUIState.SignedOut)
     val registrationUIState: State<RegistrationUIState>
         get() = _registrationUIState
 
@@ -134,33 +142,39 @@ class RegistrationViewModel(private val navController: NavController) : ViewMode
 
 
     private fun createUserInFirebase(email: String, password: String) {
-
         _registrationUIState.value = RegistrationUIState.InProgress
         signUpInProgress.value = true
 
-        FirebaseAuth
-            .getInstance()
-            .createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener {
-                Log.d(TAG, "Inside_OnCompleteListener")
-                Log.d(TAG, " isSuccessful = ${it.isSuccessful}")
-
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
                 signUpInProgress.value = false
-                if (it.isSuccessful) {
+                if (task.isSuccessful) {
+                    val userUID = task.result?.user?.uid ?: ""
+                    val newUser = User(
+                        userUID = userUID,
+                        firstname = registrationFormState.value.firstName,
+                        lastname = registrationFormState.value.lastName,
+                        email = registrationFormState.value.email,
+                        password = registrationFormState.value.password,
+                    )
+                    saveUserToRepository(newUser)
                     _registrationUIState.value = RegistrationUIState.SignIn
                     navController.navigate(Screen.Catalog.route)
+                } else {
+                    _registrationUIState.value = RegistrationUIState.Error
+                    Log.e(TAG, "Failed to create user: ${task.exception?.message}")
                 }
-            }
-            .addOnFailureListener {
-                _registrationUIState.value = RegistrationUIState.Error
-                Log.d(TAG, "Inside_OnFailureListener")
-                Log.d(TAG, "ERROR $registrationUIState")
-                Log.d(TAG, "Exception= ${it.message}")
-                Log.d(TAG, "Exception= ${it.cause}")
-                Log.d(TAG, "Exception= ${it}")
-                Log.d(TAG, "Exception= ${it.localizedMessage}")
             }
     }
 
+    private fun saveUserToRepository(newUser: User) {
+        viewModelScope.launch {
+            try {
+                userRepository.addUser(newUser)
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to save user to repository: ${e.message}")
+            }
+        }
 
+    }
 }

@@ -50,7 +50,7 @@ fun ProductScreen(navController: NavController, productId: String) {
 
     println("PRODUCT ID IN SCREEN $productId")
     LaunchedEffect(key1 = productId) {
-        productViewModel.loadProduct(productId.toInt())
+        productViewModel.loadProduct(productId)
     }
 
 

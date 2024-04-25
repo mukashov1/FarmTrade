@@ -17,25 +17,16 @@ class ProductScreenViewModel(private val repository: DataStoreRepository) : View
     val isLoading: StateFlow<Boolean> = _isLoading
 
     val db = FirebaseFirestore.getInstance().collection("products")
-    fun loadProduct(productId: Int) {
+    fun loadProduct(productId: String) {
         _isLoading.value = true
         println("PRODUCTID IN VIEWMODEL $productId")
-        db.whereEqualTo("id", productId).get()
-            .addOnSuccessListener { documents ->
+        db.document(productId).get()
+            .addOnSuccessListener { document ->
                 // Check if the query returned any documents
                 println("GET BY ID ")
-                if (documents != null && !documents.isEmpty) {
-                    // Iterate through the documents
-                    for (document in documents) {
-                        // Get the data of each document
-                        val data = document.data
-                        _product.value = document.toObject<ProductItem>()
-                        println("SUCCESS")
-                        println(_product.value)
-                    }
-                } else {
-                    println("Document not found")
-                }
+                _product.value = document.toObject<ProductItem>() ?: ProductItem()
+                println("SUCCESS")
+                println(_product.value)
                 _isLoading.value = false
             }
             .addOnFailureListener { exception ->

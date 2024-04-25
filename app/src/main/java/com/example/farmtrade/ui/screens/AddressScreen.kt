@@ -77,7 +77,7 @@ fun AddressScreen(navController: NavController) {
             LocateUserLocationScreen()
         }
         
-        Button(onClick = { /*TODO*/ }) {
+        Button(onClick = { navController.navigateUp() }) {
             Text(text = "Set the delivery address")
         }
     }

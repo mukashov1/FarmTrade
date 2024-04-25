@@ -1,5 +1,6 @@
 package com.example.farmtrade.ui.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -9,10 +10,10 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material3.Button
@@ -24,19 +25,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
-import com.bumptech.glide.integration.compose.GlideImage
+import androidx.navigation.NavController
+import coil.compose.rememberImagePainter
 import com.example.farmtrade.data.db.BasketProduct
 import com.example.farmtrade.ui.viewmodels.BasketScreenViewModel
 
 @Composable
-fun BasketScreen() {
+fun BasketScreen(navController: NavController) {
     val viewModel: BasketScreenViewModel = viewModel()
     val productsInBasket by viewModel.productsInBasket
     val subtotal by viewModel.subtotal
@@ -62,10 +64,10 @@ fun BasketScreen() {
                 BasketItem(
                     product = product,
                     onQuantityChanged = { newQuantity ->
-                        viewModel.updateQuantity(product.id, newQuantity)
+                        viewModel.updateQuantity(product.id!!, newQuantity)
                     },
                     onDeleteClicked = {
-                        viewModel.removeProduct(product.id)
+                        viewModel.deleteBasketFromFirestore(product.id!!)
                     }
                 )
             }
@@ -84,7 +86,6 @@ fun BasketScreen() {
     }
 }
 
-@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun BasketItem(
     product: BasketProduct,
@@ -97,12 +98,19 @@ fun BasketItem(
             .padding(8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // Replace with CoilImage or similar to load from URL
-        GlideImage(
-            modifier = Modifier.size(60.dp),
-            contentScale = ContentScale.Crop,
-            model = product.imageUrl,
-            contentDescription = "SDDF"
+        val painter = rememberImagePainter(
+            data = product.imageUrl,
+            builder = {
+                crossfade(true)
+            }
+        )
+        Image(
+            painter = painter,
+            contentDescription = "Product Image",
+            modifier = Modifier
+                .clip(RoundedCornerShape(10.dp))
+                .width(60.dp),
+            contentScale = ContentScale.Fit
         )
         Spacer(Modifier.width(8.dp))
         Column(modifier = Modifier.weight(1f)) {

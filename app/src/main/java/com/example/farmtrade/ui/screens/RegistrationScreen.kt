@@ -31,9 +31,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import androidx.room.Room
 import com.example.farmtrade.R
 import com.example.farmtrade.data.db.registration.RegistrationUIEvent
 import com.example.farmtrade.data.db.registration.RegistrationUIState
+import com.example.farmtrade.data.db.room.AppDatabase
+import com.example.farmtrade.data.repository.UserRepository
 import com.example.farmtrade.ui.components.ButtonComponent
 import com.example.farmtrade.ui.components.CheckboxComponent
 import com.example.farmtrade.ui.components.ClickableLoginTextComponent
@@ -49,9 +52,9 @@ import com.example.farmtrade.ui.viewmodels.RegistrationViewModel
 fun RegistrationScreen(
     navController: NavController,
 ) {
-    val registrationViewModel: RegistrationViewModel = RegistrationViewModel(navController)
     val context = LocalContext.current
-//    val scope = rememberCoroutineScope()
+    val room = Room.databaseBuilder(context, AppDatabase::class.java, "user").build()
+    val registrationViewModel = RegistrationViewModel(navController, UserRepository(room))
     val snackbarHostState = remember { SnackbarHostState() }
 
     Box(

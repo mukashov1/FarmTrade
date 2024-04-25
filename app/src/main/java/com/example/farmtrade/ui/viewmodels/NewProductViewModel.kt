@@ -34,6 +34,7 @@ class NewProductViewModel(private val repository: NewProductRepository) : ViewMo
                 // Iterate over the images to send them
                 for (uri in imageUris) {
                     val file = createFileFromUri(context, uri)
+                    _uiState.value = _uiState.value.copy(isLoading = true)
                     repository.sendImageForAutoFill(file) { success, imageResponse ->
                         if (success) {
                             updateProductDetails(imageResponse)
@@ -42,6 +43,7 @@ class NewProductViewModel(private val repository: NewProductRepository) : ViewMo
                             Log.e(TAG, "Failed to autofill from image")
                         }
                     }
+                    _uiState.value = _uiState.value.copy(isLoading = false)
                     if (isSuccess) break // Exit the loop if any image fails
                 }
 

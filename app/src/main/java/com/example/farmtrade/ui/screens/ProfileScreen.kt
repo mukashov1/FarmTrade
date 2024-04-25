@@ -64,7 +64,7 @@ fun ProfileScreen(navController: NavController) {
         ProfileItem(
             text = "My Orders",
             icon = Icons.Default.ShoppingCart,
-            onProfileItemClicked = {})
+            onProfileItemClicked = { navController.navigate("ordersScreen")})
         ProfileItem(
             text = "Delivery Address",
             icon = Icons.Default.LocationOn,

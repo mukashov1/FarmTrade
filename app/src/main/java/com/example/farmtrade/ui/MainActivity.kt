@@ -30,6 +30,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.room.Room
+import com.example.farmtrade.data.db.room.AppDatabase
+import com.example.farmtrade.data.repository.CatalogRepository
 import com.example.farmtrade.data.repository.DataStoreRepository
 import com.example.farmtrade.data.repository.NewProductRepository
 import com.example.farmtrade.ui.screens.AboutScreen
@@ -47,6 +50,7 @@ import com.example.farmtrade.ui.screens.SavedScreen
 import com.example.farmtrade.ui.screens.Screen
 import com.example.farmtrade.ui.screens.SettingsScreen
 import com.example.farmtrade.ui.screens.bottomNavigationItems
+import com.example.farmtrade.ui.viewmodels.CatalogViewModel
 import com.example.farmtrade.ui.viewmodels.NewProductViewModel
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.FirebaseFirestore
@@ -58,10 +62,16 @@ class MainActivity : ComponentActivity() {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         installSplashScreen()
 
+        val room = Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java,
+            "user"
+        ).build()
         val dataStoreRepository = DataStoreRepository(applicationContext)
+
         Firebase.initialize(this)
 
-        val db = FirebaseFirestore.getInstance()
+        FirebaseFirestore.getInstance()
         setContent {
             val navController = rememberNavController()
             val viewModel = MainActivityViewModel(navController)
@@ -146,10 +156,16 @@ fun AppBottomNavigation(navController: NavController, startDestination: NavDesti
             startDestination = startDestination.navigatorName,
             modifier = Modifier.padding(it)
         ) {
-            composable(Screen.Catalog.route) { CatalogScreen(navController) }
-            composable(Screen.Saved.route) { SavedScreen() }
+            composable(Screen.Catalog.route) {
+                CatalogScreen(
+                    navController, CatalogViewModel(
+                        CatalogRepository()
+                    )
+                )
+            }
+            composable(Screen.Saved.route) { SavedScreen(navController) }
             composable(Screen.Create.route) { NewProductScreen(NewProductViewModel(repository = NewProductRepository())) }
-            composable(Screen.Basket.route) { BasketScreen() }
+            composable(Screen.Basket.route) { BasketScreen(navController) }
             composable(Screen.Profile.route) { ProfileScreen(navController) }
             composable("loginScreen") { LogInScreen(navController) }
             composable("registrationScreen") { RegistrationScreen(navController) }

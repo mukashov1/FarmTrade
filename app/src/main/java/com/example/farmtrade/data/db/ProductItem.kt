@@ -1,7 +1,9 @@
 package com.example.farmtrade.data.db
 
+import com.google.firebase.firestore.DocumentId
+
 data class ProductItem(
-    val id: Int = 0,
+    @DocumentId val id: String? = null,
     val title: String = "",
     val description: String = "",
     val category: String = "",

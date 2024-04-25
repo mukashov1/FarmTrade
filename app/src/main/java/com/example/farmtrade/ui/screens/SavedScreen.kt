@@ -1,6 +1,7 @@
 package com.example.farmtrade.ui.screens
 
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -28,24 +29,25 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.example.farmtrade.R
 import com.example.farmtrade.data.db.ProductItem
 import com.example.farmtrade.data.repository.DataStoreRepository
+import com.example.farmtrade.ui.components.toggleBasket
 import com.example.farmtrade.ui.viewmodels.SavedScreenViewModel
 
 @Composable
-fun SavedScreen() {
+fun SavedScreen(navController: NavController) {
     val repository = DataStoreRepository(LocalContext.current)
     val viewModel: SavedScreenViewModel = viewModel()
     val listOfProduct by viewModel.savedItems
@@ -78,9 +80,9 @@ fun SavedScreen() {
                 ) {
                     SavedItem(
                         product = product,
-                        onItemClicked = { /*TODO*/ },
-                        addToBasketClicked = { /*TODO*/ },
-                        onCloseClicked = { /*TODO*/ },
+                        onItemClicked = { navController.navigate("productScreen/${product.id}") },
+                        addToBasketClicked = { toggleBasket(product) },
+                        onCloseClicked = { viewModel.deleteFromFirestore(product.id) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(10.dp)
@@ -108,22 +110,16 @@ fun SavedItem(
             modifier = Modifier
                 .fillMaxHeight()
                 .weight(0.5f)
+                .clickable { onItemClicked() }
         ) {
-            Image(
-                painter = painterResource(id = R.drawable.apple2),
-                contentDescription = product.title,
-                modifier = Modifier
-//                .fillMaxHeight()
-//                .size(48.dp)
-                    .clip(RoundedCornerShape(10.dp)),
-                contentScale = ContentScale.Crop
-            )
+            NetworkImage(url = product.images[0])
         }
 
         Column(
             modifier = Modifier
                 .weight(1f)
-                .fillMaxHeight(),
+                .fillMaxHeight()
+                .clickable { onItemClicked() },
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             Text(text = product.title, fontSize = 18.sp, fontWeight = FontWeight(500))
@@ -137,15 +133,31 @@ fun SavedItem(
                     tint = Color.Yellow,
                     modifier = Modifier.size(15.dp),
                 )
-//                Text(text = "${product.feedback.rating}")
-//                Text(text = "(${product.feedback.count}) pikir")
             }
-            Row {
-                Text(text = "${product.priceWithDiscount} T")
-                Column {
-                    Text(text = "${product.price} T")
-                    Text(text = "-${product.discount}%")
-                }
+            Text(
+                text = "${product.price} ${product.priceUnit}",
+                color = colorResource(id = R.color.grey),
+                fontSize = 9.sp,
+                style = TextStyle(textDecoration = TextDecoration.LineThrough)
+            )
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    text = "${product.priceWithDiscount} ${product.priceUnit}",
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight(500),
+                )
+                Text(
+                    text = "${product.discount} %",
+                    color = Color.White,
+                    fontSize = 9.sp,
+                    modifier = Modifier
+                        .padding(start = 5.dp)
+                        .background(
+                            color = colorResource(id = R.color.pink),
+                            shape = RoundedCornerShape(4.dp)
+                        )
+                        .padding(5.dp)
+                )
             }
         }
 
@@ -153,17 +165,17 @@ fun SavedItem(
             modifier = Modifier.fillMaxHeight(),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
-            IconButton(onClick = { /*TODO*/ }, content = {
+            IconButton(onClick = { onCloseClicked() }, content = {
                 Icon(
                     imageVector = Icons.Outlined.Close,
                     contentDescription = "close",
                     tint = Color.Black,
                 )
             })
-            IconButton(onClick = { /*TODO*/ }, content = {
+            IconButton(onClick = { addToBasketClicked() }, content = {
                 Icon(
                     imageVector = Icons.Outlined.ShoppingCart,
-                    contentDescription = "close",
+                    contentDescription = "Cart",
                 )
             })
         }
